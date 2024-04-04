@@ -1,0 +1,22 @@
+@use 'src/style/colors'
+@import 'src/style/typography'
+
+.headerWrapper 
+    width: 100%
+    max-width: 768px
+    height: 46px
+    background-color: colors.$white
+    display: grid
+    align-items: center
+    justify-content: normal
+    padding: 6px 12px
+    margin: 0
+    box-sizing: border-box
+    border-bottom: 1px solid colors.$gray
+    position: fixed
+    top: 0
+    z-index: 1
+
+    .userEmail
+        @extend .H5
+        text-align: end
