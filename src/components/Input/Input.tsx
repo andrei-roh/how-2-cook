@@ -10,6 +10,7 @@ interface InputProps {
   value: string;
   setChange: React.Dispatch<React.SetStateAction<string>> | InputChange;
   type?: 'text' | 'number' | 'search' | 'password';
+  name?: string;
   labelText?: string;
   required?: boolean;
   placeholder?: string;
@@ -26,6 +27,7 @@ export const Input = ({
   value,
   setChange,
   type = 'text',
+  name,
   labelText,
   required = false,
   placeholder,
@@ -60,6 +62,7 @@ export const Input = ({
       )}
       <input
         type={type}
+        name={name}
         placeholder={placeholder || 'Ввод'}
         className={inputClasses}
         value={value}

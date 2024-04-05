@@ -1,0 +1,33 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Testing: Modal > should render 1`] = `
+<div>
+  <div
+    class="_modalWrapper_c49097"
+  >
+    <div
+      class="_modalContainer_c49097"
+    >
+      <div
+        class="_modalMessage_c49097"
+      >
+        Test Message
+      </div>
+      <div
+        class="_buttonsPanel_c49097"
+      >
+        <button
+          class="_buttonWrapper_89d844 _modalSubmitButton_c49097 cancelTestClass"
+        >
+          Test Cancel
+        </button>
+        <button
+          class="_buttonWrapper_89d844 _modalSubmitButton_c49097 submitTestClass"
+        >
+          Test Submit
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -42,7 +42,6 @@ export const TitlePage = () => {
           handleUserLogin();
         })
         .catch((error) => {
-          console.log({ code: error.code, message: error.message });
           dispatch(setError({ code: error.code, message: error.message }));
 
           switch (error.code) {
@@ -63,7 +62,7 @@ export const TitlePage = () => {
           }
         });
 
-      setTimeout(() => dispatch(setLoading(false)), 1000);
+      setTimeout(() => dispatch(setLoading(false)), 300);
     }
   };
 
@@ -86,6 +85,7 @@ export const TitlePage = () => {
         <Input
           value={email}
           setChange={setEmail}
+          name='user-email-input'
           labelText='Электронная почта'
           isValidationError={isSubmitting && !!validation.email}
           errorMessage={validation.email}
@@ -94,6 +94,7 @@ export const TitlePage = () => {
           value={password}
           setChange={setPassword}
           type='password'
+          name='user-password-input'
           labelText='Пароль'
           isValidationError={isSubmitting && !!validation.password}
           errorMessage={validation.password}

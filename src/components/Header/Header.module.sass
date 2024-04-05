@@ -7,6 +7,7 @@
     height: 46px
     background-color: colors.$white
     display: grid
+    grid-template-columns: 90% auto
     align-items: center
     justify-content: normal
     padding: 6px 12px
@@ -19,4 +20,27 @@
 
     .userEmail
         @extend .H5
-        text-align: end
+        text-align: start
+
+    .headerModalButton
+        width: 30px
+
+        .headerLogo
+            height: 30px
+
+    .modalCancelButton
+        color: colors.$purple
+        background-color: colors.$white
+        border: 1px solid colors.$purple
+
+        &:hover
+            color: colors.$white
+            background-color: colors.$blue
+            border: none
+
+    .modalUserLogoutButton
+        background-color: colors.$blue
+        color: colors.$white
+
+        &:hover
+            background-color: colors.$sky
