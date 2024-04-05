@@ -1,0 +1,24 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Testing: Header > should render 1`] = `
+<div>
+  <div
+    class="_headerWrapper_069298"
+  >
+    <div
+      class="_userEmail_069298"
+    >
+      Test@email.com
+    </div>
+    <button
+      class="_buttonWrapper_89d844 _headerModalButton_069298"
+    >
+      <img
+        alt="Sign Out Button"
+        class="_headerLogo_069298"
+        src="/src/assets/fish-skeleton.svg"
+      />
+    </button>
+  </div>
+</div>
+`;
