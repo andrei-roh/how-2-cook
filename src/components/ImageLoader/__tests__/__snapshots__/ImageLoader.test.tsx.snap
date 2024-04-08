@@ -1,0 +1,27 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Testing: ImageLoader > should render 1`] = `
+<div>
+  <div
+    class="_imageLoaderWrapper_031434"
+  >
+    <div
+      class="_imageLoader_031434"
+    >
+      <label
+        class="_imageLoaderContainer_031434"
+      >
+        <img
+          class="_downloadButton_031434"
+          src="/src/components/ImageLoader/assets/camera.svg"
+          width="19"
+        />
+        <input
+          class="_imageLoaderInput_031434"
+          type="file"
+        />
+      </label>
+    </div>
+  </div>
+</div>
+`;

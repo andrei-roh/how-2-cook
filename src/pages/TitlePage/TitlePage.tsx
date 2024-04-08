@@ -7,7 +7,7 @@ import { Dispatch } from '@reduxjs/toolkit';
 import { setError, setLoading, setUser } from 'src/redux/actions';
 import { FirebaseErrorType, IState, IValidationError } from 'src/types';
 import { useNavigate } from 'react-router-dom';
-import { NOTIFICATION, RECIPES_ROUTE } from 'src/constants';
+import { NOTIFICATIONS, RECIPES_ROUTE } from 'src/constants';
 import { validateLoginValues } from 'src/utils/validateLoginValues';
 import { showNotification } from 'src/utils/showNotification';
 import Fish from 'src/assets/fish.svg';
@@ -46,14 +46,14 @@ export const TitlePage = () => {
 
           switch (error.code) {
             case FirebaseErrorType.InvalidEmail:
-              showNotification(NOTIFICATION(email).USER_WRONG_EMAIL, 6000);
+              showNotification(NOTIFICATIONS(email).USER_WRONG_EMAIL, 6000);
               break;
             case FirebaseErrorType.InvalidPassword:
-              showNotification(NOTIFICATION(email).USER_WRONG_PASSWORD, 6000);
+              showNotification(NOTIFICATIONS(email).USER_WRONG_PASSWORD, 6000);
               break;
             case FirebaseErrorType.TooManyRequsts:
               showNotification(
-                NOTIFICATION(email).USER_TOO_MANY_REQUESTS,
+                NOTIFICATIONS(email).USER_TOO_MANY_REQUESTS,
                 6000
               );
               break;

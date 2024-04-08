@@ -2,37 +2,37 @@
 @import 'src/style/typography'
 
 .titleWrapper 
-  width: 100%
-  margin: 50px 0
-  box-sizing: border-box
-  display: flex
-  flex-direction: column
-  align-items: center
-  justify-content: center
+    width: 100%
+    margin: 50px 0
+    box-sizing: border-box
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
 
-  .titleLogo
-    height: 80px
+    .titleLogo
+        height: 80px
 
 .titlePageForm
-  width: 100%
-  background-color: colors.$white
-  box-sizing: border-box
-  display: flex
-  flex-direction: column
-  justify-content: center
-  align-items: center
-
-  .titlePageSubmitButton
-    @extend .H6
-    width: 120px
-    height: 42px
-    margin-top: 12px
+    width: 100%
+    background-color: colors.$white
     box-sizing: border-box
-    border-radius: 8px
+    display: flex
+    flex-direction: column
     justify-content: center
     align-items: center
-    color: colors.$white
-    background-color: colors.$blue
 
-    &:hover
-        background-color: colors.$sky
+    .titlePageSubmitButton
+        @extend .H6
+        width: 120px
+        height: 42px
+        margin-top: 12px
+        box-sizing: border-box
+        border-radius: 8px
+        justify-content: center
+        align-items: center
+        color: colors.$white
+        background-color: colors.$blue
+
+        &:hover
+            background-color: colors.$sky
