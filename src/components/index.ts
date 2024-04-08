@@ -4,3 +4,6 @@ export { Input } from './Input/Input';
 export { Loader } from './Loader/Loader';
 export { Modal } from './Modal/Modal';
 export { Notification } from './Notification/Notification';
+export { ImageLoader } from './ImageLoader/ImageLoader';
+export { TextArea } from './TextArea/TextArea';
+export { Select } from './Select/Select';

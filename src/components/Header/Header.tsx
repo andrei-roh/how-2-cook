@@ -4,7 +4,7 @@ import { IState, IUser } from 'src/types';
 import { Button } from '../Button/Button';
 import { getAuth, signOut } from 'firebase/auth';
 import { showNotification } from 'src/utils/showNotification';
-import { NOTIFICATION, ROOT_ROUTE } from 'src/constants';
+import { NOTIFICATIONS, ROOT_ROUTE } from 'src/constants';
 import { useState } from 'react';
 import { Modal } from '../Modal/Modal';
 import Skeleton from 'src/assets/fish-skeleton.svg';
@@ -27,11 +27,11 @@ export const Header = () => {
     signOut(auth)
       .then(() => {
         dispatch(setUser({} as IUser));
-        showNotification(NOTIFICATION(user.email).SIGN_OUT_SUCCESS, 6000);
+        showNotification(NOTIFICATIONS(user.email).SIGN_OUT_SUCCESS, 6000);
         navigate(ROOT_ROUTE);
       })
       .catch(() => {
-        showNotification(NOTIFICATION(user.email).SIGN_OUT_ERROR, 6000);
+        showNotification(NOTIFICATIONS(user.email).SIGN_OUT_ERROR, 6000);
       });
     
     handleCloseModal();
