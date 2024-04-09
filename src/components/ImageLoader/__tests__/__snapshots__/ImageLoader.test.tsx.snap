@@ -12,9 +12,9 @@ exports[`Testing: ImageLoader > should render 1`] = `
         class="_imageLoaderContainer_031434"
       >
         <img
-          class="_downloadButton_031434"
+          class="_uploadButton_031434"
           src="/src/components/ImageLoader/assets/camera.svg"
-          width="19"
+          width="29"
         />
         <input
           class="_imageLoaderInput_031434"

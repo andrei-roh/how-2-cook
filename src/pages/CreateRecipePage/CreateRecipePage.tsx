@@ -41,16 +41,17 @@ export const CreateRecipePage = () => {
     setIsSubmitting(() => true);
 
     if (Object.keys(validation).length === 0) {
+      const currentDate = new Date().toString();
       const recipeId = uuidv4();
       const newRecipe: IRecipe = {
         id: recipeId,
-        imageUrl: `${
-          import.meta.env.VITE_FIREBASE_STORAGE_BUCKET
-        }/public/${recipeId}`,
+        imageUrl: `public/${recipeId}`,
         name: recipeName,
         type: recipeType as DishType,
         ingredients: recipeIngredients,
         description: recipeDescription,
+        createdAt: currentDate,
+        createdBy: user.email,
       };
 
       setIsCreating(() => true);
@@ -74,7 +75,14 @@ export const CreateRecipePage = () => {
         description: recipeDescription,
       })
     );
-  }, [navigate, image, recipeName, recipeType, recipeIngredients, recipeDescription]);
+  }, [
+    navigate,
+    image,
+    recipeName,
+    recipeType,
+    recipeIngredients,
+    recipeDescription,
+  ]);
 
   useEffect(() => {
     if (!user.email) {
@@ -115,7 +123,7 @@ export const CreateRecipePage = () => {
           <TextArea
             value={recipeIngredients}
             setChange={setRecipeIngredients}
-            labelText={'Ингридиенты'}
+            labelText={'Ингредиенты'}
             required
             labelClassName={css.createEventPadding}
             isValidationError={isSubmitting && !!validation.ingredients}
@@ -141,7 +149,11 @@ export const CreateRecipePage = () => {
               className={`${css.createRecipeButton} ${css.submitButton}`}
               id='create-recipe-submit'
             >
-              {isCreating ? <Loader size={'12px'} /> : 'Создать'}
+              {isCreating ? (
+                <Loader size={'12px'} className={css.createRecipeLoader} />
+              ) : (
+                'Создать'
+              )}
             </Button>
           </div>
         </form>

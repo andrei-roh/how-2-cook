@@ -100,7 +100,11 @@ export const TitlePage = () => {
           errorMessage={validation.password}
         />
         <Button className={css.titlePageSubmitButton}>
-          {isLoading ? <Loader size={'12px'} /> : 'Войти'}
+          {isLoading ? (
+            <Loader size={'12px'} className={css.titlePageLoader} />
+          ) : (
+            'Войти'
+          )}
         </Button>
       </form>
     </>

@@ -3,8 +3,8 @@ import { IValidationError } from 'src/types';
 export const validatRecipeValues = (inputValues: IValidationError) => {
   const errors = {} as IValidationError;
 
-  if (!inputValues.image) {
-    errors.image = 'Добавьте изображение';
+  if (!inputValues.imageUrl) {
+    errors.imageUrl = 'Добавьте изображение';
   }
 
   if (!inputValues.name) {

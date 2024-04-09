@@ -1,0 +1,24 @@
+@use 'src/style/colors'
+@import 'src/style/typography'
+
+.recipesServiceWrapper
+    display: flex
+    flex-direction: column
+    width: 100%
+    margin: calc(100vh / 3 - 100px) 0 24px 0
+    gap: 12px
+
+    .recipesBlockLogo
+        margin-top: 140px
+        height: 200px
+
+    .emptyMessage
+        @extend .T1
+        text-align: center
+
+.recipesBlockWrapper
+    display: flex
+    flex-direction: column
+    width: 100%
+    margin: 150px 0 24px 0
+    gap: 12px

@@ -2,8 +2,44 @@
 @import 'src/style/typography'
 
 .recipesPageWrapper 
-    width: 100%
-    height: 140px
-    background-color: colors.$white
     padding: 16px
+    width: 100%
+    height: calc(100vh - 46px)
     box-sizing: border-box
+    display: flex
+    flex-direction: column
+    align-items: center
+
+    .recipesPagePanelWrapper
+        position: fixed
+        width: 100%
+        max-width: 768px
+        top: 46px
+        box-sizing: border-box
+        padding: 16px 16px 8px 16px
+        background-color: colors.$white
+        border-bottom: 1px solid colors.$gray
+
+        .manageUsersTitleWrapper
+            width: 100%
+            display: flex
+            flex-direction: row
+            justify-content: space-between
+            align-items: center
+            margin-bottom: 6px
+
+            .recipesPageTitle
+                @extend .H3
+
+.recipesPageLoader
+    margin-top: calc(50vh - 46px)
+
+.recipesPageSearchLabel
+    width: 100%
+
+.recipesPageSearchInput
+    width: 100%
+    padding: 12px 12px 12px 40px
+    background-image: url('src/assets/telescope.svg')
+    background-position: 10px 10px
+    background-repeat: no-repeat
