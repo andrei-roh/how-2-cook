@@ -27,7 +27,8 @@ export const RecipeCard = ({ id, imageUrl, name, type }: RecipeCardProps) => {
     .some((namePart: string) => namePart.length > maxNameLength);
 
   const handleEditRecipe = () => {
-    navigate(`/recipe/edit/${id}`);
+    return null;
+    // navigate(`/recipe/edit/${id}`);
   };
 
   const handleShowRecipe = () => {
@@ -62,7 +63,7 @@ export const RecipeCard = ({ id, imageUrl, name, type }: RecipeCardProps) => {
             {DISH_TYPE.find(({ value }) => value === type)?.name}
           </div>
           <div className={css.buttonsPanel}>
-            <Button onClick={() => null} className={css.recipeEditButton}>
+            <Button onClick={handleEditRecipe} className={css.recipeEditButton}>
               <img
                 className={css.recipeCardLogo}
                 src={Edit}
