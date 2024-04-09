@@ -91,73 +91,71 @@ export const CreateRecipePage = () => {
   }, [navigate, user.email]);
 
   return (
-    <>
-      <div className={css.createRecipePageWrapper}>
-        <div className={css.createRecipeTitle}>Создание Рецепта</div>
-        <form className={css.createRecipeForm} onSubmit={handleSubmit}>
-          <ImageLoader
-            setImage={setImage}
-            isValidationError={isSubmitting && !!validation.image}
-            errorMessage={validation.image}
-          />
-          <Input
-            value={recipeName}
-            setChange={setRecipeName}
-            labelText={'Название'}
-            required
-            labelClassName={css.createEventPadding}
-            isValidationError={isSubmitting && !!validation.name}
-            errorMessage={validation.name}
-          />
-          <Select
-            value={recipeType}
-            setChange={setRecipeType}
-            options={DISH_TYPE}
-            labelText={'Тип'}
-            required
-            placeholder={'Выбор'}
-            selectClassName={!recipeType ? css.selectPlaceholder : undefined}
-            isValidationError={isSubmitting && !!validation.type}
-            errorMessage={validation.type}
-          />
-          <TextArea
-            value={recipeIngredients}
-            setChange={setRecipeIngredients}
-            labelText={'Ингредиенты'}
-            required
-            labelClassName={css.createEventPadding}
-            isValidationError={isSubmitting && !!validation.ingredients}
-            errorMessage={validation.ingredients}
-          />
-          <TextArea
-            value={recipeDescription}
-            setChange={setRecipeDescription}
-            labelText={'Описание'}
-            required
-            labelClassName={css.createEventPadding}
-            isValidationError={isSubmitting && !!validation.description}
-            errorMessage={validation.description}
-          />
-          <div className={css.buttonsPanel}>
-            <Button
-              onClick={handleCreateRecipe}
-              className={`${css.createRecipeButton} ${css.cancelButton}`}
-            >
-              Назад
-            </Button>
-            <Button
-              className={`${css.createRecipeButton} ${css.submitButton}`}
-              id='create-recipe-submit'
-            >
-              {isCreating ? (
-                <Loader size={'12px'} className={css.createRecipeLoader} />
-              ) : (
-                'Создать'
-              )}
-            </Button>
-          </div>
-        </form>
-      </div>
-    </>
+    <div className={css.createRecipePageWrapper}>
+      <div className={css.createRecipeTitle}>Создание Рецепта</div>
+      <form className={css.createRecipeForm} onSubmit={handleSubmit}>
+        <ImageLoader
+          setImage={setImage}
+          isValidationError={isSubmitting && !!validation.image}
+          errorMessage={validation.image}
+        />
+        <Input
+          value={recipeName}
+          setChange={setRecipeName}
+          labelText={'Название'}
+          required
+          labelClassName={css.createEventPadding}
+          isValidationError={isSubmitting && !!validation.name}
+          errorMessage={validation.name}
+        />
+        <Select
+          value={recipeType}
+          setChange={setRecipeType}
+          options={DISH_TYPE}
+          labelText={'Тип'}
+          required
+          placeholder={'Выбор'}
+          selectClassName={!recipeType ? css.selectPlaceholder : undefined}
+          isValidationError={isSubmitting && !!validation.type}
+          errorMessage={validation.type}
+        />
+        <TextArea
+          value={recipeIngredients}
+          setChange={setRecipeIngredients}
+          labelText={'Ингредиенты'}
+          required
+          labelClassName={css.createEventPadding}
+          isValidationError={isSubmitting && !!validation.ingredients}
+          errorMessage={validation.ingredients}
+        />
+        <TextArea
+          value={recipeDescription}
+          setChange={setRecipeDescription}
+          labelText={'Описание'}
+          required
+          labelClassName={css.createEventPadding}
+          isValidationError={isSubmitting && !!validation.description}
+          errorMessage={validation.description}
+        />
+        <div className={css.buttonsPanel}>
+          <Button
+            onClick={handleCreateRecipe}
+            className={`${css.createRecipeButton} ${css.cancelButton}`}
+          >
+            Назад
+          </Button>
+          <Button
+            className={`${css.createRecipeButton} ${css.submitButton}`}
+            id='create-recipe-submit'
+          >
+            {isCreating ? (
+              <Loader size={'12px'} className={css.createRecipeLoader} />
+            ) : (
+              'Создать'
+            )}
+          </Button>
+        </div>
+      </form>
+    </div>
   );
 };

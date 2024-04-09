@@ -1,7 +1,7 @@
 import { getClassesList } from 'src/utils/getClassesList';
 import css from './ImageLoader.module.sass';
 import { useState } from 'react';
-import CameraSvg from './assets/camera.svg';
+import Camera from './assets/camera.svg';
 import { showNotification } from 'src/utils/showNotification';
 import { IMAGE_TYPE, NOTIFICATIONS } from 'src/constants';
 
@@ -45,7 +45,7 @@ export const ImageLoader = ({
     <div className={css.imageLoaderWrapper}>
       <div className={imageLoaderClasses}>
         <label className={css.imageLoaderContainer}>
-          <img className={css.uploadButton} width={29} src={CameraSvg} />
+          <img className={css.uploadButton} width={29} src={Camera} />
           <input
             className={css.imageLoaderInput}
             type='file'

@@ -1,0 +1,61 @@
+@use 'src/style/colors'
+@import 'src/style/typography'
+
+.showRecipePageWrapper 
+    width: 100%
+    background-color: colors.$white
+    box-sizing: border-box
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+
+    .showRecipeTitle
+        @extend .H3
+        padding: 24px
+
+    .recipeImage
+        width: 100%
+
+    .recipeTitle
+        @extend .H5
+        padding: 0 24px
+
+    .recipeType
+        @extend .H6
+        padding: 12px 24px
+
+    .recipeIngredients
+        @extend .T1
+        padding: 6px 24px
+    
+    .recipeDescription
+        @extend .T2
+        padding: 0 24px
+        text-align: justify
+
+    .cancelButton
+        @extend .H6
+        width: 147px
+        height: 48px
+        box-sizing: border-box
+        border-radius: 8px
+        justify-content: center
+        align-items: center
+        color: colors.$purple
+        background-color: colors.$white
+        border: 1px solid colors.$purple
+        margin: 24px auto
+
+        &:hover
+            color: colors.$white
+            background-color: colors.$blue
+            border: none
+
+.showRecipeLogo
+    margin-top: calc(100vh / 3 - 100px)
+    height: 200px
+
+.emptyMessage
+    @extend .T1
+    text-align: center
