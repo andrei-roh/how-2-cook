@@ -1,8 +1,9 @@
-import { DishType, ImageType } from './types';
+import { DishType, ImageType, IRecipe } from './types';
 
 export const ROOT_ROUTE = '/';
 export const RECIPES_ROUTE = '/recipes';
 export const CREATE_RECIPE_ROUTE = '/recipe/create';
+export const SHOW_RECIPE_ROUTE = '/recipe/show/:id';
 
 export const DEFAULT_NOTIFICATION = 'Default Notification Message';
 export const NOTIFICATIONS = (value?: string) => ({
@@ -33,3 +34,12 @@ export const DISH_TYPE = [
   { name: 'Мясное', value: DishType.Meat },
   { name: 'Вегетарианское', value: DishType.Vegan },
 ];
+
+export const EMPTY_RECIPE: IRecipe = {
+  id: '00000000-0000-0000-0000-000000000000',
+  imageUrl: '',
+  name: '',
+  type: '' as DishType,
+  ingredients: '',
+  description: '',
+};

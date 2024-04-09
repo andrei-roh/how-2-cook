@@ -27,11 +27,12 @@ export const RecipeCard = ({ id, imageUrl, name, type }: RecipeCardProps) => {
     .some((namePart: string) => namePart.length > maxNameLength);
 
   const handleEditRecipe = () => {
-    navigate(`/users/edit/${id}`);
+    return null;
+    // navigate(`/recipe/edit/${id}`);
   };
 
   const handleShowRecipe = () => {
-    navigate(`/users/show/${id}`);
+    navigate(`/recipe/show/${id}`);
   };
 
   useEffect(() => {
@@ -51,7 +52,7 @@ export const RecipeCard = ({ id, imageUrl, name, type }: RecipeCardProps) => {
           <img className={css.recipeCardImage} id={id} src={currentImageUrl} />
         ) : (
           <div className={css.recipeCardLoader}>
-            <Loader size='14' />
+            <Loader size='14px' />
           </div>
         )}
         <div className={css.recipeData}>
