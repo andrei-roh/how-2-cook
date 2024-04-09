@@ -2,11 +2,39 @@ export interface IUser {
   email: string;
 }
 
+export enum DishType {
+  Vegan = 'vegan',
+  Meat = 'meat'
+}
+
+export type RecipeImage = {
+  [key: string]: string
+}
+
+export interface IRecipe {
+  id: string;
+  imageUrl: string;
+  name: string;
+  type: DishType;
+  ingredients: string;
+  description: string;
+  createdAt?: string;
+  createdBy?: string;
+  updatedAt?: string;
+  updatedBy?: string;
+}
+
 export interface IState {
   user: IUser;
   loading: boolean;
   error: null | string;
   recipesList: IRecipe[];
+  imagesList: RecipeImage[];
+  recipesPage: {
+    recipeSearchInput: string;
+    scrollSize: number;
+    scrollDirection: ScrollDirection;
+  };
 }
 
 export interface IAction {
@@ -24,20 +52,6 @@ export enum FirebaseErrorType {
   TooManyRequsts = 'auth/too-many-requests',
 }
 
-export enum DishType {
-  Vegan = 'vegan',
-  Meat = 'meat'
-}
-
-export interface IRecipe {
-  id: string;
-  imageUrl: string;
-  name: string;
-  type: DishType;
-  ingredients: string;
-  description: string;
-}
-
 export enum ImageType {
   Webp = 'image/webp',
   Jpeg = 'image/jpeg',
@@ -48,4 +62,9 @@ export enum ImageType {
 export interface IOption {
   name: string;
   value: string;
+}
+
+export enum ScrollDirection {
+  Up = 'up',
+  Down = 'down',
 }
