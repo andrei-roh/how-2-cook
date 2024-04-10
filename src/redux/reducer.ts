@@ -15,6 +15,7 @@ import {
   SET_MANAGE_RECIPES_SCROLL_SIZE,
   SET_RECIPE_SEARCH_INPUT,
   SET_USER,
+  UPDATE_RECIPES_LIST,
 } from './types';
 
 const initialState: IState = {
@@ -51,6 +52,11 @@ const rootReducer = (state = initialState, action: IAction) => {
       return {
         ...state,
         recipesList: [...action.payload, ...state.recipesList],
+      };
+    case UPDATE_RECIPES_LIST:
+      return {
+        ...state,
+        recipesList: [...action.payload],
       };
     case ADD_IMAGES_TO_LIST:
       return {

@@ -27,8 +27,7 @@ export const RecipeCard = ({ id, imageUrl, name, type }: RecipeCardProps) => {
     .some((namePart: string) => namePart.length > maxNameLength);
 
   const handleEditRecipe = () => {
-    return null;
-    // navigate(`/recipe/edit/${id}`);
+    navigate(`/recipe/edit/${id}`);
   };
 
   const handleShowRecipe = () => {
