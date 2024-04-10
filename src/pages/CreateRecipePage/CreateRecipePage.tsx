@@ -15,7 +15,7 @@ import {
 } from 'src/components';
 import { createRecipe } from 'src/utils/createRecipe';
 import { addRecipesToList } from 'src/redux/actions';
-import { validatRecipeValues } from 'src/utils/validateRecipeValues';
+import { validateRecipeValues } from 'src/utils/validateRecipeValues';
 
 export const CreateRecipePage = () => {
   const navigate = useNavigate();
@@ -45,7 +45,9 @@ export const CreateRecipePage = () => {
       const recipeId = uuidv4();
       const newRecipe: IRecipe = {
         id: recipeId,
-        imageUrl: `public/${recipeId}`,
+        imageUrl: `${
+          import.meta.env.VITE_FIREBASE_STORAGE_BUCKET
+        }/public/${recipeId}`,
         name: recipeName,
         type: recipeType as DishType,
         ingredients: recipeIngredients,
@@ -67,7 +69,7 @@ export const CreateRecipePage = () => {
 
   useEffect(() => {
     setValidation(
-      validatRecipeValues({
+      validateRecipeValues({
         imageUrl: image ? image.name : '',
         name: recipeName,
         type: recipeType as DishType,

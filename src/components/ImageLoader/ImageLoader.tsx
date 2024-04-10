@@ -7,6 +7,7 @@ import { IMAGE_TYPE, NOTIFICATIONS } from 'src/constants';
 
 interface ImageLoaderProps {
   setImage: React.Dispatch<React.SetStateAction<File | null>>;
+  imagePreview?: string;
   isValidationError?: boolean;
   errorMessage?: string;
 }
@@ -16,11 +17,12 @@ const convertBytesToMegabytes = (value: number) =>
 
 export const ImageLoader = ({
   setImage,
+  imagePreview,
   isValidationError,
   errorMessage,
 }: ImageLoaderProps) => {
   const imageLoaderClasses = getClassesList(css.imageLoader);
-  const [preview, setPreview] = useState<string>('');
+  const [preview, setPreview] = useState<string>(imagePreview || '');
 
   const handleSetImage = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files !== null) {

@@ -4,6 +4,7 @@ export const ROOT_ROUTE = '/';
 export const RECIPES_ROUTE = '/recipes';
 export const CREATE_RECIPE_ROUTE = '/recipe/create';
 export const SHOW_RECIPE_ROUTE = '/recipe/show/:id';
+export const EDIT_RECIPE_ROUTE = '/recipe/edit/:id';
 
 export const DEFAULT_NOTIFICATION = 'Default Notification Message';
 export const NOTIFICATIONS = (value?: string) => ({
@@ -15,6 +16,9 @@ export const NOTIFICATIONS = (value?: string) => ({
   RECIPE_EXISTS: `Рецепт с id ${value} уже существует`,
   RECIPE_CREATED: `Рецепт ${value} создан`,
   RECIPE_CREATION_ERROR: `Ошибка при создании рецепта ${value}`,
+  RECIPE_DOES_NOT_EXISTS:  `Рецепт ${value} не найден в базе данных`,
+  RECIPE_UPDATED:  `Рецепт ${value} обновлен`,
+  RECIPE_UPDATE_ERROR: `Ошибка при обновлении рецепта ${value}`,
   IMAGE_TOO_BIG:
     'Извините, загрузка изображения невозможна. Размер не должен превышать 10MB',
   IMAGE_WRONG_TYPE:

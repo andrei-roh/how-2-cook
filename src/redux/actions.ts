@@ -8,6 +8,7 @@ import {
   SET_MANAGE_RECIPES_SCROLL_SIZE,
   SET_RECIPE_SEARCH_INPUT,
   SET_USER,
+  UPDATE_RECIPES_LIST,
 } from './types';
 
 export const setUser = (editor: IUser) => ({
@@ -27,6 +28,11 @@ export const setError = (error: unknown) => ({
 
 export const addRecipesToList = (recipes: IRecipe[]) => ({
   type: ADD_RECIPES_TO_LIST,
+  payload: recipes,
+});
+
+export const updateRecipesList = (recipes: IRecipe[]) => ({
+  type: UPDATE_RECIPES_LIST,
   payload: recipes,
 });
 

@@ -1,6 +1,6 @@
 import { IValidationError } from 'src/types';
 
-export const validatRecipeValues = (inputValues: IValidationError) => {
+export const validateRecipeValues = (inputValues: IValidationError) => {
   const errors = {} as IValidationError;
 
   if (!inputValues.imageUrl) {

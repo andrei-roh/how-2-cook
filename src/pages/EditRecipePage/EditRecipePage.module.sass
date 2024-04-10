@@ -1,0 +1,67 @@
+@use 'src/style/colors'
+@import 'src/style/typography'
+
+.editRecipePageWrapper 
+    width: 100%
+    height: 140px
+    background-color: colors.$white
+    padding: 24px
+    box-sizing: border-box
+
+    .editRecipeTitle
+        @extend .H3
+        padding: 0px 24px 24px 0px
+
+    .editRecipeForm
+        display: flex
+        flex-direction: column
+        align-items: center
+
+    .selectPlaceholder
+        @extend .T1
+        color: colors.$gray
+        
+    .buttonsPanel
+        width: calc(100vw - 48px)
+        max-width: calc(768px - 48px)
+        margin-top: 18px
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+        gap: 18px
+        padding-bottom: 24px
+
+        .editRecipeButton
+            @extend .H6
+            width: 147px
+            height: 48px
+            box-sizing: border-box
+            border-radius: 8px
+            justify-content: center
+            align-items: center
+
+        .cancelButton
+            color: colors.$purple
+            background-color: colors.$white
+            border: 1px solid colors.$purple
+
+            &:hover
+                color: colors.$white
+                background-color: colors.$blue
+                border: none
+
+        .submitButton
+            color: colors.$white
+            background-color: colors.$blue
+
+            &:hover
+                background-color: colors.$sky
+
+            &:disabled,
+            &[disabled]
+                cursor: auto 
+                background-color: colors.$gray
+
+.editRecipeLoader
+    border: 6px solid colors.$white
+    border-top: 6px solid colors.$blue
