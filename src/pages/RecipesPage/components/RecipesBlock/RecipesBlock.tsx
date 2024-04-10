@@ -10,7 +10,7 @@ interface RecipesBlockProps {
 }
 
 export const RecipesBlock = ({ recipes, isSearch }: RecipesBlockProps) => {
-  if (isSearch && recipes.length === 0) {
+  if (recipes.length === 0) {
     return (
       <div className={css.recipesServiceWrapper}>
         {isSearch ? (
