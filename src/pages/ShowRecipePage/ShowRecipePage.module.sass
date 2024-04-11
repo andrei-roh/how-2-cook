@@ -19,20 +19,27 @@
 
     .recipeTitle
         @extend .H5
-        padding: 0 24px
+        padding: 12px 24px 0
+        text-decoration: underline
 
     .recipeType
-        @extend .H6
-        padding: 12px 24px
+        @extend .T2
+        padding: 0 24px 12px
 
     .recipeIngredients
         @extend .T1
-        padding: 6px 24px
+        padding: 0
+        border: none
     
     .recipeDescription
         @extend .T2
-        padding: 0 24px
-        text-align: justify
+        padding: 0
+        border: none
+
+    .showRecipeTextAreaLabel
+        margin-bottom: 0
+        padding-bottom: 12px
+        border-bottom: solid 2px colors.$gray
 
     .cancelButton
         @extend .H6
@@ -59,3 +66,5 @@
 .emptyMessage
     @extend .T1
     text-align: center
+    margin-top: 6px
+    margin-bottom: 100px

@@ -44,12 +44,12 @@ export const EditRecipePage = () => {
 
   const [image, setImage] = useState<File | null>(null);
   const [recipeName, setRecipeName] = useState(name);
-  const [recipeType, setRecipeType] = useState<DishType | ''>(type);
+  const [recipeType, setRecipeType] = useState<DishType>(type);
   const [recipeIngredients, setRecipeIngredients] = useState(ingredients);
   const [recipeDescription, setRecipeDescription] = useState(description);
 
   const isFieldsChanged =
-    image !== null || 
+    image !== null ||
     name !== recipeName ||
     recipeType !== type ||
     recipeIngredients !== ingredients ||
@@ -69,10 +69,12 @@ export const EditRecipePage = () => {
       console.log(1);
       const currentDate = new Date().toString();
       const updatedFields: Partial<IRecipe> = {
-        ...(recipeName !== name && { recipeName }),
-        ...(recipeType !== type && { recipeType }),
-        ...(recipeIngredients !== ingredients && { recipeIngredients }),
-        ...(recipeDescription !== description && { recipeDescription }),
+        name: recipeName !== name ? recipeName : name,
+        type: recipeType !== type ? recipeType : type,
+        ingredients:
+          recipeIngredients !== ingredients ? recipeIngredients : ingredients,
+        description:
+          recipeDescription !== description ? recipeDescription : description,
         imageUrl: image
           ? `${import.meta.env.VITE_FIREBASE_STORAGE_BUCKET}/public/${recipeId}`
           : imageUrl,

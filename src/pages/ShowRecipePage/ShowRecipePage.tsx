@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Button } from 'src/components';
+import { Button, TextArea } from 'src/components';
 import css from './ShowRecipePage.module.sass';
 import { IState } from 'src/types';
 import {
@@ -11,6 +11,7 @@ import {
 import { useNavigate, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Fridge from 'src/assets/hand-drawn-food.svg';
+import { setHeightUsingScroll } from 'src/utils/setHeightUsingScroll';
 
 export const ShowRecipePage = () => {
   const navigate = useNavigate();
@@ -36,6 +37,11 @@ export const ShowRecipePage = () => {
     }
   }, [navigate, user.email]);
 
+  useEffect(() => {
+    setHeightUsingScroll(document.getElementById('show-recipe-ingredients'));
+    setHeightUsingScroll(document.getElementById('show-recipe-description'));
+  }, []);
+
   return (
     <div className={css.showRecipePageWrapper}>
       {shownRecipe.id !== EMPTY_RECIPE.id ? (
@@ -50,14 +56,27 @@ export const ShowRecipePage = () => {
           <div className={css.recipeType}>
             {DISH_TYPE.find(({ value }) => value === type)?.name}
           </div>
-          <div className={css.recipeIngredients}>{ingredients}</div>
-          <div className={css.recipeDescription}>{description}</div>
+          <TextArea
+            value={ingredients}
+            setChange={() => null}
+            isDisabled
+            id='show-recipe-ingredients'
+            textAreaClassName={css.recipeIngredients}
+            labelClassName={css.showRecipeTextAreaLabel}
+          />
+          <TextArea
+            value={`${description}, ${description}`}
+            setChange={() => null}
+            isDisabled
+            id='show-recipe-description'
+            textAreaClassName={css.recipeDescription}
+            labelClassName={css.showRecipeTextAreaLabel}
+          />
         </>
       ) : (
         <>
           <img className={css.showRecipeLogo} src={Fridge} />
           <div className={css.emptyMessage}>Рецепт не найден</div>
-          <div className={css.emptyMessage}>Вернитесь к списку</div>
         </>
       )}
       <Button onClick={handleShowRecipe} className={css.cancelButton}>
