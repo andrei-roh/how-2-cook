@@ -13,6 +13,7 @@ interface InputProps {
   name?: string;
   labelText?: string;
   required?: boolean;
+  isDisabled?: boolean;
   placeholder?: string;
   labelClassName?: string;
   inputClassName?: string;
@@ -30,6 +31,7 @@ export const Input = ({
   name,
   labelText,
   required = false,
+  isDisabled = false,
   placeholder,
   labelClassName,
   inputClassName,
@@ -67,6 +69,7 @@ export const Input = ({
         className={inputClasses}
         value={value}
         onChange={(e) => handleSetChange(e)}
+        disabled={isDisabled}
       />
       {isValidationError && (
         <p className={css.validationError}>

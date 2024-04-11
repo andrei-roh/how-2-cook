@@ -4,7 +4,8 @@ export interface IUser {
 
 export enum DishType {
   Vegan = 'vegan',
-  Meat = 'meat'
+  Meat = 'meat',
+  Fish = 'fish',
 }
 
 export type RecipeImage = {

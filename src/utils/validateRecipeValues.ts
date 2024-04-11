@@ -20,7 +20,7 @@ export const validateRecipeValues = (inputValues: IValidationError) => {
   }
 
   if (!inputValues.ingredients) {
-    errors.ingredients = 'Добавьте ингриенты рецепта';
+    errors.ingredients = 'Добавьте ингридиенты рецепта';
   }
 
   if (inputValues.description && inputValues.description.length > 2048) {

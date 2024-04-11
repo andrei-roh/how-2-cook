@@ -119,6 +119,7 @@ export const RecipesPage = () => {
           value={searchInput}
           setChange={setSearchInput}
           type='search'
+          isDisabled={currentRecipesList.length === 0}
           placeholder={'Поиск'}
           labelClassName={css.recipesPageSearchLabel}
           inputClassName={css.recipesPageSearchInput}

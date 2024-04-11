@@ -35,8 +35,9 @@ export const IMAGE_TYPE = [
 ];
 
 export const DISH_TYPE = [
-  { name: 'Мясное', value: DishType.Meat },
-  { name: 'Вегетарианское', value: DishType.Vegan },
+  { name: 'Мясо', value: DishType.Meat },
+  { name: 'Рыба', value: DishType.Fish },
+  { name: 'Овощи', value: DishType.Vegan },
 ];
 
 export const EMPTY_RECIPE: IRecipe = {

@@ -98,8 +98,8 @@ export const CreateRecipePage = () => {
       <form className={css.createRecipeForm} onSubmit={handleSubmit}>
         <ImageLoader
           setImage={setImage}
-          isValidationError={isSubmitting && !!validation.image}
-          errorMessage={validation.image}
+          isValidationError={isSubmitting && !!validation.imageUrl}
+          errorMessage={validation.imageUrl}
         />
         <Input
           value={recipeName}

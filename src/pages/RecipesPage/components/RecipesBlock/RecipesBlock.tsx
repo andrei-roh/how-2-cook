@@ -21,7 +21,6 @@ export const RecipesBlock = ({ recipes, isSearch }: RecipesBlockProps) => {
         ) : (
           <>
             <img className={css.recipesBlockLogo} src={Fridge} />
-            <div className={css.emptyMessage}>Рецепты отсутствуют</div>
             <div className={css.emptyMessage}>Добавьте первый рецепт</div>
           </>
         )}
