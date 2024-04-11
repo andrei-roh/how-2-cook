@@ -6,6 +6,8 @@ interface TextAreaProps {
   setChange: React.Dispatch<React.SetStateAction<string>>;
   labelText?: string;
   required?: boolean;
+  isDisabled?: boolean;
+  id?: string;
   placeholder?: string;
   labelClassName?: string;
   textAreaClassName?: string;
@@ -18,6 +20,8 @@ export const TextArea = ({
   setChange,
   labelText,
   required = false,
+  isDisabled = false,
+  id,
   placeholder,
   labelClassName,
   textAreaClassName,
@@ -49,6 +53,8 @@ export const TextArea = ({
         className={textAreaClasses}
         value={value}
         onChange={(e) => handleSetChange(e)}
+        disabled={isDisabled}
+        id={id}
       />
       {isValidationError && (
         <p className={css.validationError}>
