@@ -1,27 +1,22 @@
-import {
-  IAction,
-  IRecipe,
-  IState,
-  IUser,
-  RecipeImage,
-  ScrollDirection,
-} from 'src/types';
-import {
-  ADD_IMAGES_TO_LIST,
-  ADD_RECIPES_TO_LIST,
-  SET_ERROR,
-  SET_LOADING,
-  SET_MANAGE_RECIPES_SCROLL_DIRECTION,
-  SET_MANAGE_RECIPES_SCROLL_SIZE,
-  SET_RECIPE_SEARCH_INPUT,
-  SET_USER,
-  UPDATE_RECIPES_LIST,
-} from './types';
+import { IRecipe, IUser, RecipeImage, ScrollDirection } from 'src/types';
 
-const initialState: IState = {
+import { createReducer } from '@reduxjs/toolkit';
+import {
+  ADD_IMAGES_TO_LIST_CREATOR,
+  ADD_RECIPES_TO_LIST_CREATOR,
+  SET_ERROR_CREATOR,
+  SET_LOADING_CREATOR,
+  SET_MANAGE_RECIPES_SCROLL_DIRECTION_CREATOR,
+  SET_MANAGE_RECIPES_SCROLL_SIZE_CREATOR,
+  SET_RECIPE_SEARCH_INPUT_CREATOR,
+  SET_USER_CREATOR,
+  UPDATE_RECIPES_LIST_CREATOR,
+} from './creators';
+
+const initialState = {
   user: {} as IUser,
   loading: false,
-  error: null,
+  error: null as unknown,
   recipesList: [] as IRecipe[],
   imagesList: [] as RecipeImage[],
   recipesPage: {
@@ -31,65 +26,48 @@ const initialState: IState = {
   },
 };
 
-const rootReducer = (state = initialState, action: IAction) => {
-  switch (action.type) {
-    case SET_USER:
-      return {
-        ...state,
-        user: action.payload,
-      };
-    case SET_LOADING:
-      return {
-        ...state,
-        loading: action.payload,
-      };
-    case SET_ERROR:
-      return {
-        ...state,
-        error: action.payload,
-      };
-    case ADD_RECIPES_TO_LIST:
+const rootReducer = createReducer(initialState, (builder) => {
+  builder
+    .addCase(SET_USER_CREATOR, (state, action) => {
+      state.user = action.payload;
+      return state;
+    })
+    .addCase(SET_LOADING_CREATOR, (state, action) => {
+      state.loading = action.payload;
+      return state;
+    })
+    .addCase(SET_ERROR_CREATOR, (state, action) => {
+      state.error = action.payload;
+      return state;
+    })
+    .addCase(ADD_RECIPES_TO_LIST_CREATOR, (state, action) => {
       return {
         ...state,
         recipesList: [...action.payload, ...state.recipesList],
       };
-    case UPDATE_RECIPES_LIST:
-      return {
-        ...state,
-        recipesList: [...action.payload],
-      };
-    case ADD_IMAGES_TO_LIST:
+    })
+    .addCase(UPDATE_RECIPES_LIST_CREATOR, (state, action) => {
+      state.recipesList = action.payload;
+      return state;
+    })
+    .addCase(ADD_IMAGES_TO_LIST_CREATOR, (state, action) => {
       return {
         ...state,
         imagesList: [...action.payload, ...state.imagesList],
       };
-    case SET_RECIPE_SEARCH_INPUT:
-      return {
-        ...state,
-        recipesPage: {
-          ...state.recipesPage,
-          recipeSearchInput: action.payload,
-        },
-      };
-    case SET_MANAGE_RECIPES_SCROLL_SIZE:
-      return {
-        ...state,
-        recipesPage: {
-          ...state.recipesPage,
-          scrollSize: action.payload,
-        },
-      };
-    case SET_MANAGE_RECIPES_SCROLL_DIRECTION:
-      return {
-        ...state,
-        recipesPage: {
-          ...state.recipesPage,
-          scrollDirection: action.payload,
-        },
-      };
-    default:
+    })
+    .addCase(SET_RECIPE_SEARCH_INPUT_CREATOR, (state, action) => {
+      state.recipesPage.recipeSearchInput = action.payload;
       return state;
-  }
-};
+    })
+    .addCase(SET_MANAGE_RECIPES_SCROLL_SIZE_CREATOR, (state, action) => {
+      state.recipesPage.scrollSize = action.payload;
+      return state;
+    })
+    .addCase(SET_MANAGE_RECIPES_SCROLL_DIRECTION_CREATOR, (state, action) => {
+      state.recipesPage.scrollDirection = action.payload;
+      return state;
+    });
+});
 
 export default rootReducer;

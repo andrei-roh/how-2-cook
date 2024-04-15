@@ -1,3 +1,5 @@
+import { Action } from "@reduxjs/toolkit";
+
 export interface IUser {
   email: string;
 }
@@ -38,7 +40,7 @@ export interface IState {
   };
 }
 
-export interface IAction {
+export interface IAction extends Action {
   type: string;
   payload: never;
 }
