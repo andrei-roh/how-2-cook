@@ -1,0 +1,24 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Testing: ShowRecipePage > should render 1`] = `
+<div>
+  <div
+    class="_showRecipePageWrapper_2f97fe"
+  >
+    <img
+      class="_showRecipeLogo_2f97fe"
+      src="/src/assets/hand-drawn-food.svg"
+    />
+    <div
+      class="_emptyMessage_2f97fe"
+    >
+      Рецепт не найден
+    </div>
+    <button
+      class="_buttonWrapper_89d844 _cancelButton_2f97fe"
+    >
+      Назад
+    </button>
+  </div>
+</div>
+`;
