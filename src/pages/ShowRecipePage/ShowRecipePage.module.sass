@@ -1,4 +1,5 @@
 @use 'src/style/colors'
+@use 'src/style/breakpoints'
 @import 'src/style/typography'
 
 .showRecipePageWrapper 
@@ -17,6 +18,10 @@
     .recipeImage
         width: 100%
         height: calc(100vw / 0.75)
+
+        @media (min-width: breakpoints.$tablet)
+            width: 40%
+            height: inherit
 
     .recipeTitle
         @extend .H5
