@@ -1,4 +1,3 @@
-import { Button, Loader } from 'src/components';
 import css from './RecipeCard.module.sass';
 import { IRecipe, IState } from 'src/types';
 import Edit from 'src/assets/pencil.svg';
@@ -10,6 +9,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addImagesToList } from 'src/redux/actions';
 import { DISH_TYPE } from 'src/constants';
 import { useEffect } from 'react';
+import CircularProgress from '@mui/material/CircularProgress';
+import Stack from '@mui/material/Stack';
+import Typography from '@mui/material/Typography';
+import Card from '@mui/material/Card';
 
 interface RecipeCardProps extends IRecipe {}
 
@@ -45,40 +48,38 @@ export const RecipeCard = ({ id, imageUrl, name, type }: RecipeCardProps) => {
   }, [currentImageUrl, dispatch, id, imageUrl]);
 
   return (
-    <div className={css.recipeCardWrapper}>
-      <div className={css.recipeContainer}>
+    <Card className={css.recipeCardWrapper}>
+      <Stack className={css.recipeContainer}>
         {currentImageUrl ? (
           <img className={css.recipeCardImage} id={id} src={currentImageUrl} />
         ) : (
           <div className={css.recipeCardLoader}>
-            <Loader size='14px' />
+            <CircularProgress />
           </div>
         )}
-        <div className={css.recipeData}>
-          <div className={css.recipeName}>
+        <Stack className={css.recipeData}>
+          <Typography className={css.recipeName}>
             {isLongName ? `${name.slice(0, maxNameLength)}...` : name}
-          </div>
-          <div className={css.recipeType}>
+          </Typography>
+          <Typography className={css.recipeType}>
             {DISH_TYPE.find(({ value }) => value === type)?.name}
-          </div>
-          <div className={css.buttonsPanel}>
-            <Button onClick={handleEditRecipe} className={css.recipeEditButton}>
-              <img
-                className={css.recipeCardLogo}
-                src={Edit}
-                alt='Edit Recipe Button'
-              />
-            </Button>
-            <Button onClick={handleShowRecipe} className={css.recipeEditButton}>
-              <img
-                className={css.recipeCardLogo}
-                src={Show}
-                alt='Show Recipe Button'
-              />
-            </Button>
-          </div>
-        </div>
-      </div>
-    </div>
+          </Typography>
+          <Stack className={css.buttonsPanel}>
+            <img
+              onClick={handleEditRecipe}
+              className={css.recipeCardLogo}
+              src={Edit}
+              alt='Edit Recipe Button'
+            />
+            <img
+              onClick={handleShowRecipe}
+              className={css.recipeCardLogo}
+              src={Show}
+              alt='Show Recipe Button'
+            />
+          </Stack>
+        </Stack>
+      </Stack>
+    </Card>
   );
 };

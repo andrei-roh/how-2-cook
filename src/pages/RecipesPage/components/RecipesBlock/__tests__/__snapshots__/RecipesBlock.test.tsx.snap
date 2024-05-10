@@ -3,13 +3,13 @@
 exports[`Testing: RecipesBlock > should render 1`] = `
 <div>
   <div
-    class="_recipesBlockWrapper_4b0ee0"
+    class="MuiStack-root _recipesBlockWrapper_4b0ee0 css-1ucnu3w-MuiStack-root"
   >
     <div
-      class="_recipeCardWrapper_a06f98"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root _recipeCardWrapper_a06f98 css-bhp9pd-MuiPaper-root-MuiCard-root"
     >
       <div
-        class="_recipeContainer_a06f98"
+        class="MuiStack-root _recipeContainer_a06f98 css-nen11g-MuiStack-root"
       >
         <img
           class="_recipeCardImage_a06f98"
@@ -17,48 +17,40 @@ exports[`Testing: RecipesBlock > should render 1`] = `
           src="test/image/src/1"
         />
         <div
-          class="_recipeData_a06f98"
+          class="MuiStack-root _recipeData_a06f98 css-nen11g-MuiStack-root"
         >
-          <div
-            class="_recipeName_a06f98"
+          <p
+            class="MuiTypography-root MuiTypography-body1 _recipeName_a06f98 css-ahj2mt-MuiTypography-root"
           >
             Test Recipe 1
-          </div>
-          <div
-            class="_recipeType_a06f98"
+          </p>
+          <p
+            class="MuiTypography-root MuiTypography-body1 _recipeType_a06f98 css-ahj2mt-MuiTypography-root"
           >
             Рыба
-          </div>
+          </p>
           <div
-            class="_buttonsPanel_a06f98"
+            class="MuiStack-root _buttonsPanel_a06f98 css-nen11g-MuiStack-root"
           >
-            <button
-              class="_buttonWrapper_89d844 _recipeEditButton_a06f98"
-            >
-              <img
-                alt="Edit Recipe Button"
-                class="_recipeCardLogo_a06f98"
-                src="/src/assets/pencil.svg"
-              />
-            </button>
-            <button
-              class="_buttonWrapper_89d844 _recipeEditButton_a06f98"
-            >
-              <img
-                alt="Show Recipe Button"
-                class="_recipeCardLogo_a06f98"
-                src="/src/assets/eye.svg"
-              />
-            </button>
+            <img
+              alt="Edit Recipe Button"
+              class="_recipeCardLogo_a06f98"
+              src="/src/assets/pencil.svg"
+            />
+            <img
+              alt="Show Recipe Button"
+              class="_recipeCardLogo_a06f98"
+              src="/src/assets/eye.svg"
+            />
           </div>
         </div>
       </div>
     </div>
     <div
-      class="_recipeCardWrapper_a06f98"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root _recipeCardWrapper_a06f98 css-bhp9pd-MuiPaper-root-MuiCard-root"
     >
       <div
-        class="_recipeContainer_a06f98"
+        class="MuiStack-root _recipeContainer_a06f98 css-nen11g-MuiStack-root"
       >
         <img
           class="_recipeCardImage_a06f98"
@@ -66,48 +58,40 @@ exports[`Testing: RecipesBlock > should render 1`] = `
           src="test/image/src/2"
         />
         <div
-          class="_recipeData_a06f98"
+          class="MuiStack-root _recipeData_a06f98 css-nen11g-MuiStack-root"
         >
-          <div
-            class="_recipeName_a06f98"
+          <p
+            class="MuiTypography-root MuiTypography-body1 _recipeName_a06f98 css-ahj2mt-MuiTypography-root"
           >
             Test Recipe 2
-          </div>
-          <div
-            class="_recipeType_a06f98"
+          </p>
+          <p
+            class="MuiTypography-root MuiTypography-body1 _recipeType_a06f98 css-ahj2mt-MuiTypography-root"
           >
             Мясо
-          </div>
+          </p>
           <div
-            class="_buttonsPanel_a06f98"
+            class="MuiStack-root _buttonsPanel_a06f98 css-nen11g-MuiStack-root"
           >
-            <button
-              class="_buttonWrapper_89d844 _recipeEditButton_a06f98"
-            >
-              <img
-                alt="Edit Recipe Button"
-                class="_recipeCardLogo_a06f98"
-                src="/src/assets/pencil.svg"
-              />
-            </button>
-            <button
-              class="_buttonWrapper_89d844 _recipeEditButton_a06f98"
-            >
-              <img
-                alt="Show Recipe Button"
-                class="_recipeCardLogo_a06f98"
-                src="/src/assets/eye.svg"
-              />
-            </button>
+            <img
+              alt="Edit Recipe Button"
+              class="_recipeCardLogo_a06f98"
+              src="/src/assets/pencil.svg"
+            />
+            <img
+              alt="Show Recipe Button"
+              class="_recipeCardLogo_a06f98"
+              src="/src/assets/eye.svg"
+            />
           </div>
         </div>
       </div>
     </div>
     <div
-      class="_recipeCardWrapper_a06f98"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root _recipeCardWrapper_a06f98 css-bhp9pd-MuiPaper-root-MuiCard-root"
     >
       <div
-        class="_recipeContainer_a06f98"
+        class="MuiStack-root _recipeContainer_a06f98 css-nen11g-MuiStack-root"
       >
         <img
           class="_recipeCardImage_a06f98"
@@ -115,39 +99,31 @@ exports[`Testing: RecipesBlock > should render 1`] = `
           src="test/image/src/3"
         />
         <div
-          class="_recipeData_a06f98"
+          class="MuiStack-root _recipeData_a06f98 css-nen11g-MuiStack-root"
         >
-          <div
-            class="_recipeName_a06f98"
+          <p
+            class="MuiTypography-root MuiTypography-body1 _recipeName_a06f98 css-ahj2mt-MuiTypography-root"
           >
             Test Recipe 3
-          </div>
-          <div
-            class="_recipeType_a06f98"
+          </p>
+          <p
+            class="MuiTypography-root MuiTypography-body1 _recipeType_a06f98 css-ahj2mt-MuiTypography-root"
           >
             Овощи
-          </div>
+          </p>
           <div
-            class="_buttonsPanel_a06f98"
+            class="MuiStack-root _buttonsPanel_a06f98 css-nen11g-MuiStack-root"
           >
-            <button
-              class="_buttonWrapper_89d844 _recipeEditButton_a06f98"
-            >
-              <img
-                alt="Edit Recipe Button"
-                class="_recipeCardLogo_a06f98"
-                src="/src/assets/pencil.svg"
-              />
-            </button>
-            <button
-              class="_buttonWrapper_89d844 _recipeEditButton_a06f98"
-            >
-              <img
-                alt="Show Recipe Button"
-                class="_recipeCardLogo_a06f98"
-                src="/src/assets/eye.svg"
-              />
-            </button>
+            <img
+              alt="Edit Recipe Button"
+              class="_recipeCardLogo_a06f98"
+              src="/src/assets/pencil.svg"
+            />
+            <img
+              alt="Show Recipe Button"
+              class="_recipeCardLogo_a06f98"
+              src="/src/assets/eye.svg"
+            />
           </div>
         </div>
       </div>
@@ -159,17 +135,17 @@ exports[`Testing: RecipesBlock > should render 1`] = `
 exports[`Testing: RecipesBlock > should render if have not found recipe 1`] = `
 <div>
   <div
-    class="_recipesServiceWrapper_4b0ee0"
+    class="MuiStack-root _recipesServiceWrapper_4b0ee0 css-1ucnu3w-MuiStack-root"
   >
     <img
       class="_recipesBlockLogo_4b0ee0"
       src="/src/assets/pancakes.svg"
     />
-    <div
-      class="_emptyMessage_4b0ee0"
+    <p
+      class="MuiTypography-root MuiTypography-body1 _emptyMessage_4b0ee0 css-ahj2mt-MuiTypography-root"
     >
       Рецепты не найдены
-    </div>
+    </p>
   </div>
 </div>
 `;
@@ -177,17 +153,17 @@ exports[`Testing: RecipesBlock > should render if have not found recipe 1`] = `
 exports[`Testing: RecipesBlock > should render if there are no recipes 1`] = `
 <div>
   <div
-    class="_recipesServiceWrapper_4b0ee0"
+    class="MuiStack-root _recipesServiceWrapper_4b0ee0 css-1ucnu3w-MuiStack-root"
   >
     <img
       class="_recipesBlockLogo_4b0ee0"
       src="/src/assets/hand-drawn-food.svg"
     />
-    <div
-      class="_emptyMessage_4b0ee0"
+    <p
+      class="MuiTypography-root MuiTypography-body1 _emptyMessage_4b0ee0 css-ahj2mt-MuiTypography-root"
     >
       Добавьте первый рецепт
-    </div>
+    </p>
   </div>
 </div>
 `;

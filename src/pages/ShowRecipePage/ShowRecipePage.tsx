@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Button, TextArea } from 'src/components';
+import { TextArea } from 'src/components';
 import css from './ShowRecipePage.module.sass';
 import { IState } from 'src/types';
 import {
@@ -12,6 +12,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Fridge from 'src/assets/hand-drawn-food.svg';
 import { setHeightUsingScroll } from 'src/utils/setHeightUsingScroll';
+import Button from '@mui/material/Button';
 
 export const ShowRecipePage = () => {
   const navigate = useNavigate();
@@ -79,7 +80,7 @@ export const ShowRecipePage = () => {
           <div className={css.emptyMessage}>Рецепт не найден</div>
         </>
       )}
-      <Button onClick={handleShowRecipe} className={css.cancelButton}>
+      <Button variant='outlined' onClick={handleShowRecipe} className={css.cancelButton}>
         Назад
       </Button>
     </div>

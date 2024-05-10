@@ -6,8 +6,6 @@
     width: 100%
     height: calc(100vh - 46px)
     box-sizing: border-box
-    display: flex
-    flex-direction: column
     align-items: center
 
     .recipesPagePanelWrapper
@@ -16,30 +14,17 @@
         max-width: 768px
         top: 46px
         box-sizing: border-box
-        padding: 16px 16px 8px 16px
+        padding: 16px
         background-color: colors.$white
         border-bottom: 1px solid colors.$gray
 
         .manageUsersTitleWrapper
-            width: 100%
-            display: flex
-            flex-direction: row
             justify-content: space-between
             align-items: center
-            margin-bottom: 6px
+            margin-bottom: 12px
 
             .recipesPageTitle
                 @extend .H3
 
-.recipesPageLoader
-    margin-top: calc(50vh - 46px)
-
-.recipesPageSearchLabel
-    width: 100%
-
-.recipesPageSearchInput
-    width: 100%
-    padding: 12px 12px 12px 40px
-    background-image: url('src/assets/telescope.svg')
-    background-position: 10px 10px
-    background-repeat: no-repeat
+    .loader
+        margin: 45vh 0 24px 0

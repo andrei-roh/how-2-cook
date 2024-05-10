@@ -5,7 +5,6 @@ import { IState, ScrollDirection } from 'src/types';
 import { useNavigate } from 'react-router-dom';
 import { CREATE_RECIPE_ROUTE, ROOT_ROUTE } from 'src/constants';
 import { RecipesBlock } from './components/RecipesBlock/RecipesBlock';
-import { Button, Input, Loader } from 'src/components';
 import { Dispatch } from '@reduxjs/toolkit';
 import Add from 'src/assets/add.svg';
 import { getSearch } from 'src/utils/getSearch';
@@ -16,6 +15,12 @@ import {
   setRecipesPageSearchInput,
 } from 'src/redux/actions';
 import { getAllRecipes } from 'src/utils/getAllRecipes';
+import TextField from '@mui/material/TextField';
+import { InputAdornment } from '@mui/material';
+import Telescope from 'src/assets/telescope.svg';
+import CircularProgress from '@mui/material/CircularProgress';
+import Stack from '@mui/material/Stack';
+import Typography from '@mui/material/Typography';
 
 const minScrollSize = 75;
 
@@ -100,39 +105,50 @@ export const RecipesPage = () => {
   }, [dispatch, scrollDirection, scrollSize]);
 
   return (
-    <div className={css.recipesPageWrapper}>
-      <div className={css.recipesPagePanelWrapper}>
+    <Stack className={css.recipesPageWrapper}>
+      <Stack
+        direction='column'
+        useFlexGap
+        className={css.recipesPagePanelWrapper}
+      >
         {isShowPanel && (
-          <div className={css.manageUsersTitleWrapper}>
-            <div className={css.recipesPageTitle}>Рецепты</div>
-            <Button className={css.addUserButton} onClick={handleCreateRecipe}>
-              <img
-                className={css.headerLogo}
-                src={Add}
-                alt='Add Recipe Button'
-                width={36}
-              />
-            </Button>
-          </div>
+          <Stack
+            direction='row'
+            useFlexGap
+            className={css.manageUsersTitleWrapper}
+          >
+            <Typography className={css.recipesPageTitle}>Рецепты</Typography>
+            <img
+              onClick={handleCreateRecipe}
+              className={css.headerLogo}
+              src={Add}
+              alt='Add Recipe Button'
+              width={36}
+            />
+          </Stack>
         )}
-        <Input
+        <TextField
+          label='Поиск'
+          fullWidth
           value={searchInput}
-          setChange={setSearchInput}
-          type='search'
-          isDisabled={currentRecipesList.length === 0}
-          placeholder={'Поиск'}
-          labelClassName={css.recipesPageSearchLabel}
-          inputClassName={css.recipesPageSearchInput}
+          onChange={(e) => setSearchInput(e.target.value)}
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position='start'>
+                <img src={Telescope} alt='Telescope' />
+              </InputAdornment>
+            ),
+          }}
         />
-      </div>
+      </Stack>
       {isLoading ? (
-        <Loader className={css.recipesPageLoader} />
+        <CircularProgress className={css.loader} />
       ) : (
         <RecipesBlock
           recipes={getSearch(currentRecipesList, searchInput)}
           isSearch={!!searchInput}
         />
       )}
-    </div>
+    </Stack>
   );
 };

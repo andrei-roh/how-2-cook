@@ -6,6 +6,10 @@ import router from './routes/router.tsx';
 import store from './redux/store.ts';
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
 
 const firebaseApp = initializeApp({
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,

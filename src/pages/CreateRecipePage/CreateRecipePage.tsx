@@ -6,16 +6,16 @@ import { useNavigate } from 'react-router-dom';
 import { DISH_TYPE, RECIPES_ROUTE, ROOT_ROUTE } from 'src/constants';
 import { v4 as uuidv4 } from 'uuid';
 import {
-  Button,
   ImageLoader,
   Input,
-  Loader,
   Select,
   TextArea,
 } from 'src/components';
 import { createRecipe } from 'src/utils/createRecipe';
 import { addRecipesToList } from 'src/redux/actions';
 import { validateRecipeValues } from 'src/utils/validateRecipeValues';
+import CircularProgress from '@mui/material/CircularProgress';
+import Button from '@mui/material/Button';
 
 export const CreateRecipePage = () => {
   const navigate = useNavigate();
@@ -141,6 +141,7 @@ export const CreateRecipePage = () => {
         />
         <div className={css.buttonsPanel}>
           <Button
+            variant='outlined'
             onClick={handleCreateRecipe}
             className={`${css.createRecipeButton} ${css.cancelButton}`}
           >
@@ -151,7 +152,7 @@ export const CreateRecipePage = () => {
             id='create-recipe-submit'
           >
             {isCreating ? (
-              <Loader size={'12px'} className={css.createRecipeLoader} />
+              <CircularProgress className={css.createRecipeLoader} />
             ) : (
               'Создать'
             )}

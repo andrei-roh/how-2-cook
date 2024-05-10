@@ -1,16 +1,28 @@
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import css from './TitlePage.module.sass';
 import { useEffect, useState } from 'react';
-import { Button, Input, Loader } from 'src/components';
 import { useDispatch, useSelector } from 'react-redux';
 import { Dispatch } from '@reduxjs/toolkit';
 import { setError, setLoading, setUser } from 'src/redux/actions';
-import { FirebaseErrorType, IState, IValidationError } from 'src/types';
+import {
+  FirebaseErrorType,
+  IState,
+  IValidationError,
+  Severity,
+} from 'src/types';
 import { useNavigate } from 'react-router-dom';
 import { NOTIFICATIONS, RECIPES_ROUTE } from 'src/constants';
 import { validateLoginValues } from 'src/utils/validateLoginValues';
 import { showNotification } from 'src/utils/showNotification';
 import Fish from 'src/assets/fish.svg';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import Typography from '@mui/material/Typography';
+import CircularProgress from '@mui/material/CircularProgress';
+import Stack from '@mui/material/Stack';
+import { InputAdornment } from '@mui/material';
+import Show from 'src/assets/eye.svg';
+import Hide from 'src/assets/eye-closed.svg';
 
 export const TitlePage = () => {
   const dispatch: Dispatch = useDispatch();
@@ -18,6 +30,7 @@ export const TitlePage = () => {
   const isLoading = useSelector((state: IState) => state.loading);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPasword] = useState(false);
   const [validation, setValidation] = useState<IValidationError>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -46,15 +59,24 @@ export const TitlePage = () => {
 
           switch (error.code) {
             case FirebaseErrorType.InvalidEmail:
-              showNotification(NOTIFICATIONS(email).USER_WRONG_EMAIL, 6000);
+              showNotification(
+                NOTIFICATIONS(email).USER_WRONG_EMAIL,
+                6000,
+                Severity.Error
+              );
               break;
             case FirebaseErrorType.InvalidPassword:
-              showNotification(NOTIFICATIONS(email).USER_WRONG_PASSWORD, 6000);
+              showNotification(
+                NOTIFICATIONS(email).USER_WRONG_PASSWORD,
+                6000,
+                Severity.Error
+              );
               break;
             case FirebaseErrorType.TooManyRequsts:
               showNotification(
                 NOTIFICATIONS(email).USER_TOO_MANY_REQUESTS,
-                6000
+                6000,
+                Severity.Error
               );
               break;
             default:
@@ -76,37 +98,55 @@ export const TitlePage = () => {
   }, [email, navigate, password]);
 
   return (
-    <>
-      <div className={css.titleWrapper}>
+    <Stack
+      direction='column'
+      spacing={5}
+      useFlexGap
+      className={css.titleWrapper}
+    >
+      <Stack direction='column' spacing={1} useFlexGap>
         <img className={css.titleLogo} src={Fish} />
-        <div>How to Cook</div>
-      </div>
-      <form className={css.titlePageForm} onSubmit={handleLogin}>
-        <Input
-          value={email}
-          setChange={setEmail}
-          name='user-email-input'
-          labelText='Электронная почта'
-          isValidationError={isSubmitting && !!validation.email}
-          errorMessage={validation.email}
-        />
-        <Input
-          value={password}
-          setChange={setPassword}
-          type='password'
-          name='user-password-input'
-          labelText='Пароль'
-          isValidationError={isSubmitting && !!validation.password}
-          errorMessage={validation.password}
-        />
-        <Button className={css.titlePageSubmitButton}>
-          {isLoading ? (
-            <Loader size={'12px'} className={css.titlePageLoader} />
-          ) : (
-            'Войти'
-          )}
-        </Button>
-      </form>
-    </>
+        <Typography variant='h5' alignSelf='center'>
+          How to Cook
+        </Typography>
+      </Stack>
+      <TextField
+        label='Электронная почта'
+        required
+        fullWidth
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        error={isSubmitting && !!validation.email}
+        helperText={isSubmitting && validation.email}
+      />
+      <TextField
+        label='Пароль'
+        type={showPassword ? 'text' : 'password'}
+        required
+        fullWidth
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        error={isSubmitting && !!validation.password}
+        helperText={isSubmitting && validation.password}
+        InputProps={{
+          endAdornment: (
+            <InputAdornment position='end'>
+              <img
+                onClick={() => setShowPasword(!showPassword)}
+                src={showPassword ? Hide : Show}
+                alt='Show/Hide Password'
+              />
+            </InputAdornment>
+          ),
+        }}
+      />
+      <Button
+        variant='contained'
+        className={css.titlePageSubmitButton}
+        onClick={handleLogin}
+      >
+        {isLoading ? <CircularProgress /> : 'Войти'}
+      </Button>
+    </Stack>
   );
 };

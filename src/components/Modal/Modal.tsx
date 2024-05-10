@@ -1,7 +1,7 @@
 import css from './Modal.module.sass';
-import { Button } from '../Button/Button';
-import { Loader } from '../Loader/Loader';
 import { getClassesList } from 'src/utils/getClassesList';
+import CircularProgress from '@mui/material/CircularProgress';
+import Button from '@mui/material/Button';
 
 interface ModalProps {
   cancelButtonMessage: string;
@@ -40,7 +40,7 @@ export const Modal = ({
             className={submitClassNames}
             disabled={isLoading}
           >
-            {isLoading ? <Loader size={'12px'} /> : submitButtonMessage}
+            {isLoading ? <CircularProgress /> : submitButtonMessage}
           </Button>
         </div>
       </div>

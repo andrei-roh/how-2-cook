@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import css from './Header.module.sass';
-import { IState, IUser } from 'src/types';
+import { IState, IUser, Severity } from 'src/types';
 import { Button } from '../Button/Button';
 import { getAuth, signOut } from 'firebase/auth';
 import { showNotification } from 'src/utils/showNotification';
@@ -27,11 +27,11 @@ export const Header = () => {
     signOut(auth)
       .then(() => {
         dispatch(setUser({} as IUser));
-        showNotification(NOTIFICATIONS(user.email).SIGN_OUT_SUCCESS, 6000);
+        showNotification(NOTIFICATIONS(user.email).SIGN_OUT_SUCCESS, 6000, Severity.Info);
         navigate(ROOT_ROUTE);
       })
       .catch(() => {
-        showNotification(NOTIFICATIONS(user.email).SIGN_OUT_ERROR, 6000);
+        showNotification(NOTIFICATIONS(user.email).SIGN_OUT_ERROR, 6000, Severity.Error);
       });
     
     handleCloseModal();

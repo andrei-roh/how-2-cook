@@ -10,16 +10,16 @@ import {
   ROOT_ROUTE,
 } from 'src/constants';
 import {
-  Button,
   ImageLoader,
   Input,
-  Loader,
   Select,
   TextArea,
 } from 'src/components';
 import { updateRecipesList } from 'src/redux/actions';
 import { validateRecipeValues } from 'src/utils/validateRecipeValues';
 import { editRecipe } from 'src/utils/editRecipe';
+import CircularProgress from '@mui/material/CircularProgress';
+import Button from '@mui/material/Button';
 
 export const EditRecipePage = () => {
   const navigate = useNavigate();
@@ -167,6 +167,7 @@ export const EditRecipePage = () => {
         />
         <div className={css.buttonsPanel}>
           <Button
+            variant='outlined'
             onClick={handleEditRecipe}
             className={`${css.editRecipeButton} ${css.cancelButton}`}
           >
@@ -178,7 +179,7 @@ export const EditRecipePage = () => {
             disabled={!isFieldsChanged}
           >
             {isEditing ? (
-              <Loader size={'12px'} className={css.editRecipeLoader} />
+              <CircularProgress className={css.editRecipeLoader} />
             ) : (
               'Обновить'
             )}
