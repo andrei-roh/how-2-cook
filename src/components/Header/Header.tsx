@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import css from './Header.module.sass';
 import { IState, IUser, Severity } from 'src/types';
-import { Button } from '../Button/Button';
 import { getAuth, signOut } from 'firebase/auth';
 import { showNotification } from 'src/utils/showNotification';
 import { NOTIFICATIONS, ROOT_ROUTE } from 'src/constants';
@@ -40,9 +39,9 @@ export const Header = () => {
   return (
     <div className={css.headerWrapper}>
       <div className={css.userEmail}>{user.email || ''}</div>
-      {user.email && <Button onClick={handleShowModal} className={css.headerModalButton}>
+      {user.email && <button onClick={handleShowModal} className={css.headerModalButton}>
         <img className={css.headerLogo} src={Skeleton} alt='Sign Out Button' />
-      </Button>}
+      </button>}
       {isSignOut && (
         <Modal
           cancelButtonMessage={'Отмена'}
