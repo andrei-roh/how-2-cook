@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Camera from './assets/camera.svg';
 import { showNotification } from 'src/utils/showNotification';
 import { IMAGE_TYPE, NOTIFICATIONS } from 'src/constants';
+import { Severity } from 'src/types';
 
 interface ImageLoaderProps {
   setImage: React.Dispatch<React.SetStateAction<File | null>>;
@@ -29,12 +30,16 @@ export const ImageLoader = ({
       const imageFile = e.target.files[0];
 
       if (convertBytesToMegabytes(imageFile.size) > 10) {
-        showNotification(NOTIFICATIONS().IMAGE_TOO_BIG, 6000);
+        showNotification(NOTIFICATIONS().IMAGE_TOO_BIG, 6000, Severity.Error);
         return;
       }
 
       if (!IMAGE_TYPE.some((type) => type === imageFile.type)) {
-        showNotification(NOTIFICATIONS().IMAGE_WRONG_TYPE, 6000);
+        showNotification(
+          NOTIFICATIONS().IMAGE_WRONG_TYPE,
+          6000,
+          Severity.Error
+        );
         return;
       }
 

@@ -24,6 +24,18 @@
 
     .headerModalButton
         width: 30px
+        background-color: inherit
+        border: none
+        padding: 0
+        display: flex
+        justify-content: flex-end
+
+        &:hover
+        cursor: pointer
+
+        &:disabled,
+        &[disabled]
+            background-color: colors.$gray
 
         .headerLogo
             height: 30px

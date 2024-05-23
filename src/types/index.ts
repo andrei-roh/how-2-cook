@@ -1,4 +1,4 @@
-import { Action } from "@reduxjs/toolkit";
+import { Action } from '@reduxjs/toolkit';
 
 export interface IUser {
   email: string;
@@ -11,8 +11,8 @@ export enum DishType {
 }
 
 export type RecipeImage = {
-  [key: string]: string
-}
+  [key: string]: string;
+};
 
 export interface IRecipe {
   id: string;
@@ -70,4 +70,11 @@ export interface IOption {
 export enum ScrollDirection {
   Up = 'up',
   Down = 'down',
+}
+
+export enum Severity {
+  Success = 'success',
+  Info = 'info',
+  Warning = 'warning',
+  Error = 'error',
 }

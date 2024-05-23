@@ -3,10 +3,10 @@
 exports[`Testing: RecipeCard > should render 1`] = `
 <div>
   <div
-    class="_recipeCardWrapper_a06f98"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root _recipeCardWrapper_a06f98 css-bhp9pd-MuiPaper-root-MuiCard-root"
   >
     <div
-      class="_recipeContainer_a06f98"
+      class="MuiStack-root _recipeContainer_a06f98 css-nen11g-MuiStack-root"
     >
       <img
         class="_recipeCardImage_a06f98"
@@ -14,39 +14,31 @@ exports[`Testing: RecipeCard > should render 1`] = `
         src="test/image/src/1"
       />
       <div
-        class="_recipeData_a06f98"
+        class="MuiStack-root _recipeData_a06f98 css-nen11g-MuiStack-root"
       >
-        <div
-          class="_recipeName_a06f98"
+        <p
+          class="MuiTypography-root MuiTypography-body1 _recipeName_a06f98 css-ahj2mt-MuiTypography-root"
         >
           Test Recipe 1
-        </div>
-        <div
-          class="_recipeType_a06f98"
+        </p>
+        <p
+          class="MuiTypography-root MuiTypography-body1 _recipeType_a06f98 css-ahj2mt-MuiTypography-root"
         >
           Рыба
-        </div>
+        </p>
         <div
-          class="_buttonsPanel_a06f98"
+          class="MuiStack-root _buttonsPanel_a06f98 css-nen11g-MuiStack-root"
         >
-          <button
-            class="_buttonWrapper_89d844 _recipeEditButton_a06f98"
-          >
-            <img
-              alt="Edit Recipe Button"
-              class="_recipeCardLogo_a06f98"
-              src="/src/assets/pencil.svg"
-            />
-          </button>
-          <button
-            class="_buttonWrapper_89d844 _recipeEditButton_a06f98"
-          >
-            <img
-              alt="Show Recipe Button"
-              class="_recipeCardLogo_a06f98"
-              src="/src/assets/eye.svg"
-            />
-          </button>
+          <img
+            alt="Edit Recipe Button"
+            class="_recipeCardLogo_a06f98"
+            src="/src/assets/pencil.svg"
+          />
+          <img
+            alt="Show Recipe Button"
+            class="_recipeCardLogo_a06f98"
+            src="/src/assets/eye.svg"
+          />
         </div>
       </div>
     </div>

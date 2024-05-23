@@ -11,7 +11,7 @@ exports[`Testing: Header > should render 1`] = `
       Test@email.com
     </div>
     <button
-      class="_buttonWrapper_89d844 _headerModalButton_069298"
+      class="_headerModalButton_069298"
     >
       <img
         alt="Sign Out Button"

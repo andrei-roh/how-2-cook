@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import css from './Header.module.sass';
-import { IState, IUser } from 'src/types';
-import { Button } from '../Button/Button';
+import { IState, IUser, Severity } from 'src/types';
 import { getAuth, signOut } from 'firebase/auth';
 import { showNotification } from 'src/utils/showNotification';
 import { NOTIFICATIONS, ROOT_ROUTE } from 'src/constants';
@@ -27,11 +26,11 @@ export const Header = () => {
     signOut(auth)
       .then(() => {
         dispatch(setUser({} as IUser));
-        showNotification(NOTIFICATIONS(user.email).SIGN_OUT_SUCCESS, 6000);
+        showNotification(NOTIFICATIONS(user.email).SIGN_OUT_SUCCESS, 6000, Severity.Info);
         navigate(ROOT_ROUTE);
       })
       .catch(() => {
-        showNotification(NOTIFICATIONS(user.email).SIGN_OUT_ERROR, 6000);
+        showNotification(NOTIFICATIONS(user.email).SIGN_OUT_ERROR, 6000, Severity.Error);
       });
     
     handleCloseModal();
@@ -40,9 +39,9 @@ export const Header = () => {
   return (
     <div className={css.headerWrapper}>
       <div className={css.userEmail}>{user.email || ''}</div>
-      {user.email && <Button onClick={handleShowModal} className={css.headerModalButton}>
+      {user.email && <button onClick={handleShowModal} className={css.headerModalButton}>
         <img className={css.headerLogo} src={Skeleton} alt='Sign Out Button' />
-      </Button>}
+      </button>}
       {isSignOut && (
         <Modal
           cancelButtonMessage={'Отмена'}

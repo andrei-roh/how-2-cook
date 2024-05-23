@@ -8,8 +8,6 @@
     justify-content: space-between
     width: 100%
     box-sizing: border-box
-    border: 2px solid colors.$gray
-    border-radius: 12px
 
     @media (min-width: breakpoints.$tablet)
         width: 480px
@@ -32,8 +30,8 @@
         .recipeCardImage
             width: 100%
             height: calc(100vw / 2 - 18px)
-            border-top-left-radius: 10px
-            border-bottom-left-radius: 10px
+            border-top-left-radius: 5px
+            border-bottom-left-radius: 5px
             object-fit: cover
 
             @media (min-width: breakpoints.$tablet)
@@ -62,6 +60,4 @@
     
     .recipeCardLogo
         width: 25px
-
-.recipeEditButton
-    align-self: flex-start
+        cursor: pointer

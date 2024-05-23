@@ -1,12 +1,13 @@
 import { Outlet, useNavigate } from 'react-router-dom';
 import css from './App.module.sass';
-import { Header, Loader, Notification } from './components';
+import { Header, Notification } from './components';
 import { getAuth } from 'firebase/auth';
 import { Dispatch } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
 import { setUser } from './redux/actions';
 import { RECIPES_ROUTE, ROOT_ROUTE } from './constants';
 import { useEffect, useState } from 'react';
+import CircularProgress from '@mui/material/CircularProgress';
 
 const App = () => {
   const auth = getAuth();
@@ -29,7 +30,7 @@ const App = () => {
   return (
     <>
       {checkLogin ? (
-        <Loader />
+        <CircularProgress /> 
       ) : (
         <>
           <Header />

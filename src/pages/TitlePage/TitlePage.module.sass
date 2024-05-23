@@ -3,40 +3,13 @@
 
 .titleWrapper 
     width: 100%
+    max-width: 320px
     margin: 50px 0
-    box-sizing: border-box
-    display: flex
-    flex-direction: column
-    align-items: center
-    justify-content: center
 
     .titleLogo
         height: 80px
 
-.titlePageForm
-    width: 100%
-    background-color: colors.$white
-    box-sizing: border-box
-    display: flex
-    flex-direction: column
-    justify-content: center
-    align-items: center
-
     .titlePageSubmitButton
-        @extend .H6
         width: 120px
         height: 42px
-        margin-top: 12px
-        box-sizing: border-box
-        border-radius: 8px
-        justify-content: center
-        align-items: center
-        color: colors.$white
-        background-color: colors.$blue
-
-        &:hover
-            background-color: colors.$sky
-
-.titlePageLoader
-    border: 6px solid colors.$white
-    border-top: 6px solid colors.$blue
+        align-self: center

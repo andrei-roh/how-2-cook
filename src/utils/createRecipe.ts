@@ -1,6 +1,6 @@
 import { collection, doc, setDoc } from 'firebase/firestore';
 import { firebaseDb } from 'src/main';
-import { IRecipe } from 'src/types';
+import { IRecipe, Severity } from 'src/types';
 import { showNotification } from './showNotification';
 import { getRecipe } from './getRecipe';
 import { getStorage, ref, uploadBytes } from 'firebase/storage';
@@ -14,7 +14,7 @@ export const createRecipe = async (
   const eventsRef = collection(firebaseDb, RECIPES_TABLE_PATH);
 
   if (event) {
-    showNotification(NOTIFICATIONS(newRecipe.id).RECIPE_EXISTS, 6000);
+    showNotification(NOTIFICATIONS(newRecipe.id).RECIPE_EXISTS, 6000, Severity.Error);
     return false;
   }
 
@@ -28,11 +28,11 @@ export const createRecipe = async (
     await uploadBytes(storageRef, image);
     await setDoc(doc(eventsRef, newRecipe.id), newRecipe);
 
-    showNotification(NOTIFICATIONS(newRecipe.name).RECIPE_CREATED, 3000);
+    showNotification(NOTIFICATIONS(newRecipe.name).RECIPE_CREATED, 3000, Severity.Success);
 
     return true;
   } catch {
-    showNotification(NOTIFICATIONS(newRecipe.name).RECIPE_CREATION_ERROR, 3000);
+    showNotification(NOTIFICATIONS(newRecipe.name).RECIPE_CREATION_ERROR, 3000, Severity.Error);
 
     return false;
   }

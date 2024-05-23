@@ -15,9 +15,14 @@ exports[`Testing: ShowRecipePage > should render 1`] = `
       Рецепт не найден
     </div>
     <button
-      class="_buttonWrapper_89d844 _cancelButton_2f97fe"
+      class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-colorPrimary _cancelButton_2f97fe css-1rwt2y5-MuiButtonBase-root-MuiButton-root"
+      tabindex="0"
+      type="button"
     >
       Назад
+      <span
+        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+      />
     </button>
   </div>
 </div>
