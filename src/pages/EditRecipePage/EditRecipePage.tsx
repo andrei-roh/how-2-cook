@@ -51,7 +51,6 @@ export const EditRecipePage = () => {
   const [recipeIngredients, setRecipeIngredients] = useState(ingredients);
   const [recipeDescription, setRecipeDescription] = useState(description);
 
-  console.log(isRecipeVegan)
 
   const isFieldsChanged =
     image !== null ||
@@ -72,10 +71,8 @@ export const EditRecipePage = () => {
     event.preventDefault();
 
     setIsSubmitting(() => true);
-    console.log(Object.keys(validation));
 
     if (Object.keys(validation).length === 0) {
-      console.log(1);
       const currentDate = new Date().toString();
       const updatedFields: Partial<IRecipe> = {
         name: recipeName !== name ? recipeName : name,
