@@ -23,7 +23,9 @@ exports[`Testing: RecipeCard > should render 1`] = `
         </p>
         <p
           class="MuiTypography-root MuiTypography-body1 _recipeType_a06f98 css-ahj2mt-MuiTypography-root"
-        />
+        >
+          Основное
+        </p>
         <div
           class="MuiStack-root _buttonsPanel_a06f98 css-nen11g-MuiStack-root"
         >

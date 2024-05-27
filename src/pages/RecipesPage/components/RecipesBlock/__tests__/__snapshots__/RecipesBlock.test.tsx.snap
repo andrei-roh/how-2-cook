@@ -26,7 +26,9 @@ exports[`Testing: RecipesBlock > should render 1`] = `
           </p>
           <p
             class="MuiTypography-root MuiTypography-body1 _recipeType_a06f98 css-ahj2mt-MuiTypography-root"
-          />
+          >
+            Основное
+          </p>
           <div
             class="MuiStack-root _buttonsPanel_a06f98 css-nen11g-MuiStack-root"
           >
@@ -65,7 +67,13 @@ exports[`Testing: RecipesBlock > should render 1`] = `
           </p>
           <p
             class="MuiTypography-root MuiTypography-body1 _recipeType_a06f98 css-ahj2mt-MuiTypography-root"
-          />
+          >
+            Десерт
+            <img
+              src="/src/assets/vegetarian.svg"
+              width="12"
+            />
+          </p>
           <div
             class="MuiStack-root _buttonsPanel_a06f98 css-nen11g-MuiStack-root"
           >
@@ -104,7 +112,9 @@ exports[`Testing: RecipesBlock > should render 1`] = `
           </p>
           <p
             class="MuiTypography-root MuiTypography-body1 _recipeType_a06f98 css-ahj2mt-MuiTypography-root"
-          />
+          >
+            Салат
+          </p>
           <div
             class="MuiStack-root _buttonsPanel_a06f98 css-nen11g-MuiStack-root"
           >

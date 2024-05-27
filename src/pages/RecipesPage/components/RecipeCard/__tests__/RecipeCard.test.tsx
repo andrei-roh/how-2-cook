@@ -18,9 +18,10 @@ const recipeMock: IRecipe = {
   id: '00000000-0000-0000-0000-000000000001',
   imageUrl: 'test_image_src_1',
   name: 'Test Recipe 1',
-  type: DishType.Fish,
+  type: DishType.Main,
   ingredients: 'Test Ingredients 1',
   description: 'Test Description 1',
+  isVegan: false,
 };
 
 const stateMock = {
