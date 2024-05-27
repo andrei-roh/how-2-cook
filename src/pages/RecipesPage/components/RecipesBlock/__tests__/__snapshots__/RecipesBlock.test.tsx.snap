@@ -20,15 +20,13 @@ exports[`Testing: RecipesBlock > should render 1`] = `
           class="MuiStack-root _recipeData_a06f98 css-nen11g-MuiStack-root"
         >
           <p
-            class="MuiTypography-root MuiTypography-body1 _recipeName_a06f98 css-ahj2mt-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap _recipeName_a06f98 css-fvtpii-MuiTypography-root"
           >
             Test Recipe 1
           </p>
           <p
             class="MuiTypography-root MuiTypography-body1 _recipeType_a06f98 css-ahj2mt-MuiTypography-root"
-          >
-            Рыба
-          </p>
+          />
           <div
             class="MuiStack-root _buttonsPanel_a06f98 css-nen11g-MuiStack-root"
           >
@@ -61,15 +59,13 @@ exports[`Testing: RecipesBlock > should render 1`] = `
           class="MuiStack-root _recipeData_a06f98 css-nen11g-MuiStack-root"
         >
           <p
-            class="MuiTypography-root MuiTypography-body1 _recipeName_a06f98 css-ahj2mt-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap _recipeName_a06f98 css-fvtpii-MuiTypography-root"
           >
             Test Recipe 2
           </p>
           <p
             class="MuiTypography-root MuiTypography-body1 _recipeType_a06f98 css-ahj2mt-MuiTypography-root"
-          >
-            Мясо
-          </p>
+          />
           <div
             class="MuiStack-root _buttonsPanel_a06f98 css-nen11g-MuiStack-root"
           >
@@ -102,15 +98,13 @@ exports[`Testing: RecipesBlock > should render 1`] = `
           class="MuiStack-root _recipeData_a06f98 css-nen11g-MuiStack-root"
         >
           <p
-            class="MuiTypography-root MuiTypography-body1 _recipeName_a06f98 css-ahj2mt-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap _recipeName_a06f98 css-fvtpii-MuiTypography-root"
           >
             Test Recipe 3
           </p>
           <p
             class="MuiTypography-root MuiTypography-body1 _recipeType_a06f98 css-ahj2mt-MuiTypography-root"
-          >
-            Овощи
-          </p>
+          />
           <div
             class="MuiStack-root _buttonsPanel_a06f98 css-nen11g-MuiStack-root"
           >

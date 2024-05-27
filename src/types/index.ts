@@ -5,9 +5,11 @@ export interface IUser {
 }
 
 export enum DishType {
-  Vegan = 'vegan',
-  Meat = 'meat',
-  Fish = 'fish',
+  Main = 'main',
+  Soup = 'soup',
+  Dessert = 'dessert',
+  Salat = 'salat',
+  Snack = 'snack',
 }
 
 export type RecipeImage = {
@@ -19,6 +21,7 @@ export interface IRecipe {
   imageUrl: string;
   name: string;
   type: DishType;
+  isVegan: boolean;
   ingredients: string;
   description: string;
   createdAt?: string;

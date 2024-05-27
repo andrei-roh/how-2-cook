@@ -2,6 +2,7 @@ import css from './RecipeCard.module.sass';
 import { IRecipe, IState } from 'src/types';
 import Edit from 'src/assets/pencil.svg';
 import Show from 'src/assets/eye.svg';
+import Vegetarian from 'src/assets/vegetarian.svg';
 import { useNavigate } from 'react-router-dom';
 import { getRecipeImage } from 'src/utils/getRecipeImage';
 import { Dispatch } from '@reduxjs/toolkit';
@@ -16,18 +17,19 @@ import Card from '@mui/material/Card';
 
 interface RecipeCardProps extends IRecipe {}
 
-const maxNameLength = 38;
-
-export const RecipeCard = ({ id, imageUrl, name, type }: RecipeCardProps) => {
+export const RecipeCard = ({
+  id,
+  imageUrl,
+  name,
+  type,
+  isVegan,
+}: RecipeCardProps) => {
   const navigate = useNavigate();
   const dispatch: Dispatch = useDispatch();
   const imagesList = useSelector((state: IState) => state.imagesList);
   const currentImageUrl = imagesList.find(
     (image) => image.id === imageUrl
   )?.value;
-  const isLongName = name
-    .split(' ')
-    .some((namePart: string) => namePart.length > maxNameLength);
 
   const handleEditRecipe = () => {
     navigate(`/recipe/edit/${id}`);
@@ -58,11 +60,12 @@ export const RecipeCard = ({ id, imageUrl, name, type }: RecipeCardProps) => {
           </div>
         )}
         <Stack className={css.recipeData}>
-          <Typography className={css.recipeName}>
-            {isLongName ? `${name.slice(0, maxNameLength)}...` : name}
+          <Typography className={css.recipeName} noWrap>
+            {name}
           </Typography>
           <Typography className={css.recipeType}>
             {DISH_TYPE.find(({ value }) => value === type)?.name}
+            {isVegan && <img width={12} src={Vegetarian} />}
           </Typography>
           <Stack className={css.buttonsPanel}>
             <img
