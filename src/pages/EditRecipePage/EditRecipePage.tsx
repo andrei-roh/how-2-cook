@@ -20,6 +20,8 @@ import { validateRecipeValues } from 'src/utils/validateRecipeValues';
 import { editRecipe } from 'src/utils/editRecipe';
 import CircularProgress from '@mui/material/CircularProgress';
 import Button from '@mui/material/Button';
+import Switch from '@mui/material/Switch';
+import FormControlLabel from '@mui/material/FormControlLabel';
 
 export const EditRecipePage = () => {
   const navigate = useNavigate();
@@ -30,7 +32,7 @@ export const EditRecipePage = () => {
   const imagesList = useSelector((state: IState) => state.imagesList);
   const shownRecipe =
     recipesList.find((recipe) => recipe.id === recipeId) || EMPTY_RECIPE;
-  const { imageUrl, name, type, ingredients, description } = shownRecipe;
+  const { imageUrl, name, type, ingredients, description, isVegan } = shownRecipe;
   const currentImageUrl = imagesList.find(
     (image) => image.id === imageUrl
   )?.value;
@@ -45,8 +47,10 @@ export const EditRecipePage = () => {
   const [image, setImage] = useState<File | null>(null);
   const [recipeName, setRecipeName] = useState(name);
   const [recipeType, setRecipeType] = useState<DishType>(type);
+  const [isRecipeVegan, setIsRecipeVegan] = useState(isVegan);
   const [recipeIngredients, setRecipeIngredients] = useState(ingredients);
   const [recipeDescription, setRecipeDescription] = useState(description);
+
 
   const isFieldsChanged =
     image !== null ||
@@ -59,18 +63,21 @@ export const EditRecipePage = () => {
     navigate(RECIPES_ROUTE);
   };
 
+  const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setIsRecipeVegan(event.target.checked);
+  };
+
   const handleSubmit = (event: { preventDefault: () => void }) => {
     event.preventDefault();
 
     setIsSubmitting(() => true);
-    console.log(Object.keys(validation));
 
     if (Object.keys(validation).length === 0) {
-      console.log(1);
       const currentDate = new Date().toString();
       const updatedFields: Partial<IRecipe> = {
         name: recipeName !== name ? recipeName : name,
         type: recipeType !== type ? recipeType : type,
+        isVegan: isRecipeVegan !== isVegan ? isRecipeVegan : isVegan,
         ingredients:
           recipeIngredients !== ingredients ? recipeIngredients : ingredients,
         description:
@@ -146,6 +153,12 @@ export const EditRecipePage = () => {
           selectClassName={!recipeType ? css.selectPlaceholder : undefined}
           isValidationError={isSubmitting && !!validation.type}
           errorMessage={validation.type}
+        />
+        <FormControlLabel
+          control={<Switch checked={isRecipeVegan} onChange={handleCheckboxChange} />}
+          label='Вегетарианское блюдо'
+          className={css.checkboxLabel}
+          labelPlacement='top'
         />
         <TextArea
           value={recipeIngredients}

@@ -11,6 +11,7 @@ import {
 import { useNavigate, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Fridge from 'src/assets/hand-drawn-food.svg';
+import Vegetarian from 'src/assets/vegetarian.svg';
 import { setHeightUsingScroll } from 'src/utils/setHeightUsingScroll';
 import Button from '@mui/material/Button';
 
@@ -22,7 +23,7 @@ export const ShowRecipePage = () => {
   const shownRecipe =
     recipesList.find((recipe) => recipe.id === recipeId) || EMPTY_RECIPE;
 
-  const { imageUrl, name, type, ingredients, description } = shownRecipe;
+  const { imageUrl, name, type, ingredients, description, isVegan } = shownRecipe;
   const imagesList = useSelector((state: IState) => state.imagesList);
   const currentImageUrl = imagesList.find(
     (image) => image.id === imageUrl
@@ -56,6 +57,7 @@ export const ShowRecipePage = () => {
           <div className={css.recipeTitle}>{name}</div>
           <div className={css.recipeType}>
             {DISH_TYPE.find(({ value }) => value === type)?.name}
+            {isVegan && <img width={12} src={Vegetarian} />}
           </div>
           <TextArea
             value={ingredients}

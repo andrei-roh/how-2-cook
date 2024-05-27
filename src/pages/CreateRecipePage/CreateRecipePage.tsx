@@ -5,17 +5,14 @@ import { DishType, IRecipe, IState, IValidationError } from 'src/types';
 import { useNavigate } from 'react-router-dom';
 import { DISH_TYPE, RECIPES_ROUTE, ROOT_ROUTE } from 'src/constants';
 import { v4 as uuidv4 } from 'uuid';
-import {
-  ImageLoader,
-  Input,
-  Select,
-  TextArea,
-} from 'src/components';
+import { ImageLoader, Input, Select, TextArea } from 'src/components';
 import { createRecipe } from 'src/utils/createRecipe';
 import { addRecipesToList } from 'src/redux/actions';
 import { validateRecipeValues } from 'src/utils/validateRecipeValues';
 import CircularProgress from '@mui/material/CircularProgress';
 import Button from '@mui/material/Button';
+import Switch from '@mui/material/Switch';
+import FormControlLabel from '@mui/material/FormControlLabel';
 
 export const CreateRecipePage = () => {
   const navigate = useNavigate();
@@ -28,11 +25,16 @@ export const CreateRecipePage = () => {
   const [image, setImage] = useState<File | null>(null);
   const [recipeName, setRecipeName] = useState('');
   const [recipeType, setRecipeType] = useState<DishType | ''>('');
+  const [isVegan, setIsVegan] = useState(false);
   const [recipeIngredients, setRecipeIngredients] = useState('');
   const [recipeDescription, setRecipeDescription] = useState('');
 
   const handleCreateRecipe = () => {
     navigate(RECIPES_ROUTE);
+  };
+
+  const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setIsVegan(event.target.checked);
   };
 
   const handleSubmit = (event: { preventDefault: () => void }) => {
@@ -50,6 +52,7 @@ export const CreateRecipePage = () => {
         }/public/${recipeId}`,
         name: recipeName,
         type: recipeType as DishType,
+        isVegan,
         ingredients: recipeIngredients,
         description: recipeDescription,
         createdAt: currentDate,
@@ -120,6 +123,12 @@ export const CreateRecipePage = () => {
           selectClassName={!recipeType ? css.selectPlaceholder : undefined}
           isValidationError={isSubmitting && !!validation.type}
           errorMessage={validation.type}
+        />
+        <FormControlLabel
+          control={<Switch checked={isVegan} onChange={handleCheckboxChange} />}
+          label='Вегетарианское блюдо'
+          className={css.checkboxLabel}
+          labelPlacement='top'
         />
         <TextArea
           value={recipeIngredients}

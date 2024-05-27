@@ -35,9 +35,11 @@ export const IMAGE_TYPE = [
 ];
 
 export const DISH_TYPE = [
-  { name: 'Мясо', value: DishType.Meat },
-  { name: 'Рыба', value: DishType.Fish },
-  { name: 'Овощи', value: DishType.Vegan },
+  { name: 'Основное', value: DishType.Main },
+  { name: 'Десерт', value: DishType.Dessert },
+  { name: 'Салат', value: DishType.Salat },
+  { name: 'Закуска', value: DishType.Snack },
+  { name: 'Суп', value: DishType.Soup },
 ];
 
 export const EMPTY_RECIPE: IRecipe = {
@@ -45,6 +47,7 @@ export const EMPTY_RECIPE: IRecipe = {
   imageUrl: '',
   name: '',
   type: '' as DishType,
+  isVegan: false,
   ingredients: '',
   description: '',
 };
