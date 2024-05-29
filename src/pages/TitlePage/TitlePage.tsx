@@ -145,7 +145,7 @@ export const TitlePage = () => {
         className={css.titlePageSubmitButton}
         onClick={handleLogin}
       >
-        {isLoading ? <CircularProgress /> : 'Войти'}
+        {isLoading ? <CircularProgress color='inherit' /> : 'Войти'}
       </Button>
     </Stack>
   );

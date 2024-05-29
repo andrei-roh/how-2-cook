@@ -65,6 +65,7 @@ export const CreateRecipePage = () => {
         if (result) {
           dispatch(addRecipesToList([newRecipe]));
         }
+        sessionStorage.removeItem(CURRENT_RECIPE);
         handleCreateRecipe();
       });
     }
@@ -188,7 +189,7 @@ export const CreateRecipePage = () => {
             id='create-recipe-submit'
           >
             {isCreating ? (
-              <CircularProgress className={css.createRecipeLoader} />
+              <CircularProgress color="inherit" />
             ) : (
               'Создать'
             )}
