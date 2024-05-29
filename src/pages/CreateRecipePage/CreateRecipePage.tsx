@@ -158,6 +158,7 @@ export const CreateRecipePage = () => {
           </Button>
           <Button
             className={`${css.createRecipeButton} ${css.submitButton}`}
+            type='submit'
             id='create-recipe-submit'
           >
             {isCreating ? (
