@@ -82,16 +82,14 @@ export const EditRecipePage = () => {
           recipeIngredients !== ingredients ? recipeIngredients : ingredients,
         description:
           recipeDescription !== description ? recipeDescription : description,
-        imageUrl: image
-          ? `${import.meta.env.VITE_FIREBASE_STORAGE_BUCKET}/public/${recipeId}`
-          : imageUrl,
+        imageUrl,
         updatedAt: currentDate,
         updatedBy: user.email,
       };
 
       setIsEditing(() => true);
 
-      editRecipe(recipeId as string, updatedFields).then((result) => {
+      editRecipe(recipeId as string, updatedFields, image).then((result) => {
         if (result) {
           const updatedRecipe: IRecipe = { ...shownRecipe, ...updatedFields };
           const updatedRecipesList: IRecipe[] = [...recipesList];
@@ -193,7 +191,7 @@ export const EditRecipePage = () => {
             type='submit'
           >
             {isEditing ? (
-              <CircularProgress className={css.editRecipeLoader} />
+              <CircularProgress color='inherit' />
             ) : (
               'Обновить'
             )}

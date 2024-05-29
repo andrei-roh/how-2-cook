@@ -56,12 +56,15 @@ export const ShowRecipePage = () => {
           />
           <div className={css.recipeTitle}>{name}</div>
           <div className={css.recipeType}>
+            {'Тип: '}
             {DISH_TYPE.find(({ value }) => value === type)?.name}
             {isVegan && <img width={12} src={Vegetarian} />}
           </div>
           <TextArea
             value={ingredients}
             setChange={() => null}
+            labelText={'Ингридиенты:'}
+
             isDisabled
             id='show-recipe-ingredients'
             textAreaClassName={css.recipeIngredients}
@@ -70,6 +73,7 @@ export const ShowRecipePage = () => {
           <TextArea
             value={`${description}, ${description}`}
             setChange={() => null}
+            labelText={'Описание:'}
             isDisabled
             id='show-recipe-description'
             textAreaClassName={css.recipeDescription}
