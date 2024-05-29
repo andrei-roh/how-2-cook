@@ -81,3 +81,5 @@ export enum Severity {
   Warning = 'warning',
   Error = 'error',
 }
+
+export interface ICurrentRecipe extends Partial<IRecipe> {}

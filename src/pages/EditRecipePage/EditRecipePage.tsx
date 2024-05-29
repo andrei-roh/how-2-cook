@@ -190,6 +190,7 @@ export const EditRecipePage = () => {
             className={`${css.editRecipeButton} ${css.submitButton}`}
             id='update-recipe-submit'
             disabled={!isFieldsChanged}
+            type='submit'
           >
             {isEditing ? (
               <CircularProgress className={css.editRecipeLoader} />

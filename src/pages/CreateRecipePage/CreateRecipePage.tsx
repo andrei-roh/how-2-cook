@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import css from './CreateRecipePage.module.sass';
 import { useDispatch, useSelector } from 'react-redux';
-import { DishType, IRecipe, IState, IValidationError } from 'src/types';
+import { DishType, ICurrentRecipe, IRecipe, IState, IValidationError } from 'src/types';
 import { useNavigate } from 'react-router-dom';
-import { DISH_TYPE, RECIPES_ROUTE, ROOT_ROUTE } from 'src/constants';
+import { CURRENT_RECIPE, DISH_TYPE, RECIPES_ROUTE, ROOT_ROUTE } from 'src/constants';
 import { v4 as uuidv4 } from 'uuid';
 import { ImageLoader, Input, Select, TextArea } from 'src/components';
 import { createRecipe } from 'src/utils/createRecipe';
@@ -95,6 +95,32 @@ export const CreateRecipePage = () => {
     }
   }, [navigate, user.email]);
 
+  useEffect(() => {
+    const currentRecipe = sessionStorage.getItem(CURRENT_RECIPE);
+
+    if (currentRecipe) {
+      const recipe = JSON.parse(currentRecipe) as ICurrentRecipe;
+
+      setRecipeName(recipe.name || '');
+      setRecipeType(recipe.type || '');
+      setIsVegan(recipe.isVegan || false);
+      setRecipeIngredients(recipe.ingredients || '');
+      setRecipeDescription(recipe.description || '');
+    }
+  }, [])
+
+  useEffect(() => {
+    if (recipeName || recipeType || isVegan || recipeIngredients || recipeDescription) {
+      sessionStorage.setItem(CURRENT_RECIPE, JSON.stringify({ 
+        name: recipeName,
+        type: recipeType as DishType,
+        isVegan,
+        ingredients: recipeIngredients,
+        description: recipeDescription,
+      }))
+    }
+  }, [isVegan, recipeDescription, recipeIngredients, recipeName, recipeType])
+
   return (
     <div className={css.createRecipePageWrapper}>
       <div className={css.createRecipeTitle}>Создание Рецепта</div>
@@ -158,6 +184,7 @@ export const CreateRecipePage = () => {
           </Button>
           <Button
             className={`${css.createRecipeButton} ${css.submitButton}`}
+            type='submit'
             id='create-recipe-submit'
           >
             {isCreating ? (

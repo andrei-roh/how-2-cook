@@ -51,3 +51,5 @@ export const EMPTY_RECIPE: IRecipe = {
   ingredients: '',
   description: '',
 };
+
+export const CURRENT_RECIPE = 'CURRENT_RECIPE';
