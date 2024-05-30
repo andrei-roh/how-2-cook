@@ -3,7 +3,7 @@
 exports[`Testing: RecipeCard > should render 1`] = `
 <div>
   <div
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root _recipeCardWrapper_a06f98 css-bhp9pd-MuiPaper-root-MuiCard-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation3 MuiCard-root _recipeCardWrapper_a06f98 css-9v99vz-MuiPaper-root-MuiCard-root"
   >
     <div
       class="MuiStack-root _recipeContainer_a06f98 css-nen11g-MuiStack-root"
@@ -38,6 +38,11 @@ exports[`Testing: RecipeCard > should render 1`] = `
             alt="Show Recipe Button"
             class="_recipeCardLogo_a06f98"
             src="/src/assets/eye.svg"
+          />
+          <img
+            alt="Delete Recipe Button"
+            class="_recipeCardLogo_a06f98"
+            src="/src/assets/paper-bin.svg"
           />
         </div>
       </div>
