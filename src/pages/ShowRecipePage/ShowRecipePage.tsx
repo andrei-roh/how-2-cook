@@ -63,8 +63,7 @@ export const ShowRecipePage = () => {
           <TextArea
             value={ingredients}
             setChange={() => null}
-            labelText={'Ингридиенты:'}
-
+            labelText='Ингредиенты:'
             isDisabled
             id='show-recipe-ingredients'
             textAreaClassName={css.recipeIngredients}
@@ -73,7 +72,7 @@ export const ShowRecipePage = () => {
           <TextArea
             value={`${description}, ${description}`}
             setChange={() => null}
-            labelText={'Описание:'}
+            labelText='Описание:'
             isDisabled
             id='show-recipe-description'
             textAreaClassName={css.recipeDescription}

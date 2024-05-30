@@ -191,7 +191,7 @@ export const EditRecipePage = () => {
             type='submit'
           >
             {isEditing ? (
-              <CircularProgress color='inherit' />
+              <CircularProgress color='inherit' size={32} />
             ) : (
               'Обновить'
             )}
