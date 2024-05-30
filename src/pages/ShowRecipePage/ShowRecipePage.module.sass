@@ -17,11 +17,11 @@
         padding: 24px
 
     .recipeImage
-        width: 100%
-        height: calc(100vw / 0.75)
+        max-width: 100%
+        max-height: calc(100vw / 0.75)
 
         @media (min-width: breakpoints.$tablet)
-            width: 40%
+            max-width: 40%
             height: inherit
 
     .recipeTitle

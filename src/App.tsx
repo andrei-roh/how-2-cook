@@ -30,7 +30,7 @@ const App = () => {
   return (
     <>
       {checkLogin ? (
-        <CircularProgress /> 
+        <CircularProgress size={64} /> 
       ) : (
         <>
           <Header />

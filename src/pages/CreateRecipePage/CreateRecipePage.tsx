@@ -189,7 +189,7 @@ export const CreateRecipePage = () => {
             id='create-recipe-submit'
           >
             {isCreating ? (
-              <CircularProgress color="inherit" />
+              <CircularProgress color="inherit" size={32} />
             ) : (
               'Создать'
             )}

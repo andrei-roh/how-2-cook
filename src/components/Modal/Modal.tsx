@@ -40,7 +40,7 @@ export const Modal = ({
             className={submitClassNames}
             disabled={isLoading}
           >
-            {isLoading ? <CircularProgress /> : submitButtonMessage}
+            {isLoading ? <CircularProgress color='inherit' size={32} /> : submitButtonMessage}
           </Button>
         </div>
       </div>

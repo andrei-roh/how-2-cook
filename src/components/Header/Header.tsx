@@ -44,8 +44,8 @@ export const Header = () => {
       </button>}
       {isSignOut && (
         <Modal
-          cancelButtonMessage={'Отмена'}
-          submitButtonMessage={'Выход'}
+          cancelButtonMessage='Отмена'
+          submitButtonMessage='Выход'
           isLoading={false}
           handleClose={handleCloseModal}
           handleSubmit={handleSignOut}
