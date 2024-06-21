@@ -1,10 +1,11 @@
 import { collection, getDocs, orderBy, query } from 'firebase/firestore';
+import { RECIPES_TABLE_PATH } from 'src/constants';
 import { firebaseDb } from 'src/main';
 import { IRecipe } from 'src/types';
 
 export const getAllRecipes = async (): Promise<IRecipe[]> => {
   const queryRecipes = query(
-    collection(firebaseDb, 'recipes'),
+    collection(firebaseDb, RECIPES_TABLE_PATH),
     orderBy('createdAt', 'desc'),
   );
   

@@ -7,6 +7,7 @@ import {
   SET_MANAGE_RECIPES_SCROLL_DIRECTION,
   SET_MANAGE_RECIPES_SCROLL_SIZE,
   SET_RECIPE_SEARCH_INPUT,
+  SET_SHOW_MENU,
   SET_USER,
   UPDATE_RECIPES_LIST,
 } from './types';
@@ -36,9 +37,7 @@ export const updateRecipesList = (recipes: IRecipe[]) => ({
   payload: recipes,
 });
 
-export const addImagesToList = (
-  recipesImages: RecipeImage[]
-) => ({
+export const addImagesToList = (recipesImages: RecipeImage[]) => ({
   type: ADD_IMAGES_TO_LIST,
   payload: recipesImages,
 });
@@ -58,4 +57,9 @@ export const setRecipesPageScrollDirection = (
 ) => ({
   type: SET_MANAGE_RECIPES_SCROLL_DIRECTION,
   payload: scrollDirection,
+});
+
+export const setShowMenu = (isMenu: boolean) => ({
+  type: SET_SHOW_MENU,
+  payload: isMenu,
 });

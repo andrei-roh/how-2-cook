@@ -1,0 +1,52 @@
+@use 'src/style/colors'
+@import 'src/style/typography'
+
+.menuWrapper
+    z-index: -1
+    position: fixed
+    top: 0
+    left: 0
+    opacity: 0
+    width: 100vw
+    height: 100vh
+    background-color: colors.$smoke
+    padding: 8px 12px 0 30px
+    box-sizing: border-box
+
+    .menuContent
+        max-width: calc(768px - 30px)
+        display: flex
+        flex-direction: column
+        margin: 0 auto
+
+    .menuCloseButton
+        width: fit-content
+        align-self: flex-end
+
+    .menuLink
+        @extend .H4
+        color: colors.$purple
+        padding-bottom: 24px
+
+        &:hover
+            text-decoration: underline
+
+    .currentMenuLink
+        text-decoration: underline
+
+    .modalCancelButton
+        color: colors.$purple
+        background-color: colors.$white
+        border: 1px solid colors.$purple
+
+        &:hover
+            color: colors.$white
+            background-color: colors.$blue
+            border: none
+
+    .modalUserLogoutButton
+        background-color: colors.$blue
+        color: colors.$white
+
+        &:hover
+            background-color: colors.$sky

@@ -16,6 +16,11 @@ export type RecipeImage = {
   [key: string]: string;
 };
 
+export interface IIngredient {
+  id: string;
+  name: string;
+}
+
 export interface IRecipe {
   id: string;
   imageUrl: string;
@@ -41,6 +46,7 @@ export interface IState {
     scrollSize: number;
     scrollDirection: ScrollDirection;
   };
+  isMenu: boolean;
 }
 
 export interface IAction extends Action {

@@ -5,6 +5,7 @@ export const RECIPES_ROUTE = '/recipes';
 export const CREATE_RECIPE_ROUTE = '/recipe/create';
 export const SHOW_RECIPE_ROUTE = '/recipe/show/:id';
 export const EDIT_RECIPE_ROUTE = '/recipe/edit/:id';
+export const INGREDIENTS_ROUTE = '/ingredients';
 
 export const DEFAULT_NOTIFICATION = 'Default Notification Message';
 export const NOTIFICATIONS = (value?: string) => ({
@@ -25,9 +26,13 @@ export const NOTIFICATIONS = (value?: string) => ({
     'Извините, загрузка изображения невозможна. Размер не должен превышать 10MB',
   IMAGE_WRONG_TYPE:
     'Извините, загрузка изображения невозможна. Разрешены следующие форматы изображений: png, jpg, jpeg, webp',
+  INGREDIENT_EXISTS: `Ингредиент с id ${value} уже существует`,
+  INGREDIENT_CREATED: `Ингредиент ${value} создан`,
+  INGREDIENT_CREATION_ERROR: `Ошибка при создании ингредиента ${value}`,
 });
 
 export const RECIPES_TABLE_PATH = 'recipes';
+export const INGREDIENTS_TABLE_PATH = 'ingredients';
 
 export const IMAGE_TYPE = [
   ImageType.Jpeg,

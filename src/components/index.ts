@@ -5,3 +5,5 @@ export { Notification } from './Notification/Notification';
 export { ImageLoader } from './ImageLoader/ImageLoader';
 export { TextArea } from './TextArea/TextArea';
 export { Select } from './Select/Select';
+export { Link } from './Link/Link';
+export { Menu } from './Menu/Menu';

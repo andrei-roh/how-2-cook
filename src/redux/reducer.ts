@@ -9,6 +9,7 @@ import {
   SET_MANAGE_RECIPES_SCROLL_DIRECTION_CREATOR,
   SET_MANAGE_RECIPES_SCROLL_SIZE_CREATOR,
   SET_RECIPE_SEARCH_INPUT_CREATOR,
+  SET_SHOW_MENU_CREATOR,
   SET_USER_CREATOR,
   UPDATE_RECIPES_LIST_CREATOR,
 } from './creators';
@@ -24,6 +25,7 @@ const initialState = {
     scrollDirection: ScrollDirection.Down,
     scrollSize: 0,
   },
+  isMenu: false,
 };
 
 const rootReducer = createReducer(initialState, (builder) => {
@@ -54,7 +56,10 @@ const rootReducer = createReducer(initialState, (builder) => {
     })
     .addCase(SET_MANAGE_RECIPES_SCROLL_DIRECTION_CREATOR, (state, action) => {
       state.recipesPage.scrollDirection = action.payload;
-    });
+    })
+    .addCase(SET_SHOW_MENU_CREATOR, (state, action) => {
+      state.isMenu = action.payload;
+    })
 });
 
 export default rootReducer;

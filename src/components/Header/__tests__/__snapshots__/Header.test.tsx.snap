@@ -5,13 +5,22 @@ exports[`Testing: Header > should render 1`] = `
   <div
     class="_headerWrapper_069298"
   >
+    <button
+      class="_headerButton_069298"
+    >
+      <img
+        alt="Menu Button"
+        class="_headerLogo_069298"
+        src="/src/assets/bedside-table.svg"
+      />
+    </button>
     <div
       class="_userEmail_069298"
     >
       Test@email.com
     </div>
     <button
-      class="_headerModalButton_069298"
+      class="_headerButton_069298"
     >
       <img
         alt="Sign Out Button"
