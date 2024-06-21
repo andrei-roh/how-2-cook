@@ -1,15 +1,14 @@
 import { useDispatch, useSelector } from 'react-redux';
 import css from './Header.module.sass';
-import { IState, IUser, Severity } from 'src/types';
-import { getAuth, signOut } from 'firebase/auth';
-import { showNotification } from 'src/utils/showNotification';
-import { NOTIFICATIONS, ROOT_ROUTE } from 'src/constants';
+import { IState } from 'src/types';
 import { useState } from 'react';
 import { Modal } from '../Modal/Modal';
 import Skeleton from 'src/assets/fish-skeleton.svg';
-import { useNavigate } from 'react-router-dom';
+import Table from 'src/assets/bedside-table.svg';
 import { Dispatch } from '@reduxjs/toolkit';
-import { setUser } from 'src/redux/actions';
+import { setShowMenu } from 'src/redux/actions';
+import { userSignOut } from 'src/utils/userSignOut';
+import { useNavigate } from 'react-router-dom';
 
 export const Header = () => {
   const navigate = useNavigate();
@@ -19,29 +18,30 @@ export const Header = () => {
 
   const handleShowModal = () => setIsSignOut(true);
   const handleCloseModal = () => setIsSignOut(false);
+  const handleShowMenu = () => dispatch(setShowMenu(true));
 
-  const handleSignOut = async () => {
-    const auth = getAuth();
-
-    signOut(auth)
-      .then(() => {
-        dispatch(setUser({} as IUser));
-        showNotification(NOTIFICATIONS(user.email).SIGN_OUT_SUCCESS, 6000, Severity.Info);
-        navigate(ROOT_ROUTE);
-      })
-      .catch(() => {
-        showNotification(NOTIFICATIONS(user.email).SIGN_OUT_ERROR, 6000, Severity.Error);
-      });
-    
+  const handleSignOut = () => {
+    userSignOut(navigate, dispatch, user);
     handleCloseModal();
   };
 
   return (
     <div className={css.headerWrapper}>
+      {user.email && (
+        <button onClick={handleShowMenu} className={css.headerButton}>
+          <img className={css.headerLogo} src={Table} alt='Menu Button' />
+        </button>
+      )}
       <div className={css.userEmail}>{user.email || ''}</div>
-      {user.email && <button onClick={handleShowModal} className={css.headerModalButton}>
-        <img className={css.headerLogo} src={Skeleton} alt='Sign Out Button' />
-      </button>}
+      {user.email && (
+        <button onClick={handleShowModal} className={css.headerButton}>
+          <img
+            className={css.headerLogo}
+            src={Skeleton}
+            alt='Sign Out Button'
+          />
+        </button>
+      )}
       {isSignOut && (
         <Modal
           cancelButtonMessage='Отмена'

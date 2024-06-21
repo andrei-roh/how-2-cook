@@ -1,0 +1,43 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Testing: Menu > should render 1`] = `
+<div>
+  <div
+    class="_menuWrapper_66b3e6"
+    id="menu"
+  >
+    <div
+      class="_menuContent_66b3e6"
+    >
+      <button
+        class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary _menuCloseButton_66b3e6 css-1e6y48t-MuiButtonBase-root-MuiButton-root"
+        tabindex="0"
+        type="button"
+      >
+        <img
+          src="/src/assets/paw.svg"
+          width="30"
+        />
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </button>
+      <a
+        class="_link_4010ca _menuLink_66b3e6"
+      >
+        Рецепты
+      </a>
+      <a
+        class="_link_4010ca _menuLink_66b3e6"
+      >
+        Ингредиенты
+      </a>
+      <a
+        class="_link_4010ca _menuLink_66b3e6"
+      >
+        Выход
+      </a>
+    </div>
+  </div>
+</div>
+`;
