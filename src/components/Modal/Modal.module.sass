@@ -39,8 +39,25 @@
             justify-content: space-between
             gap: 18px
 
-            .modalSubmitButton
+            .modalButton
                 @extend .H6
                 width: 120px
                 height: 42px
                 box-sizing: border-box
+
+            .modalCancelButton
+                color: colors.$purple
+                background-color: colors.$white
+                border: 1px solid colors.$purple
+
+                &:hover
+                    color: colors.$white
+                    background-color: colors.$blue
+                    border: none
+
+            .modalSubmitButton
+                background-color: colors.$blue
+                color: colors.$white
+
+                &:hover
+                    background-color: colors.$sky

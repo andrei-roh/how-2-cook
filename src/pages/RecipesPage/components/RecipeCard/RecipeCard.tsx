@@ -119,8 +119,6 @@ export const RecipeCard = ({
             handleClose={handleCloseModal}
             handleSubmit={handleDeleteRecipe}
             message={`Вы уверены, что хотите удалить рецепт ${name}?`}
-            submitClassName={css.modalUserLogoutButton}
-            cancelClassName={css.modalCancelButton}
           />
         )}
       </Stack>

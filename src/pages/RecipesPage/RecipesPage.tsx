@@ -16,7 +16,7 @@ import {
 } from 'src/redux/actions';
 import { getAllRecipes } from 'src/utils/getAllRecipes';
 import TextField from '@mui/material/TextField';
-import { InputAdornment } from '@mui/material';
+import InputAdornment from '@mui/material/InputAdornment';
 import Telescope from 'src/assets/telescope.svg';
 import CircularProgress from '@mui/material/CircularProgress';
 import Stack from '@mui/material/Stack';
@@ -115,7 +115,7 @@ export const RecipesPage = () => {
           <Stack
             direction='row'
             useFlexGap
-            className={css.manageUsersTitleWrapper}
+            className={css.recipesPageTitleWrapper}
           >
             <Typography className={css.recipesPageTitle}>Рецепты</Typography>
             <img

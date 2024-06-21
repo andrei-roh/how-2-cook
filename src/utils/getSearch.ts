@@ -1,11 +1,9 @@
-import { IRecipe } from 'src/types';
-
-export const getSearch = (recipes: IRecipe[], value?: string) => {
-  if (recipes.length === 0 || !value) return recipes;
+export const getSearch = <T extends { name: string }>(values: T[], value?: string) => {
+  if (values.length === 0 || !value) return values;
 
   const unsensitiveValue = value.toLowerCase();
 
-  return recipes.filter((user) =>
+  return values.filter((user) =>
     user.name.toLowerCase().startsWith(unsensitiveValue)
   );
 };

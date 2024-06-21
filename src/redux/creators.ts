@@ -1,9 +1,17 @@
 import { createAction } from '@reduxjs/toolkit';
-import { IRecipe, IUser, RecipeImage, ScrollDirection } from 'src/types';
+import {
+  IIngredient,
+  IRecipe,
+  IUser,
+  RecipeImage,
+  ScrollDirection,
+} from 'src/types';
 import {
   ADD_IMAGES_TO_LIST,
+  ADD_INGREDIENTS_TO_LIST,
   ADD_RECIPES_TO_LIST,
   SET_ERROR,
+  SET_INGREDIENT_SEARCH_INPUT,
   SET_LOADING,
   SET_MANAGE_RECIPES_SCROLL_DIRECTION,
   SET_MANAGE_RECIPES_SCROLL_SIZE,
@@ -32,3 +40,9 @@ export const SET_MANAGE_RECIPES_SCROLL_DIRECTION_CREATOR =
   createAction<ScrollDirection>(SET_MANAGE_RECIPES_SCROLL_DIRECTION);
 
 export const SET_SHOW_MENU_CREATOR = createAction<boolean>(SET_SHOW_MENU);
+export const ADD_INGREDIENTS_TO_LIST_CREATOR = createAction<IIngredient[]>(
+  ADD_INGREDIENTS_TO_LIST
+);
+export const SET_INGREDIENT_SEARCH_INPUT_CREATOR = createAction<string>(
+  SET_INGREDIENT_SEARCH_INPUT
+);

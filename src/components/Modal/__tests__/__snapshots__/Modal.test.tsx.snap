@@ -17,7 +17,7 @@ exports[`Testing: Modal > should render 1`] = `
         class="_buttonsPanel_c49097"
       >
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary _modalSubmitButton_c49097 cancelTestClass css-1e6y48t-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary _modalButton_c49097 _modalCancelButton_c49097 cancelTestClass css-1e6y48t-MuiButtonBase-root-MuiButton-root"
           tabindex="0"
           type="button"
         >
@@ -27,7 +27,7 @@ exports[`Testing: Modal > should render 1`] = `
           />
         </button>
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary _modalSubmitButton_c49097 submitTestClass css-1e6y48t-MuiButtonBase-root-MuiButton-root"
+          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary _modalButton_c49097 _modalSubmitButton_c49097 submitTestClass css-1e6y48t-MuiButtonBase-root-MuiButton-root"
           tabindex="0"
           type="button"
         >

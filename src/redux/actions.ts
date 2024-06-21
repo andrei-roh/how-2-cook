@@ -1,8 +1,10 @@
-import { IRecipe, IUser, RecipeImage, ScrollDirection } from 'src/types';
+import { IIngredient, IRecipe, IUser, RecipeImage, ScrollDirection } from 'src/types';
 import {
   ADD_IMAGES_TO_LIST,
+  ADD_INGREDIENTS_TO_LIST,
   ADD_RECIPES_TO_LIST,
   SET_ERROR,
+  SET_INGREDIENT_SEARCH_INPUT,
   SET_LOADING,
   SET_MANAGE_RECIPES_SCROLL_DIRECTION,
   SET_MANAGE_RECIPES_SCROLL_SIZE,
@@ -62,4 +64,14 @@ export const setRecipesPageScrollDirection = (
 export const setShowMenu = (isMenu: boolean) => ({
   type: SET_SHOW_MENU,
   payload: isMenu,
+});
+
+export const addIngredientsToList = (ingredients: IIngredient[]) => ({
+  type: ADD_INGREDIENTS_TO_LIST,
+  payload: ingredients,
+});
+
+export const setIngredientsPageSearchInput = (searchInput: string) => ({
+  type: SET_INGREDIENT_SEARCH_INPUT,
+  payload: searchInput,
 });
