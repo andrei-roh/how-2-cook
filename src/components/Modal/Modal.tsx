@@ -24,8 +24,8 @@ export const Modal = ({
   submitClassName,
   cancelClassName,
 }: ModalProps) => {
-  const submitClassNames = getClassesList(css.modalSubmitButton, submitClassName);
-  const cancelClassNames = getClassesList(css.modalSubmitButton, cancelClassName);
+  const submitClassNames = getClassesList(`${css.modalButton} ${css.modalSubmitButton}`, submitClassName);
+  const cancelClassNames = getClassesList(`${css.modalButton} ${css.modalCancelButton}`, cancelClassName);
 
   return (
     <div className={css.modalWrapper}>

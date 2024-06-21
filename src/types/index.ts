@@ -47,6 +47,10 @@ export interface IState {
     scrollDirection: ScrollDirection;
   };
   isMenu: boolean;
+  ingredientsList: IIngredient[];
+  ingredientsPage: {
+    ingredientSearchInput: string;
+  }
 }
 
 export interface IAction extends Action {

@@ -1,0 +1,39 @@
+@use 'src/style/colors'
+@import 'src/style/typography'
+
+.ingredientsServiceWrapper
+    width: 100%
+    margin: calc(100vh / 4 - 100px) 0 24px 0
+
+    .ingredientsBlockLogo
+        margin-top: 180px
+        height: 200px
+
+    .emptyMessage
+        @extend .T1
+        text-align: center
+
+.ingredientsBlockWrapper
+    width: 100%
+    margin-top: 150px
+    padding-bottom: 16px
+    justify-content: center
+    align-items: center
+
+    .ingredientContainer
+        width: 100%
+        box-sizing: border-box
+        padding: 16px
+        border: solid 1px colors.$purple
+        border-radius: 8px
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+        gap: 10px
+
+        .buttonsPanel
+            display: flex
+            gap: 15px
+    
+            .ingredientBlockLogo
+                width: 24px

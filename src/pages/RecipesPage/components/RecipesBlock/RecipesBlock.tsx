@@ -46,8 +46,8 @@ export const RecipesBlock = ({ recipes, isSearch }: RecipesBlockProps) => {
       spacing={2}
       className={css.recipesBlockWrapper}
     >
-      {recipes.map((user) => (
-        <RecipeCard key={user.id} {...user} />
+      {recipes.map((recipe) => (
+        <RecipeCard key={recipe.id} {...recipe} />
       ))}
     </Stack>
   );

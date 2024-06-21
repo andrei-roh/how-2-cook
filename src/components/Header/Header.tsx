@@ -50,8 +50,6 @@ export const Header = () => {
           handleClose={handleCloseModal}
           handleSubmit={handleSignOut}
           message='Вы уверены, что хотите выйти?'
-          submitClassName={css.modalUserLogoutButton}
-          cancelClassName={css.modalCancelButton}
         />
       )}
     </div>

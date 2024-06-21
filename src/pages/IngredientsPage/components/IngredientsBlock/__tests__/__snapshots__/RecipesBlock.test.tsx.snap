@@ -1,0 +1,121 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Testing: IngredientsBlock > should render 1`] = `
+<div>
+  <div
+    class="MuiStack-root _ingredientsBlockWrapper_092a35 css-1ucnu3w-MuiStack-root"
+  >
+    <div
+      class="_ingredientContainer_092a35 MuiBox-root css-0"
+      id="00000000-0000-0000-0000-000000000001"
+      name="Test Ingredient 1"
+    >
+      <span
+        class="MuiTypography-root MuiTypography-button css-1f0on15-MuiTypography-root"
+      >
+        Test Ingredient 1
+      </span>
+      <div
+        class="_buttonsPanel_092a35 MuiBox-root css-0"
+      >
+        <img
+          alt="Edit Ingredient Button"
+          class="_ingredientBlockLogo_092a35"
+          src="/src/assets/pencil.svg"
+        />
+        <img
+          alt="Delete Ingredient Button"
+          class="_ingredientBlockLogo_092a35"
+          src="/src/assets/paper-bin.svg"
+        />
+      </div>
+    </div>
+    <div
+      class="_ingredientContainer_092a35 MuiBox-root css-0"
+      id="00000000-0000-0000-0000-000000000002"
+      name="Test Ingredient 2"
+    >
+      <span
+        class="MuiTypography-root MuiTypography-button css-1f0on15-MuiTypography-root"
+      >
+        Test Ingredient 2
+      </span>
+      <div
+        class="_buttonsPanel_092a35 MuiBox-root css-0"
+      >
+        <img
+          alt="Edit Ingredient Button"
+          class="_ingredientBlockLogo_092a35"
+          src="/src/assets/pencil.svg"
+        />
+        <img
+          alt="Delete Ingredient Button"
+          class="_ingredientBlockLogo_092a35"
+          src="/src/assets/paper-bin.svg"
+        />
+      </div>
+    </div>
+    <div
+      class="_ingredientContainer_092a35 MuiBox-root css-0"
+      id="00000000-0000-0000-0000-000000000003"
+      name="Test Ingredient 3"
+    >
+      <span
+        class="MuiTypography-root MuiTypography-button css-1f0on15-MuiTypography-root"
+      >
+        Test Ingredient 3
+      </span>
+      <div
+        class="_buttonsPanel_092a35 MuiBox-root css-0"
+      >
+        <img
+          alt="Edit Ingredient Button"
+          class="_ingredientBlockLogo_092a35"
+          src="/src/assets/pencil.svg"
+        />
+        <img
+          alt="Delete Ingredient Button"
+          class="_ingredientBlockLogo_092a35"
+          src="/src/assets/paper-bin.svg"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Testing: IngredientsBlock > should render if have not found ingredient 1`] = `
+<div>
+  <div
+    class="MuiStack-root _ingredientsServiceWrapper_092a35 css-1ucnu3w-MuiStack-root"
+  >
+    <img
+      class="_ingredientsBlockLogo_092a35"
+      src="/src/assets/pancakes.svg"
+    />
+    <p
+      class="MuiTypography-root MuiTypography-body1 _emptyMessage_092a35 css-ahj2mt-MuiTypography-root"
+    >
+      Ингредиенты не найдены
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Testing: IngredientsBlock > should render if there are no ingredients 1`] = `
+<div>
+  <div
+    class="MuiStack-root _ingredientsServiceWrapper_092a35 css-1ucnu3w-MuiStack-root"
+  >
+    <img
+      class="_ingredientsBlockLogo_092a35"
+      src="/src/assets/hand-drawn-food.svg"
+    />
+    <p
+      class="MuiTypography-root MuiTypography-body1 _emptyMessage_092a35 css-ahj2mt-MuiTypography-root"
+    >
+      Добавьте первый ингредиент
+    </p>
+  </div>
+</div>
+`;

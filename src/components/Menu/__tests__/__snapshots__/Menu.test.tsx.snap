@@ -15,7 +15,7 @@ exports[`Testing: Menu > should render 1`] = `
         type="button"
       >
         <img
-          src="/src/assets/paw.svg"
+          src="/src/assets/close-circle.svg"
           width="30"
         />
         <span

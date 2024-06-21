@@ -1,6 +1,6 @@
 import { Modal } from 'src/components';
 import css from './Menu.module.sass';
-import Paw from 'src/assets/paw.svg';
+import Close from 'src/assets/close-circle.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { Dispatch } from '@reduxjs/toolkit';
 import { Link } from 'src/components';
@@ -11,7 +11,7 @@ import {
 } from 'src/constants';
 import { useState } from 'react';
 import { getClassesList } from 'src/utils/getClassesList';
-import { Button } from '@mui/material';
+import Button from '@mui/material/Button';
 import { setShowMenu } from 'src/redux/actions';
 import { userSignOut } from 'src/utils/userSignOut';
 import { IState } from 'src/types';
@@ -47,7 +47,7 @@ export const Menu = () => {
     <div id='menu' className={css.menuWrapper}>
       <div className={css.menuContent}>
         <Button onClick={handleCloseMenu} className={css.menuCloseButton}>
-          <img width={30} src={Paw} />
+          <img width={30} src={Close} />
         </Button>
         <Link
           onClick={() => handleChangePage(RECIPES_ROUTE)}
@@ -72,8 +72,6 @@ export const Menu = () => {
             handleClose={handleCloseModal}
             handleSubmit={handleSignOut}
             message='Вы уверены, что хотите выйти?'
-            submitClassName={css.modalUserLogoutButton}
-            cancelClassName={css.modalCancelButton}
           />
         )}
       </div>

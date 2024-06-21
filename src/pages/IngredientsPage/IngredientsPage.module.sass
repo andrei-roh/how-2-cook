@@ -1,14 +1,14 @@
 @use 'src/style/colors'
 @import 'src/style/typography'
 
-.recipesPageWrapper 
+.ingredientsPageWrapper 
     padding: 16px
     width: 100%
     height: calc(100vh - 46px)
     box-sizing: border-box
     align-items: center
 
-    .recipesPagePanelWrapper
+    .ingredientsPagePanelWrapper
         z-index: 1
         position: fixed
         width: 100%
@@ -19,13 +19,30 @@
         background-color: colors.$white
         border-bottom: 1px solid colors.$gray
 
-        .recipesPageTitleWrapper
+        .ingredientsPageTitleWrapper
             justify-content: space-between
             align-items: center
             margin-bottom: 12px
 
-            .recipesPageTitle
+            .ingredientsPageTitle
                 @extend .H3
 
+    .creationPanel
+        margin-bottom: 20px
+
+        .creationButton
+            width: 110px
+            background-color: colors.$blue
+            color: colors.$white
+
+            &:hover
+                background-color: colors.$sky
+            &:disabled,
+            &[disabled]
+                background-color: colors.$gray
+        
     .loader
         margin: 45vh 0 24px 0
+
+.mover
+    margin-top: 80px
