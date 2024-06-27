@@ -10,19 +10,29 @@ exports[`Testing: IngredientsBlock > should render 1`] = `
       id="00000000-0000-0000-0000-000000000001"
       name="Test Ingredient 1"
     >
-      <span
-        class="MuiTypography-root MuiTypography-button css-1f0on15-MuiTypography-root"
+      <label
+        class="_label_d67774 _ingredientLabel_dd3edf"
       >
-        Test Ingredient 1
-      </span>
+        <input
+          class="_input_d67774 _ingredientInput_dd3edf"
+          disabled=""
+          placeholder="Ввод"
+          type="text"
+          value="Test Ingredient 1"
+        />
+      </label>
       <div
         class="_buttonsPanel_dd3edf MuiBox-root css-0"
       >
-        <img
-          alt="Edit Ingredient Button"
-          class="_ingredientBlockLogo_dd3edf"
-          src="/src/assets/pencil.svg"
-        />
+        <div
+          class="_updatePanel_dd3edf MuiBox-root css-0"
+        >
+          <img
+            alt="Accept/Edit Ingredient Button"
+            class="_ingredientBlockLogo_dd3edf"
+            src="/src/assets/pencil.svg"
+          />
+        </div>
         <img
           alt="Delete Ingredient Button"
           class="_ingredientBlockLogo_dd3edf"
@@ -35,19 +45,29 @@ exports[`Testing: IngredientsBlock > should render 1`] = `
       id="00000000-0000-0000-0000-000000000002"
       name="Test Ingredient 2"
     >
-      <span
-        class="MuiTypography-root MuiTypography-button css-1f0on15-MuiTypography-root"
+      <label
+        class="_label_d67774 _ingredientLabel_dd3edf"
       >
-        Test Ingredient 2
-      </span>
+        <input
+          class="_input_d67774 _ingredientInput_dd3edf"
+          disabled=""
+          placeholder="Ввод"
+          type="text"
+          value="Test Ingredient 2"
+        />
+      </label>
       <div
         class="_buttonsPanel_dd3edf MuiBox-root css-0"
       >
-        <img
-          alt="Edit Ingredient Button"
-          class="_ingredientBlockLogo_dd3edf"
-          src="/src/assets/pencil.svg"
-        />
+        <div
+          class="_updatePanel_dd3edf MuiBox-root css-0"
+        >
+          <img
+            alt="Accept/Edit Ingredient Button"
+            class="_ingredientBlockLogo_dd3edf"
+            src="/src/assets/pencil.svg"
+          />
+        </div>
         <img
           alt="Delete Ingredient Button"
           class="_ingredientBlockLogo_dd3edf"
@@ -60,19 +80,29 @@ exports[`Testing: IngredientsBlock > should render 1`] = `
       id="00000000-0000-0000-0000-000000000003"
       name="Test Ingredient 3"
     >
-      <span
-        class="MuiTypography-root MuiTypography-button css-1f0on15-MuiTypography-root"
+      <label
+        class="_label_d67774 _ingredientLabel_dd3edf"
       >
-        Test Ingredient 3
-      </span>
+        <input
+          class="_input_d67774 _ingredientInput_dd3edf"
+          disabled=""
+          placeholder="Ввод"
+          type="text"
+          value="Test Ingredient 3"
+        />
+      </label>
       <div
         class="_buttonsPanel_dd3edf MuiBox-root css-0"
       >
-        <img
-          alt="Edit Ingredient Button"
-          class="_ingredientBlockLogo_dd3edf"
-          src="/src/assets/pencil.svg"
-        />
+        <div
+          class="_updatePanel_dd3edf MuiBox-root css-0"
+        >
+          <img
+            alt="Accept/Edit Ingredient Button"
+            class="_ingredientBlockLogo_dd3edf"
+            src="/src/assets/pencil.svg"
+          />
+        </div>
         <img
           alt="Delete Ingredient Button"
           class="_ingredientBlockLogo_dd3edf"
