@@ -12,9 +12,29 @@
     justify-content: space-between
     gap: 10px
 
+    .ingredientInput
+        border: none
+        border-radius: 0
+        padding: 0
+        width: fit-content
+        height: fit-content
+        margin: 0
+        text-transform: uppercase
+        color: #43424E
+
+        &:focus
+            outline: none
+
+    .ingredientLabel
+        margin-bottom: 0
+
     .buttonsPanel
         display: flex
-        gap: 15px
+        gap: 16px
+
+        .updatePanel
+            display: flex
+            gap: 8px    
 
         .ingredientBlockLogo
             width: 24px

@@ -32,6 +32,8 @@ export const NOTIFICATIONS = (value?: string) => ({
   INGREDIENT_DOES_NOT_EXISTS:  `Ингредиент ${value} не найден в базе данных`,
   INGREDIENT_DELETED: `Ингредиент ${value} удален`,
   INGREDIENT_DELETION_ERROR: `Ошибка при удалении ингредиента ${value}`,
+  INGREDIENT_UPDATED:  `Ингредиент ${value} обновлен`,
+  INGREDIENT_UPDATE_ERROR: `Ошибка при обновлении ингредиента ${value}`,
 });
 
 export const RECIPES_TABLE_PATH = 'recipes';

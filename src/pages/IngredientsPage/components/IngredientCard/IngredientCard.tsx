@@ -1,14 +1,16 @@
 import css from './IngredientCard.module.sass';
-import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Edit from 'src/assets/pencil.svg';
 import Bin from 'src/assets/paper-bin.svg';
-import { Modal } from 'src/components';
+import Accept from 'src/assets/check-square.svg';
+import Close from 'src/assets/close-square.svg';
+import { Input, Modal } from 'src/components';
 import { IIngredient, IState } from 'src/types';
 import { useState } from 'react';
 import { deleteIngredient } from 'src/utils/deleteIngredient';
 import { updateIngredientsList } from 'src/redux/actions';
 import { useDispatch, useSelector } from 'react-redux';
+import { editIngredient } from 'src/utils/editIngredient';
 
 interface IngredientCardProps {
   ingredient: IIngredient;
@@ -17,8 +19,21 @@ interface IngredientCardProps {
 export const IngredientCard = ({ ingredient }: IngredientCardProps) => {
   const dispatch = useDispatch();
   const ingredientsList = useSelector((state: IState) => state.ingredientsList);
+  const [isUpdate, setIsUpdate] = useState(false);
   const [isDelete, setIsDelete] = useState(false);
+  const [ingredientName, setIngredientName] = useState(ingredient.name);
 
+  const handleStartUpdate = () => {
+    if (isUpdate && ingredientName !== ingredient.name) {
+      editIngredient(ingredient.id, { name: ingredientName});
+    }
+
+    setIsUpdate(!isUpdate);
+  };
+  const handleDismissUpdate = () => {
+    setIngredientName(ingredient.name);
+    setIsUpdate(false);
+  };
   const handleShowModal = () => setIsDelete(true);
   const handleCloseModal = () => setIsDelete(false);
   const handleDeleteIngredient = (id: string, name: string) => {
@@ -43,14 +58,31 @@ export const IngredientCard = ({ ingredient }: IngredientCardProps) => {
         {...ingredient}
         className={css.ingredientContainer}
       >
-        <Typography variant='button'>{ingredient.name}</Typography>
+        <Input
+          value={ingredientName}
+          setChange={setIngredientName}
+          isDisabled={!isUpdate}
+          labelClassName={css.ingredientLabel}
+          inputClassName={css.ingredientInput}
+          isFocused={isUpdate}
+        />
         <Box className={css.buttonsPanel}>
-          <img
-            onClick={() => null}
-            className={css.ingredientBlockLogo}
-            src={Edit}
-            alt='Edit Ingredient Button'
-          />
+          <Box className={css.updatePanel}>
+            {isUpdate && (
+              <img
+                onClick={handleDismissUpdate}
+                className={css.ingredientBlockLogo}
+                src={Close}
+                alt='Close Edit Ingredient Button'
+              />
+            )}
+            <img
+              onClick={handleStartUpdate}
+              className={css.ingredientBlockLogo}
+              src={isUpdate ? Accept : Edit}
+              alt='Accept/Edit Ingredient Button'
+            />
+          </Box>
           <img
             onClick={handleShowModal}
             className={css.ingredientBlockLogo}
