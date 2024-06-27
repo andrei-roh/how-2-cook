@@ -27,6 +27,7 @@ export const NOTIFICATIONS = (value?: string) => ({
   IMAGE_WRONG_TYPE:
     'Извините, загрузка изображения невозможна. Разрешены следующие форматы изображений: png, jpg, jpeg, webp',
   INGREDIENT_EXISTS: `Ингредиент с id ${value} уже существует`,
+  INGREDIENT_WITH_NAME_EXISTS: `Ингредиент ${value} уже существует`,
   INGREDIENT_CREATED: `Ингредиент ${value} создан`,
   INGREDIENT_CREATION_ERROR: `Ошибка при создании ингредиента ${value}`,
   INGREDIENT_DOES_NOT_EXISTS:  `Ингредиент ${value} не найден в базе данных`,

@@ -3,8 +3,8 @@ import { INGREDIENTS_TABLE_PATH } from 'src/constants';
 import { firebaseDb } from 'src/main';
 import { IIngredient } from 'src/types';
 
-export const getIngredient = async (ingredientId: string) => {
-  const docRef = doc(firebaseDb, INGREDIENTS_TABLE_PATH, ingredientId);
+export const getIngredient = async (ingredientId: string, ingredientName?: string) => {
+  const docRef = doc(firebaseDb, INGREDIENTS_TABLE_PATH, ingredientName ? ingredientName : ingredientId);
   const docSnap = await getDoc(docRef);
 
   if (docSnap.exists()) {
