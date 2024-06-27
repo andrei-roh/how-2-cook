@@ -1,0 +1,40 @@
+@use 'src/style/colors'
+@import 'src/style/typography'
+
+.ingredientContainer
+    width: 100%
+    box-sizing: border-box
+    padding: 16px
+    border: solid 1px colors.$purple
+    border-radius: 8px
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    gap: 10px
+
+    .ingredientInput
+        border: none
+        border-radius: 0
+        padding: 0
+        width: fit-content
+        height: fit-content
+        margin: 0
+        text-transform: uppercase
+        color: #43424E
+
+        &:focus
+            outline: none
+
+    .ingredientLabel
+        margin-bottom: 0
+
+    .buttonsPanel
+        display: flex
+        gap: 16px
+
+        .updatePanel
+            display: flex
+            gap: 8px    
+
+        .ingredientBlockLogo
+            width: 24px

@@ -56,6 +56,7 @@ export const EditRecipePage = () => {
     image !== null ||
     name !== recipeName ||
     recipeType !== type ||
+    isRecipeVegan !== isVegan ||
     recipeIngredients !== ingredients ||
     recipeDescription !== description;
 

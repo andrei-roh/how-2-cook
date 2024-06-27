@@ -61,6 +61,7 @@ export const IngredientsPage = () => {
     createIngredient(newIngredient).then((result) => {
       if (result) {
         dispatch(addIngredientsToList([newIngredient]));
+        setIsNewIngredientName('');
         setIsShowPanel(false);
       }
     });

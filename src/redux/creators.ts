@@ -18,6 +18,7 @@ import {
   SET_RECIPE_SEARCH_INPUT,
   SET_SHOW_MENU,
   SET_USER,
+  UPDATE_INGREDIENTS_LIST,
   UPDATE_RECIPES_LIST,
 } from './types';
 
@@ -45,4 +46,7 @@ export const ADD_INGREDIENTS_TO_LIST_CREATOR = createAction<IIngredient[]>(
 );
 export const SET_INGREDIENT_SEARCH_INPUT_CREATOR = createAction<string>(
   SET_INGREDIENT_SEARCH_INPUT
+);
+export const UPDATE_INGREDIENTS_LIST_CREATOR = createAction<IIngredient[]>(
+  UPDATE_INGREDIENTS_LIST
 );

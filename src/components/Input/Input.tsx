@@ -1,5 +1,6 @@
 import { getClassesList } from 'src/utils/getClassesList';
 import css from './Input.module.sass';
+import { useEffect, useRef } from 'react';
 
 type InputChange = (value: string) => {
   type: string;
@@ -19,10 +20,12 @@ interface InputProps {
   inputClassName?: string;
   isValidationError?: boolean;
   errorMessage?: string;
+  isFocused?: boolean;
 }
 
-const positiveIntegerRegex =/^\d+$/;
-const validateDigitalValue = (value: string) => positiveIntegerRegex.test(value);
+const positiveIntegerRegex = /^\d+$/;
+const validateDigitalValue = (value: string) =>
+  positiveIntegerRegex.test(value);
 
 export const Input = ({
   value,
@@ -37,6 +40,7 @@ export const Input = ({
   inputClassName,
   isValidationError,
   errorMessage,
+  isFocused = false,
 }: InputProps) => {
   const labelClasses = getClassesList(css.label, labelClassName);
 
@@ -46,13 +50,25 @@ export const Input = ({
     isValidationError ? css.inputError : undefined
   );
 
+  const inputRef = useRef(null);
+
   const handleSetChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (type === 'number' && !validateDigitalValue(e.target.value) && e.target.value !== '') {
+    if (
+      type === 'number' &&
+      !validateDigitalValue(e.target.value) &&
+      e.target.value !== ''
+    ) {
       return;
     }
 
-    setChange(e.target.value)
-  }
+    setChange(e.target.value);
+  };
+
+  useEffect(() => {
+    if (isFocused && inputRef.current) {
+      (inputRef.current as HTMLInputElement).focus();
+    }
+  }, [isFocused]);
 
   return (
     <label className={labelClasses}>
@@ -70,6 +86,7 @@ export const Input = ({
         value={value}
         onChange={(e) => handleSetChange(e)}
         disabled={isDisabled}
+        ref={inputRef}
       />
       {isValidationError && (
         <p className={css.validationError}>

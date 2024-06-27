@@ -27,8 +27,14 @@ export const NOTIFICATIONS = (value?: string) => ({
   IMAGE_WRONG_TYPE:
     'Извините, загрузка изображения невозможна. Разрешены следующие форматы изображений: png, jpg, jpeg, webp',
   INGREDIENT_EXISTS: `Ингредиент с id ${value} уже существует`,
+  INGREDIENT_WITH_NAME_EXISTS: `Ингредиент ${value} уже существует`,
   INGREDIENT_CREATED: `Ингредиент ${value} создан`,
   INGREDIENT_CREATION_ERROR: `Ошибка при создании ингредиента ${value}`,
+  INGREDIENT_DOES_NOT_EXISTS:  `Ингредиент ${value} не найден в базе данных`,
+  INGREDIENT_DELETED: `Ингредиент ${value} удален`,
+  INGREDIENT_DELETION_ERROR: `Ошибка при удалении ингредиента ${value}`,
+  INGREDIENT_UPDATED:  `Ингредиент ${value} обновлен`,
+  INGREDIENT_UPDATE_ERROR: `Ошибка при обновлении ингредиента ${value}`,
 });
 
 export const RECIPES_TABLE_PATH = 'recipes';
