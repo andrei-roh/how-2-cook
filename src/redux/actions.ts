@@ -11,6 +11,7 @@ import {
   SET_RECIPE_SEARCH_INPUT,
   SET_SHOW_MENU,
   SET_USER,
+  UPDATE_INGREDIENTS_LIST,
   UPDATE_RECIPES_LIST,
 } from './types';
 
@@ -74,4 +75,9 @@ export const addIngredientsToList = (ingredients: IIngredient[]) => ({
 export const setIngredientsPageSearchInput = (searchInput: string) => ({
   type: SET_INGREDIENT_SEARCH_INPUT,
   payload: searchInput,
+});
+
+export const updateIngredientsList = (ingredients: IIngredient[]) => ({
+  type: UPDATE_INGREDIENTS_LIST,
+  payload: ingredients,
 });

@@ -14,7 +14,11 @@ export const createRecipe = async (
   const eventsRef = collection(firebaseDb, RECIPES_TABLE_PATH);
 
   if (event) {
-    showNotification(NOTIFICATIONS(newRecipe.id).RECIPE_EXISTS, 6000, Severity.Error);
+    showNotification(
+      NOTIFICATIONS(newRecipe.id).RECIPE_EXISTS,
+      6000,
+      Severity.Error
+    );
     return false;
   }
 
@@ -24,16 +28,24 @@ export const createRecipe = async (
     `${import.meta.env.VITE_FIREBASE_STORAGE_BUCKET}/public/${newRecipe.id}`
   );
 
-  try {
-    await uploadBytes(storageRef, image);
-    await setDoc(doc(eventsRef, newRecipe.id), newRecipe);
+  return await uploadBytes(storageRef, image)
+    .then(() => setDoc(doc(eventsRef, newRecipe.id), newRecipe))
+    .then(() => {
+      showNotification(
+        NOTIFICATIONS(newRecipe.name).RECIPE_CREATED,
+        3000,
+        Severity.Success
+      );
 
-    showNotification(NOTIFICATIONS(newRecipe.name).RECIPE_CREATED, 3000, Severity.Success);
+      return true;
+    })
+    .catch(() => {
+      showNotification(
+        NOTIFICATIONS(newRecipe.name).RECIPE_CREATION_ERROR,
+        3000,
+        Severity.Error
+      );
 
-    return true;
-  } catch {
-    showNotification(NOTIFICATIONS(newRecipe.name).RECIPE_CREATION_ERROR, 3000, Severity.Error);
-
-    return false;
-  }
+      return false;
+    });
 };

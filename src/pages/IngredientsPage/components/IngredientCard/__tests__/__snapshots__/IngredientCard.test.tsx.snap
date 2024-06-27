@@ -1,0 +1,31 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Testing: IngredientCard > should render 1`] = `
+<div>
+  <div
+    class="_ingredientContainer_dd3edf MuiBox-root css-0"
+    id="00000000-0000-0000-0000-000000000001"
+    name="Test Ingredient 1"
+  >
+    <span
+      class="MuiTypography-root MuiTypography-button css-1f0on15-MuiTypography-root"
+    >
+      Test Ingredient 1
+    </span>
+    <div
+      class="_buttonsPanel_dd3edf MuiBox-root css-0"
+    >
+      <img
+        alt="Edit Ingredient Button"
+        class="_ingredientBlockLogo_dd3edf"
+        src="/src/assets/pencil.svg"
+      />
+      <img
+        alt="Delete Ingredient Button"
+        class="_ingredientBlockLogo_dd3edf"
+        src="/src/assets/paper-bin.svg"
+      />
+    </div>
+  </div>
+</div>
+`;

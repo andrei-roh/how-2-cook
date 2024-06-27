@@ -70,7 +70,7 @@ export const ShowRecipePage = () => {
             labelClassName={css.showRecipeTextAreaLabel}
           />
           <TextArea
-            value={`${description}, ${description}`}
+            value={description}
             setChange={() => null}
             labelText='Описание:'
             isDisabled

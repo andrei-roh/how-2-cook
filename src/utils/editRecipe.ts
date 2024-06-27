@@ -17,31 +17,41 @@ export const editRecipe = async (
   let storageRef = null;
 
   if (!recipe) {
-    showNotification(NOTIFICATIONS(recipeId).RECIPE_DOES_NOT_EXISTS, 6000, Severity.Error);
+    showNotification(
+      NOTIFICATIONS(recipeId).RECIPE_DOES_NOT_EXISTS,
+      6000,
+      Severity.Error
+    );
     return false;
   }
 
+  if (newImage) {
+    storage = getStorage();
+    storageRef = ref(
+      storage,
+      `${import.meta.env.VITE_FIREBASE_STORAGE_BUCKET}/public/${recipe.id}`
+    );
 
+    await uploadBytes(storageRef, newImage);
+  }
 
-  try {
-    if (newImage) {
-      storage = getStorage();
-      storageRef = ref(
-        storage,
-        `${import.meta.env.VITE_FIREBASE_STORAGE_BUCKET}/public/${recipe.id}`
+  return await updateDoc(doc(recipesRef, recipeId), { ...updatedFields })
+    .then(() => {
+      showNotification(
+        NOTIFICATIONS(recipeId).RECIPE_UPDATED,
+        3000,
+        Severity.Success
       );
 
-      await uploadBytes(storageRef, newImage);
-    }
+      return true;
+    })
+    .catch(() => {
+      showNotification(
+        NOTIFICATIONS(recipeId).RECIPE_UPDATE_ERROR,
+        3000,
+        Severity.Error
+      );
 
-    await updateDoc(doc(recipesRef, recipeId), { ...updatedFields });
-
-    showNotification(NOTIFICATIONS(recipeId).RECIPE_UPDATED, 3000, Severity.Success);
-
-    return true;
-  } catch {
-    showNotification(NOTIFICATIONS(recipeId).RECIPE_UPDATE_ERROR, 3000, Severity.Error);
-
-    return false;
-  }
+      return false;
+    });
 };

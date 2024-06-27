@@ -19,6 +19,7 @@ import {
   SET_RECIPE_SEARCH_INPUT_CREATOR,
   SET_SHOW_MENU_CREATOR,
   SET_USER_CREATOR,
+  UPDATE_INGREDIENTS_LIST_CREATOR,
   UPDATE_RECIPES_LIST_CREATOR,
 } from './creators';
 
@@ -77,6 +78,9 @@ const rootReducer = createReducer(initialState, (builder) => {
     })
     .addCase(SET_INGREDIENT_SEARCH_INPUT_CREATOR, (state, action) => {
       state.ingredientsPage.ingredientSearchInput = action.payload;
+    })
+    .addCase(UPDATE_INGREDIENTS_LIST_CREATOR, (state, action) => {
+      state.ingredientsList = action.payload;
     });
 });
 

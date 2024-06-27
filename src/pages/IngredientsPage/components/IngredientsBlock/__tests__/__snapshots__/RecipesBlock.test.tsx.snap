@@ -6,7 +6,7 @@ exports[`Testing: IngredientsBlock > should render 1`] = `
     class="MuiStack-root _ingredientsBlockWrapper_092a35 css-1ucnu3w-MuiStack-root"
   >
     <div
-      class="_ingredientContainer_092a35 MuiBox-root css-0"
+      class="_ingredientContainer_dd3edf MuiBox-root css-0"
       id="00000000-0000-0000-0000-000000000001"
       name="Test Ingredient 1"
     >
@@ -16,22 +16,22 @@ exports[`Testing: IngredientsBlock > should render 1`] = `
         Test Ingredient 1
       </span>
       <div
-        class="_buttonsPanel_092a35 MuiBox-root css-0"
+        class="_buttonsPanel_dd3edf MuiBox-root css-0"
       >
         <img
           alt="Edit Ingredient Button"
-          class="_ingredientBlockLogo_092a35"
+          class="_ingredientBlockLogo_dd3edf"
           src="/src/assets/pencil.svg"
         />
         <img
           alt="Delete Ingredient Button"
-          class="_ingredientBlockLogo_092a35"
+          class="_ingredientBlockLogo_dd3edf"
           src="/src/assets/paper-bin.svg"
         />
       </div>
     </div>
     <div
-      class="_ingredientContainer_092a35 MuiBox-root css-0"
+      class="_ingredientContainer_dd3edf MuiBox-root css-0"
       id="00000000-0000-0000-0000-000000000002"
       name="Test Ingredient 2"
     >
@@ -41,22 +41,22 @@ exports[`Testing: IngredientsBlock > should render 1`] = `
         Test Ingredient 2
       </span>
       <div
-        class="_buttonsPanel_092a35 MuiBox-root css-0"
+        class="_buttonsPanel_dd3edf MuiBox-root css-0"
       >
         <img
           alt="Edit Ingredient Button"
-          class="_ingredientBlockLogo_092a35"
+          class="_ingredientBlockLogo_dd3edf"
           src="/src/assets/pencil.svg"
         />
         <img
           alt="Delete Ingredient Button"
-          class="_ingredientBlockLogo_092a35"
+          class="_ingredientBlockLogo_dd3edf"
           src="/src/assets/paper-bin.svg"
         />
       </div>
     </div>
     <div
-      class="_ingredientContainer_092a35 MuiBox-root css-0"
+      class="_ingredientContainer_dd3edf MuiBox-root css-0"
       id="00000000-0000-0000-0000-000000000003"
       name="Test Ingredient 3"
     >
@@ -66,16 +66,16 @@ exports[`Testing: IngredientsBlock > should render 1`] = `
         Test Ingredient 3
       </span>
       <div
-        class="_buttonsPanel_092a35 MuiBox-root css-0"
+        class="_buttonsPanel_dd3edf MuiBox-root css-0"
       >
         <img
           alt="Edit Ingredient Button"
-          class="_ingredientBlockLogo_092a35"
+          class="_ingredientBlockLogo_dd3edf"
           src="/src/assets/pencil.svg"
         />
         <img
           alt="Delete Ingredient Button"
-          class="_ingredientBlockLogo_092a35"
+          class="_ingredientBlockLogo_dd3edf"
           src="/src/assets/paper-bin.svg"
         />
       </div>

@@ -20,23 +20,23 @@ export const createIngredient = async (
     return false;
   }
 
-  try {
-    await setDoc(doc(eventsRef, newIngredient.id), newIngredient);
+  return await setDoc(doc(eventsRef, newIngredient.id), newIngredient)
+    .then(() => {
+      showNotification(
+        NOTIFICATIONS(newIngredient.name).INGREDIENT_CREATED,
+        3000,
+        Severity.Success
+      );
 
-    showNotification(
-      NOTIFICATIONS(newIngredient.name).INGREDIENT_CREATED,
-      3000,
-      Severity.Success
-    );
+      return true;
+    })
+    .catch(() => {
+      showNotification(
+        NOTIFICATIONS(newIngredient.name).INGREDIENT_CREATION_ERROR,
+        3000,
+        Severity.Error
+      );
 
-    return true;
-  } catch {
-    showNotification(
-      NOTIFICATIONS(newIngredient.name).INGREDIENT_CREATION_ERROR,
-      3000,
-      Severity.Error
-    );
-
-    return false;
-  }
+      return false;
+    });
 };

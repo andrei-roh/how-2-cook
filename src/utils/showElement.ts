@@ -1,8 +1,10 @@
 export const showElement = (element: HTMLElement, message?: string) => {
   if (message) {
-    element.lastChild
-      ? ((element.lastChild as HTMLElement).innerText = message)
-      : (element.innerText = message);
+    const notificationMessage = document.querySelector('MuiAlert-message');
+
+    notificationMessage && element.contains(notificationMessage)
+      ? (notificationMessage as HTMLElement).innerText = message
+      : element.innerText = message
   }
 
   element.style.opacity = '1';
