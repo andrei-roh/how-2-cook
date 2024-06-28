@@ -28,7 +28,8 @@ const recipesListMock: IRecipe[] = [
     imageUrl: 'test_image_src_1',
     name: 'Test Recipe 1',
     type: DishType.Main,
-    ingredients: 'Test Ingredients 1',
+    ingredients: [],
+    composition: 'Test Ingredients 1',
     description: 'Test Description 1',
     isVegan: false,
   },
@@ -37,7 +38,8 @@ const recipesListMock: IRecipe[] = [
     imageUrl: 'test_image_src_2',
     name: 'Test Recipe 2',
     type: DishType.Soup,
-    ingredients: 'Test Ingredients 2',
+    ingredients: [],
+    composition: 'Test Ingredients 2',
     description: 'Test Description 2',
     isVegan: false,
   },
@@ -46,11 +48,18 @@ const recipesListMock: IRecipe[] = [
     imageUrl: 'test_image_src_3',
     name: 'Test Recipe 3',
     type: DishType.Salat,
-    ingredients: 'Test Ingredients 3',
+    ingredients: [],
+    composition: 'Test Ingredients 3',
     description: 'Test Description 3',
     isVegan: true,
   },
 ];
+const allIngredientsMock = [
+  {
+    id: '00000000-0000-0000-0000-000000000000',
+    name: 'Ingredient 1'
+  }
+]
 
 const stateMock = {
   user: userMock as IUser,
@@ -58,6 +67,7 @@ const stateMock = {
   error: null,
   imagesList: imagesListMock,
   recipesList: recipesListMock,
+  ingredientsList: allIngredientsMock,
 };
 
 const reducerMock = (state = stateMock) => {

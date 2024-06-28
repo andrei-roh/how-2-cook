@@ -19,7 +19,8 @@ const recipeMock: IRecipe = {
   imageUrl: 'test_image_src_1',
   name: 'Test Recipe 1',
   type: DishType.Main,
-  ingredients: 'Test Ingredients 1',
+  ingredients: ['00000000-0000-0000-0000-000000000001'],
+  composition: 'Test Ingredients 1',
   description: 'Test Description 1',
   isVegan: false,
 };
