@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { ROOT_ROUTE } from 'src/constants';
@@ -37,6 +37,7 @@ export const IngredientsPage = () => {
   const searchInput = useSelector(
     (state: IState) => state.ingredientsPage.ingredientSearchInput
   );
+  const createInputRef = useRef(null);
 
   const setSearchInput = (inputString: string) =>
     dispatch(setIngredientsPageSearchInput(inputString));
@@ -82,6 +83,16 @@ export const IngredientsPage = () => {
     }
   }, [dispatch, isLoading, navigate]);
 
+  useEffect(() => {
+    if (isShowPanel && createInputRef.current) {
+      (
+        (createInputRef.current as HTMLElement)
+          .getElementsByClassName('MuiInputBase-input')
+          .item(0) as HTMLElement
+      )?.focus();
+    }
+  }, [isShowPanel]);
+
   return (
     <Stack className={ingredientsPageClassList}>
       <Stack
@@ -112,6 +123,7 @@ export const IngredientsPage = () => {
             value={newIngredientName}
             onChange={(e) => setIsNewIngredientName(e.target.value)}
             className={css.creationPanel}
+            ref={createInputRef}
             InputProps={{
               startAdornment: (
                 <InputAdornment position='start'>

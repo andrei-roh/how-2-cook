@@ -27,8 +27,9 @@ export interface IRecipe {
   name: string;
   type: DishType;
   isVegan: boolean;
-  ingredients: string;
+  ingredients: string[];
   description: string;
+  composition?: string;
   createdAt?: string;
   createdBy?: string;
   updatedAt?: string;

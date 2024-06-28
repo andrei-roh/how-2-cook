@@ -9,30 +9,36 @@ import {
   RECIPES_ROUTE,
   ROOT_ROUTE,
 } from 'src/constants';
-import {
-  ImageLoader,
-  Input,
-  Select,
-  TextArea,
-} from 'src/components';
-import { updateRecipesList } from 'src/redux/actions';
+import { ImageLoader, Input, Select, TextArea } from 'src/components';
+import { addIngredientsToList, updateRecipesList } from 'src/redux/actions';
 import { validateRecipeValues } from 'src/utils/validateRecipeValues';
 import { editRecipe } from 'src/utils/editRecipe';
 import CircularProgress from '@mui/material/CircularProgress';
 import Button from '@mui/material/Button';
 import Switch from '@mui/material/Switch';
 import FormControlLabel from '@mui/material/FormControlLabel';
+import { getIngredientsToSelect } from 'src/utils/getIngredientsToSelect';
+import { getAllIngredients } from 'src/utils/getAllIngredients';
 
 export const EditRecipePage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector((state: IState) => state.user);
+  const allIngredients = useSelector((state: IState) => state.ingredientsList);
   const { id: recipeId } = useParams();
   const recipesList = useSelector((state: IState) => state.recipesList);
   const imagesList = useSelector((state: IState) => state.imagesList);
   const shownRecipe =
     recipesList.find((recipe) => recipe.id === recipeId) || EMPTY_RECIPE;
-  const { imageUrl, name, type, ingredients, description, isVegan } = shownRecipe;
+  const {
+    imageUrl,
+    name,
+    type,
+    ingredients,
+    composition,
+    description,
+    isVegan,
+  } = shownRecipe;
   const currentImageUrl = imagesList.find(
     (image) => image.id === imageUrl
   )?.value;
@@ -49,8 +55,8 @@ export const EditRecipePage = () => {
   const [recipeType, setRecipeType] = useState<DishType>(type);
   const [isRecipeVegan, setIsRecipeVegan] = useState(isVegan);
   const [recipeIngredients, setRecipeIngredients] = useState(ingredients);
+  const [recipeComposition, setRecipeComposition] = useState(composition || '');
   const [recipeDescription, setRecipeDescription] = useState(description);
-
 
   const isFieldsChanged =
     image !== null ||
@@ -58,6 +64,7 @@ export const EditRecipePage = () => {
     recipeType !== type ||
     isRecipeVegan !== isVegan ||
     recipeIngredients !== ingredients ||
+    recipeComposition !== composition ||
     recipeDescription !== description;
 
   const handleEditRecipe = () => {
@@ -81,6 +88,8 @@ export const EditRecipePage = () => {
         isVegan: isRecipeVegan !== isVegan ? isRecipeVegan : isVegan,
         ingredients:
           recipeIngredients !== ingredients ? recipeIngredients : ingredients,
+        composition:
+          recipeComposition !== composition ? recipeComposition : composition,
         description:
           recipeDescription !== description ? recipeDescription : description,
         imageUrl,
@@ -109,7 +118,7 @@ export const EditRecipePage = () => {
         imageUrl,
         name: recipeName,
         type: recipeType as DishType,
-        ingredients: recipeIngredients,
+        ingredients: recipeIngredients.join(''),
         description: recipeDescription,
       })
     );
@@ -127,6 +136,14 @@ export const EditRecipePage = () => {
       navigate(ROOT_ROUTE);
     }
   }, [navigate, user.email]);
+
+  useEffect(() => {
+    if (allIngredients.length === 0) {
+      getAllIngredients().then((result) => {
+        dispatch(addIngredientsToList(result));
+      });
+    }
+  }, []);
 
   return (
     <div className={css.editRecipePageWrapper}>
@@ -154,15 +171,29 @@ export const EditRecipePage = () => {
           errorMessage={validation.type}
         />
         <FormControlLabel
-          control={<Switch checked={isRecipeVegan} onChange={handleCheckboxChange} />}
+          control={
+            <Switch checked={isRecipeVegan} onChange={handleCheckboxChange} />
+          }
           label='Вегетарианское блюдо'
           className={css.checkboxLabel}
           labelPlacement='top'
         />
-        <TextArea
+        <Select
           value={recipeIngredients}
           setChange={setRecipeIngredients}
+          options={getIngredientsToSelect(allIngredients)}
           labelText={'Ингредиенты'}
+          multiple
+          required
+          placeholder={'Выбор'}
+          selectClassName={!recipeType ? css.selectPlaceholder : undefined}
+          isValidationError={isSubmitting && !!validation.ingredients}
+          errorMessage={validation.ingredients}
+        />
+        <TextArea
+          value={recipeComposition}
+          setChange={setRecipeComposition}
+          labelText={'Состав'}
           required
           labelClassName={css.createEventPadding}
           isValidationError={isSubmitting && !!validation.ingredients}

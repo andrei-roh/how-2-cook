@@ -19,8 +19,8 @@ export const NOTIFICATIONS = (value?: string) => ({
   RECIPE_DELETED: `Рецепт ${value} удален`,
   RECIPE_CREATION_ERROR: `Ошибка при создании рецепта ${value}`,
   RECIPE_DELETION_ERROR: `Ошибка при удалении рецепта ${value}`,
-  RECIPE_DOES_NOT_EXISTS:  `Рецепт ${value} не найден в базе данных`,
-  RECIPE_UPDATED:  `Рецепт ${value} обновлен`,
+  RECIPE_DOES_NOT_EXISTS: `Рецепт ${value} не найден в базе данных`,
+  RECIPE_UPDATED: `Рецепт ${value} обновлен`,
   RECIPE_UPDATE_ERROR: `Ошибка при обновлении рецепта ${value}`,
   IMAGE_TOO_BIG:
     'Извините, загрузка изображения невозможна. Размер не должен превышать 10MB',
@@ -30,10 +30,10 @@ export const NOTIFICATIONS = (value?: string) => ({
   INGREDIENT_WITH_NAME_EXISTS: `Ингредиент ${value} уже существует`,
   INGREDIENT_CREATED: `Ингредиент ${value} создан`,
   INGREDIENT_CREATION_ERROR: `Ошибка при создании ингредиента ${value}`,
-  INGREDIENT_DOES_NOT_EXISTS:  `Ингредиент ${value} не найден в базе данных`,
+  INGREDIENT_DOES_NOT_EXISTS: `Ингредиент ${value} не найден в базе данных`,
   INGREDIENT_DELETED: `Ингредиент ${value} удален`,
   INGREDIENT_DELETION_ERROR: `Ошибка при удалении ингредиента ${value}`,
-  INGREDIENT_UPDATED:  `Ингредиент ${value} обновлен`,
+  INGREDIENT_UPDATED: `Ингредиент ${value} обновлен`,
   INGREDIENT_UPDATE_ERROR: `Ошибка при обновлении ингредиента ${value}`,
 });
 
@@ -61,7 +61,7 @@ export const EMPTY_RECIPE: IRecipe = {
   name: '',
   type: '' as DishType,
   isVegan: false,
-  ingredients: '',
+  ingredients: [],
   description: '',
 };
 

@@ -4,8 +4,6 @@ exports[`Testing: IngredientCard > should render 1`] = `
 <div>
   <div
     class="_ingredientContainer_dd3edf MuiBox-root css-0"
-    id="00000000-0000-0000-0000-000000000001"
-    name="Test Ingredient 1"
   >
     <label
       class="_label_d67774 _ingredientLabel_dd3edf"

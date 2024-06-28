@@ -1,23 +1,37 @@
 import { useEffect, useState } from 'react';
 import css from './CreateRecipePage.module.sass';
 import { useDispatch, useSelector } from 'react-redux';
-import { DishType, ICurrentRecipe, IRecipe, IState, IValidationError } from 'src/types';
+import {
+  DishType,
+  ICurrentRecipe,
+  IRecipe,
+  IState,
+  IValidationError,
+} from 'src/types';
 import { useNavigate } from 'react-router-dom';
-import { CURRENT_RECIPE, DISH_TYPE, RECIPES_ROUTE, ROOT_ROUTE } from 'src/constants';
+import {
+  CURRENT_RECIPE,
+  DISH_TYPE,
+  RECIPES_ROUTE,
+  ROOT_ROUTE,
+} from 'src/constants';
 import { v4 as uuidv4 } from 'uuid';
 import { ImageLoader, Input, Select, TextArea } from 'src/components';
 import { createRecipe } from 'src/utils/createRecipe';
-import { addRecipesToList } from 'src/redux/actions';
+import { addIngredientsToList, addRecipesToList } from 'src/redux/actions';
 import { validateRecipeValues } from 'src/utils/validateRecipeValues';
 import CircularProgress from '@mui/material/CircularProgress';
 import Button from '@mui/material/Button';
 import Switch from '@mui/material/Switch';
 import FormControlLabel from '@mui/material/FormControlLabel';
+import { getAllIngredients } from 'src/utils/getAllIngredients';
+import { getIngredientsToSelect } from 'src/utils/getIngredientsToSelect';
 
 export const CreateRecipePage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector((state: IState) => state.user);
+  const allIngredients = useSelector((state: IState) => state.ingredientsList);
   const [isCreating, setIsCreating] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [validation, setValidation] = useState<IValidationError>({});
@@ -26,7 +40,8 @@ export const CreateRecipePage = () => {
   const [recipeName, setRecipeName] = useState('');
   const [recipeType, setRecipeType] = useState<DishType | ''>('');
   const [isVegan, setIsVegan] = useState(false);
-  const [recipeIngredients, setRecipeIngredients] = useState('');
+  const [recipeIngredients, setRecipeIngredients] = useState<string[] | []>([]);
+  const [recipeComposition, setRecipeComposition] = useState('');
   const [recipeDescription, setRecipeDescription] = useState('');
 
   const handleCreateRecipe = () => {
@@ -55,6 +70,7 @@ export const CreateRecipePage = () => {
         isVegan,
         ingredients: recipeIngredients,
         description: recipeDescription,
+        composition: recipeComposition,
         createdAt: currentDate,
         createdBy: user.email,
       };
@@ -77,7 +93,7 @@ export const CreateRecipePage = () => {
         imageUrl: image ? image.name : '',
         name: recipeName,
         type: recipeType as DishType,
-        ingredients: recipeIngredients,
+        ingredients: recipeIngredients.join(''),
         description: recipeDescription,
       })
     );
@@ -86,8 +102,9 @@ export const CreateRecipePage = () => {
     image,
     recipeName,
     recipeType,
-    recipeIngredients,
+    recipeComposition,
     recipeDescription,
+    recipeIngredients,
   ]);
 
   useEffect(() => {
@@ -105,22 +122,38 @@ export const CreateRecipePage = () => {
       setRecipeName(recipe.name || '');
       setRecipeType(recipe.type || '');
       setIsVegan(recipe.isVegan || false);
-      setRecipeIngredients(recipe.ingredients || '');
+      setRecipeIngredients(recipe.ingredients || []);
+      setRecipeComposition(recipe.composition || '');
       setRecipeDescription(recipe.description || '');
     }
-  }, [])
+
+    if (allIngredients.length === 0) {
+      getAllIngredients().then((result) => {
+        dispatch(addIngredientsToList(result));
+      });
+    }
+  }, []);
 
   useEffect(() => {
-    if (recipeName || recipeType || isVegan || recipeIngredients || recipeDescription) {
-      sessionStorage.setItem(CURRENT_RECIPE, JSON.stringify({ 
-        name: recipeName,
-        type: recipeType as DishType,
-        isVegan,
-        ingredients: recipeIngredients,
-        description: recipeDescription,
-      }))
+    if (
+      recipeName ||
+      recipeType ||
+      isVegan ||
+      recipeComposition ||
+      recipeDescription
+    ) {
+      sessionStorage.setItem(
+        CURRENT_RECIPE,
+        JSON.stringify({
+          name: recipeName,
+          type: recipeType as DishType,
+          isVegan,
+          ingredients: recipeComposition,
+          description: recipeDescription,
+        })
+      );
     }
-  }, [isVegan, recipeDescription, recipeIngredients, recipeName, recipeType])
+  }, [isVegan, recipeDescription, recipeComposition, recipeName, recipeType]);
 
   return (
     <div className={css.createRecipePageWrapper}>
@@ -157,14 +190,23 @@ export const CreateRecipePage = () => {
           className={css.checkboxLabel}
           labelPlacement='top'
         />
-        <TextArea
+        <Select
           value={recipeIngredients}
           setChange={setRecipeIngredients}
+          options={getIngredientsToSelect(allIngredients)}
           labelText={'Ингредиенты'}
+          multiple
           required
-          labelClassName={css.createEventPadding}
+          placeholder={'Выбор'}
+          selectClassName={!recipeType ? css.selectPlaceholder : undefined}
           isValidationError={isSubmitting && !!validation.ingredients}
           errorMessage={validation.ingredients}
+        />
+        <TextArea
+          value={recipeComposition}
+          setChange={setRecipeComposition}
+          labelText={'Состав'}
+          labelClassName={css.createEventPadding}
         />
         <TextArea
           value={recipeDescription}
@@ -189,7 +231,7 @@ export const CreateRecipePage = () => {
             id='create-recipe-submit'
           >
             {isCreating ? (
-              <CircularProgress color="inherit" size={32} />
+              <CircularProgress color='inherit' size={32} />
             ) : (
               'Создать'
             )}

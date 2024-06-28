@@ -25,7 +25,7 @@ export const IngredientCard = ({ ingredient }: IngredientCardProps) => {
 
   const handleStartUpdate = () => {
     if (isUpdate && ingredientName !== ingredient.name) {
-      editIngredient(ingredient.id, { name: ingredientName});
+      editIngredient(ingredient.id, { name: ingredientName });
     }
 
     setIsUpdate(!isUpdate);
@@ -53,11 +53,7 @@ export const IngredientCard = ({ ingredient }: IngredientCardProps) => {
 
   return (
     <>
-      <Box
-        key={ingredient.id}
-        {...ingredient}
-        className={css.ingredientContainer}
-      >
+      <Box className={css.ingredientContainer}>
         <Input
           value={ingredientName}
           setChange={setIngredientName}
