@@ -3,13 +3,14 @@ import css from './RecipesPage.module.sass';
 import { useDispatch, useSelector } from 'react-redux';
 import { IState, ScrollDirection } from 'src/types';
 import { useNavigate } from 'react-router-dom';
-import { CREATE_RECIPE_ROUTE, ROOT_ROUTE } from 'src/constants';
+import { CREATE_RECIPE_ROUTE, RECIPES_ROUTE } from 'src/constants';
 import { RecipesBlock } from './components/RecipesBlock/RecipesBlock';
 import { Dispatch } from '@reduxjs/toolkit';
 import Add from 'src/assets/add.svg';
 import { getSearch } from 'src/utils/getSearch';
 import {
   addRecipesToList,
+  setPreviousRoute,
   setRecipesPageScrollDirection,
   setRecipesPageScrollSize,
   setRecipesPageSearchInput,
@@ -21,6 +22,7 @@ import Telescope from 'src/assets/telescope.svg';
 import CircularProgress from '@mui/material/CircularProgress';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
+import { useCheckAuthentication } from 'src/hooks/useCheckAuthentication';
 
 const minScrollSize = 75;
 
@@ -65,17 +67,14 @@ export const RecipesPage = () => {
   const [scrollDirection, setScrollDirection] = useState(savedScrollDirection);
   const [isShowPanel, setIsShowPanel] = useState(true);
 
-  useEffect(() => {
-    if (!user.email) {
-      navigate(ROOT_ROUTE);
-    }
-  }, [navigate, user.email]);
+  useCheckAuthentication(user);
 
   useEffect(() => {
     if (isLoading) {
       getAllRecipes().then((result) => {
         setIsLoading(false);
         dispatch(addRecipesToList(result));
+        dispatch(setPreviousRoute(RECIPES_ROUTE));
       });
     }
   }, [dispatch, isLoading, navigate]);

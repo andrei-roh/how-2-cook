@@ -1,4 +1,10 @@
-import { IIngredient, IRecipe, IUser, RecipeImage, ScrollDirection } from 'src/types';
+import {
+  IIngredient,
+  IRecipe,
+  IUser,
+  RecipeImage,
+  ScrollDirection,
+} from 'src/types';
 import {
   ADD_IMAGES_TO_LIST,
   ADD_INGREDIENTS_TO_LIST,
@@ -8,10 +14,13 @@ import {
   SET_LOADING,
   SET_MANAGE_RECIPES_SCROLL_DIRECTION,
   SET_MANAGE_RECIPES_SCROLL_SIZE,
+  SET_PREVIOUS_ROUTE,
   SET_RECIPE_SEARCH_INPUT,
   SET_SHOW_MENU,
   SET_USER,
   UPDATE_INGREDIENTS_LIST,
+  UPDATE_PLANNING_INGREDIENTS_LIST,
+  UPDATE_PLANNING_RECIPES_LIST,
   UPDATE_RECIPES_LIST,
 } from './types';
 
@@ -80,4 +89,19 @@ export const setIngredientsPageSearchInput = (searchInput: string) => ({
 export const updateIngredientsList = (ingredients: IIngredient[]) => ({
   type: UPDATE_INGREDIENTS_LIST,
   payload: ingredients,
+});
+
+export const setPreviousRoute = (route: string) => ({
+  type: SET_PREVIOUS_ROUTE,
+  payload: route,
+});
+
+export const updatePlanningIngredientsList = (ingredients: string[]) => ({
+  type: UPDATE_PLANNING_INGREDIENTS_LIST,
+  payload: ingredients,
+});
+
+export const updatePlanningRecipesList = (recipes: IRecipe[]) => ({
+  type: UPDATE_PLANNING_RECIPES_LIST,
+  payload: recipes,
 });

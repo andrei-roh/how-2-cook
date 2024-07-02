@@ -1,0 +1,52 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Testing: RecipeCard > should render 1`] = `
+<div>
+  <div
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation3 MuiCard-root _recipeCardWrapper_848850 css-9v99vz-MuiPaper-root-MuiCard-root"
+  >
+    <div
+      class="MuiStack-root _recipeContainer_848850 css-nen11g-MuiStack-root"
+    >
+      <img
+        class="_recipeCardImage_848850"
+        id="00000000-0000-0000-0000-000000000001"
+        src="test/image/src/1"
+      />
+      <div
+        class="MuiStack-root _recipeData_848850 css-nen11g-MuiStack-root"
+      >
+        <p
+          class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap _recipeName_848850 css-fvtpii-MuiTypography-root"
+        >
+          Test Recipe 1
+        </p>
+        <p
+          class="MuiTypography-root MuiTypography-body1 _recipeType_848850 css-ahj2mt-MuiTypography-root"
+        >
+          Основное
+        </p>
+        <div
+          class="MuiStack-root _buttonsPanel_848850 css-nen11g-MuiStack-root"
+        >
+          <img
+            alt="Edit Recipe Button"
+            class="_recipeCardLogo_848850"
+            src="/src/assets/pencil.svg"
+          />
+          <img
+            alt="Show Recipe Button"
+            class="_recipeCardLogo_848850"
+            src="/src/assets/eye.svg"
+          />
+          <img
+            alt="Delete Recipe Button"
+            class="_recipeCardLogo_848850"
+            src="/src/assets/paper-bin.svg"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

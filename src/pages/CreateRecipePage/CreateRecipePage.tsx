@@ -9,23 +9,19 @@ import {
   IValidationError,
 } from 'src/types';
 import { useNavigate } from 'react-router-dom';
-import {
-  CURRENT_RECIPE,
-  DISH_TYPE,
-  RECIPES_ROUTE,
-  ROOT_ROUTE,
-} from 'src/constants';
+import { CURRENT_RECIPE, DISH_TYPE, RECIPES_ROUTE } from 'src/constants';
 import { v4 as uuidv4 } from 'uuid';
 import { ImageLoader, Input, Select, TextArea } from 'src/components';
 import { createRecipe } from 'src/utils/createRecipe';
-import { addIngredientsToList, addRecipesToList } from 'src/redux/actions';
+import { addRecipesToList } from 'src/redux/actions';
 import { validateRecipeValues } from 'src/utils/validateRecipeValues';
 import CircularProgress from '@mui/material/CircularProgress';
 import Button from '@mui/material/Button';
 import Switch from '@mui/material/Switch';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import { getAllIngredients } from 'src/utils/getAllIngredients';
 import { getIngredientsToSelect } from 'src/utils/getIngredientsToSelect';
+import { useCheckAuthentication } from 'src/hooks/useCheckAuthentication';
+import { useCheckAllIngredients } from 'src/hooks/useCheckAllIngredients';
 
 export const CreateRecipePage = () => {
   const navigate = useNavigate();
@@ -107,11 +103,7 @@ export const CreateRecipePage = () => {
     recipeIngredients,
   ]);
 
-  useEffect(() => {
-    if (!user.email) {
-      navigate(ROOT_ROUTE);
-    }
-  }, [navigate, user.email]);
+  useCheckAuthentication(user);
 
   useEffect(() => {
     const currentRecipe = sessionStorage.getItem(CURRENT_RECIPE);
@@ -126,13 +118,9 @@ export const CreateRecipePage = () => {
       setRecipeComposition(recipe.composition || '');
       setRecipeDescription(recipe.description || '');
     }
-
-    if (allIngredients.length === 0) {
-      getAllIngredients().then((result) => {
-        dispatch(addIngredientsToList(result));
-      });
-    }
-  }, []);
+  }, [])
+  
+  useCheckAllIngredients(allIngredients);
 
   useEffect(() => {
     if (
@@ -198,7 +186,7 @@ export const CreateRecipePage = () => {
           multiple
           required
           placeholder={'Выбор'}
-          selectClassName={!recipeType ? css.selectPlaceholder : undefined}
+          selectClassName={!recipeIngredients ? css.selectPlaceholder : undefined}
           isValidationError={isSubmitting && !!validation.ingredients}
           errorMessage={validation.ingredients}
         />

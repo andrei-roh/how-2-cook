@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { ROOT_ROUTE } from 'src/constants';
 import { IIngredient, IState } from 'src/types';
 import { getAllIngredients } from 'src/utils/getAllIngredients';
 import {
@@ -25,6 +24,7 @@ import Hat from 'src/assets/chef-hat.svg';
 import { v4 as uuidv4 } from 'uuid';
 import { createIngredient } from 'src/utils/createIngredient';
 import { getClassesList } from 'src/utils/getClassesList';
+import { useCheckAuthentication } from 'src/hooks/useCheckAuthentication';
 
 export const IngredientsPage = () => {
   const navigate = useNavigate();
@@ -68,11 +68,7 @@ export const IngredientsPage = () => {
     });
   };
 
-  useEffect(() => {
-    if (!user.email) {
-      navigate(ROOT_ROUTE);
-    }
-  }, [navigate, user.email]);
+  useCheckAuthentication(user);
 
   useEffect(() => {
     if (isLoading) {

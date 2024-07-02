@@ -3,14 +3,9 @@ import css from './EditRecipePage.module.sass';
 import { useDispatch, useSelector } from 'react-redux';
 import { DishType, IRecipe, IState, IValidationError } from 'src/types';
 import { useNavigate, useParams } from 'react-router-dom';
-import {
-  DISH_TYPE,
-  EMPTY_RECIPE,
-  RECIPES_ROUTE,
-  ROOT_ROUTE,
-} from 'src/constants';
+import { DISH_TYPE, EMPTY_RECIPE, RECIPES_ROUTE } from 'src/constants';
 import { ImageLoader, Input, Select, TextArea } from 'src/components';
-import { addIngredientsToList, updateRecipesList } from 'src/redux/actions';
+import { updateRecipesList } from 'src/redux/actions';
 import { validateRecipeValues } from 'src/utils/validateRecipeValues';
 import { editRecipe } from 'src/utils/editRecipe';
 import CircularProgress from '@mui/material/CircularProgress';
@@ -18,7 +13,8 @@ import Button from '@mui/material/Button';
 import Switch from '@mui/material/Switch';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import { getIngredientsToSelect } from 'src/utils/getIngredientsToSelect';
-import { getAllIngredients } from 'src/utils/getAllIngredients';
+import { useCheckAuthentication } from 'src/hooks/useCheckAuthentication';
+import { useCheckAllIngredients } from 'src/hooks/useCheckAllIngredients';
 
 export const EditRecipePage = () => {
   const navigate = useNavigate();
@@ -131,19 +127,8 @@ export const EditRecipePage = () => {
     imageUrl,
   ]);
 
-  useEffect(() => {
-    if (!user.email) {
-      navigate(ROOT_ROUTE);
-    }
-  }, [navigate, user.email]);
-
-  useEffect(() => {
-    if (allIngredients.length === 0) {
-      getAllIngredients().then((result) => {
-        dispatch(addIngredientsToList(result));
-      });
-    }
-  }, []);
+  useCheckAuthentication(user);
+  useCheckAllIngredients(allIngredients);
 
   return (
     <div className={css.editRecipePageWrapper}>
@@ -186,7 +171,7 @@ export const EditRecipePage = () => {
           multiple
           required
           placeholder={'Выбор'}
-          selectClassName={!recipeType ? css.selectPlaceholder : undefined}
+          selectClassName={!recipeIngredients ? css.selectPlaceholder : undefined}
           isValidationError={isSubmitting && !!validation.ingredients}
           errorMessage={validation.ingredients}
         />

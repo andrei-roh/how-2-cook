@@ -6,6 +6,7 @@ export const CREATE_RECIPE_ROUTE = '/recipe/create';
 export const SHOW_RECIPE_ROUTE = '/recipe/show/:id';
 export const EDIT_RECIPE_ROUTE = '/recipe/edit/:id';
 export const INGREDIENTS_ROUTE = '/ingredients';
+export const WEEK_PLANNING = '/week';
 
 export const DEFAULT_NOTIFICATION = 'Default Notification Message';
 export const NOTIFICATIONS = (value?: string) => ({
