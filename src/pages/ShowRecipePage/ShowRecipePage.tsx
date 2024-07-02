@@ -2,29 +2,25 @@ import { useEffect } from 'react';
 import { TextArea } from 'src/components';
 import css from './ShowRecipePage.module.sass';
 import { IState } from 'src/types';
-import {
-  DISH_TYPE,
-  EMPTY_RECIPE,
-  RECIPES_ROUTE,
-  ROOT_ROUTE,
-} from 'src/constants';
+import { DISH_TYPE, EMPTY_RECIPE } from 'src/constants';
 import { useNavigate, useParams } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Fridge from 'src/assets/hand-drawn-food.svg';
 import Vegetarian from 'src/assets/vegetarian.svg';
 import { setHeightUsingScroll } from 'src/utils/setHeightUsingScroll';
 import Button from '@mui/material/Button';
 import { Ingredient } from 'src/components/Ingredient/Ingredient';
-import { getAllIngredients } from 'src/utils/getAllIngredients';
-import { addIngredientsToList } from 'src/redux/actions';
 import { getIngredientsLabels } from 'src/utils/getIngredientsLabels';
 import { Box } from '@mui/material';
+import { useCheckAuthentication } from 'src/hooks/useCheckAuthentication';
+import { useCheckAllIngredients } from 'src/hooks/useCheckAllIngredients';
 
 export const ShowRecipePage = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   const user = useSelector((state: IState) => state.user);
   const allIngredients = useSelector((state: IState) => state.ingredientsList);
+  const previousRoute = useSelector((state: IState) => state.previousRoute);
+
   const { id: recipeId } = useParams();
   const recipesList = useSelector((state: IState) => state.recipesList);
   const shownRecipe =
@@ -45,24 +41,15 @@ export const ShowRecipePage = () => {
   )?.value;
 
   const handleShowRecipe = () => {
-    navigate(RECIPES_ROUTE);
+    navigate(previousRoute);
   };
 
-  useEffect(() => {
-    if (!user.email) {
-      navigate(ROOT_ROUTE);
-    }
-  }, [navigate, user.email]);
+  useCheckAuthentication(user);
+  useCheckAllIngredients(allIngredients);
 
   useEffect(() => {
     setHeightUsingScroll(document.getElementById('show-recipe-composition'));
     setHeightUsingScroll(document.getElementById('show-recipe-description'));
-
-    if (allIngredients.length === 0) {
-      getAllIngredients().then((result) => {
-        dispatch(addIngredientsToList(result));
-      });
-    }
   }, []);
 
   return (

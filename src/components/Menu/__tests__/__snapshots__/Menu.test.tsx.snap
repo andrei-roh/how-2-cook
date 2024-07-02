@@ -35,6 +35,11 @@ exports[`Testing: Menu > should render 1`] = `
       <a
         class="_link_4010ca _menuLink_66b3e6"
       >
+        Планирование
+      </a>
+      <a
+        class="_link_4010ca _menuLink_66b3e6"
+      >
         Выход
       </a>
     </div>

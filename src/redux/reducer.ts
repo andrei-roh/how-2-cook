@@ -16,10 +16,13 @@ import {
   SET_LOADING_CREATOR,
   SET_MANAGE_RECIPES_SCROLL_DIRECTION_CREATOR,
   SET_MANAGE_RECIPES_SCROLL_SIZE_CREATOR,
+  SET_PREVIOUS_ROUTE_CREATOR,
   SET_RECIPE_SEARCH_INPUT_CREATOR,
   SET_SHOW_MENU_CREATOR,
   SET_USER_CREATOR,
   UPDATE_INGREDIENTS_LIST_CREATOR,
+  UPDATE_PLANNING_INGREDIENTS_LIST_CREATOR,
+  UPDATE_PLANNING_RECIPES_LIST_CREATOR,
   UPDATE_RECIPES_LIST_CREATOR,
 } from './creators';
 
@@ -39,6 +42,11 @@ const initialState = {
   ingredientsPage: {
     ingredientSearchInput: '',
   },
+  previousRoute: '',
+  planningPage: {
+    ingredientsList: [] as string[],
+    recipesList: [] as IRecipe[],
+  }
 };
 
 const rootReducer = createReducer(initialState, (builder) => {
@@ -81,6 +89,15 @@ const rootReducer = createReducer(initialState, (builder) => {
     })
     .addCase(UPDATE_INGREDIENTS_LIST_CREATOR, (state, action) => {
       state.ingredientsList = action.payload;
+    })
+    .addCase(SET_PREVIOUS_ROUTE_CREATOR, (state, action) => {
+      state.previousRoute = action.payload;
+    })
+    .addCase(UPDATE_PLANNING_INGREDIENTS_LIST_CREATOR, (state, action) => {
+      state.planningPage.ingredientsList = action.payload;
+    })
+    .addCase(UPDATE_PLANNING_RECIPES_LIST_CREATOR, (state, action) => {
+      state.planningPage.recipesList = action.payload;
     });
 });
 

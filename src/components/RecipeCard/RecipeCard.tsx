@@ -18,7 +18,9 @@ import Card from '@mui/material/Card';
 import { Modal } from 'src/components';
 import { deleteRecipe } from 'src/utils/deleteRecipe';
 
-interface RecipeCardProps extends IRecipe {}
+interface RecipeCardProps extends IRecipe {
+  isControlled?: boolean;
+}
 
 export const RecipeCard = ({
   id,
@@ -26,6 +28,7 @@ export const RecipeCard = ({
   name,
   type,
   isVegan,
+  isControlled = false,
 }: RecipeCardProps) => {
   const navigate = useNavigate();
   const dispatch: Dispatch = useDispatch();
@@ -91,24 +94,28 @@ export const RecipeCard = ({
             {isVegan && <img width={12} src={Vegetarian} />}
           </Typography>
           <Stack className={css.buttonsPanel}>
-            <img
-              onClick={handleEditRecipe}
-              className={css.recipeCardLogo}
-              src={Edit}
-              alt='Edit Recipe Button'
-            />
+            {isControlled && (
+              <img
+                onClick={handleEditRecipe}
+                className={css.recipeCardLogo}
+                src={Edit}
+                alt='Edit Recipe Button'
+              />
+            )}
             <img
               onClick={handleShowRecipe}
               className={css.recipeCardLogo}
               src={Show}
               alt='Show Recipe Button'
             />
-            <img
-              onClick={handleShowModal}
-              className={css.recipeCardLogo}
-              src={Bin}
-              alt='Delete Recipe Button'
-            />
+            {isControlled && (
+              <img
+                onClick={handleShowModal}
+                className={css.recipeCardLogo}
+                src={Bin}
+                alt='Delete Recipe Button'
+              />
+            )}
           </Stack>
         </Stack>
         {isDelete && (

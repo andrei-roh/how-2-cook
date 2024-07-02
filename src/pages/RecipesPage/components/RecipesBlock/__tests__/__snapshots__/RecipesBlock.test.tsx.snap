@@ -6,45 +6,45 @@ exports[`Testing: RecipesBlock > should render 1`] = `
     class="MuiStack-root _recipesBlockWrapper_4b0ee0 css-1ucnu3w-MuiStack-root"
   >
     <div
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation3 MuiCard-root _recipeCardWrapper_a06f98 css-9v99vz-MuiPaper-root-MuiCard-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation3 MuiCard-root _recipeCardWrapper_848850 css-9v99vz-MuiPaper-root-MuiCard-root"
     >
       <div
-        class="MuiStack-root _recipeContainer_a06f98 css-nen11g-MuiStack-root"
+        class="MuiStack-root _recipeContainer_848850 css-nen11g-MuiStack-root"
       >
         <img
-          class="_recipeCardImage_a06f98"
+          class="_recipeCardImage_848850"
           id="00000000-0000-0000-0000-000000000001"
           src="test/image/src/1"
         />
         <div
-          class="MuiStack-root _recipeData_a06f98 css-nen11g-MuiStack-root"
+          class="MuiStack-root _recipeData_848850 css-nen11g-MuiStack-root"
         >
           <p
-            class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap _recipeName_a06f98 css-fvtpii-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap _recipeName_848850 css-fvtpii-MuiTypography-root"
           >
             Test Recipe 1
           </p>
           <p
-            class="MuiTypography-root MuiTypography-body1 _recipeType_a06f98 css-ahj2mt-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1 _recipeType_848850 css-ahj2mt-MuiTypography-root"
           >
             Основное
           </p>
           <div
-            class="MuiStack-root _buttonsPanel_a06f98 css-nen11g-MuiStack-root"
+            class="MuiStack-root _buttonsPanel_848850 css-nen11g-MuiStack-root"
           >
             <img
               alt="Edit Recipe Button"
-              class="_recipeCardLogo_a06f98"
+              class="_recipeCardLogo_848850"
               src="/src/assets/pencil.svg"
             />
             <img
               alt="Show Recipe Button"
-              class="_recipeCardLogo_a06f98"
+              class="_recipeCardLogo_848850"
               src="/src/assets/eye.svg"
             />
             <img
               alt="Delete Recipe Button"
-              class="_recipeCardLogo_a06f98"
+              class="_recipeCardLogo_848850"
               src="/src/assets/paper-bin.svg"
             />
           </div>
@@ -52,26 +52,26 @@ exports[`Testing: RecipesBlock > should render 1`] = `
       </div>
     </div>
     <div
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation3 MuiCard-root _recipeCardWrapper_a06f98 css-9v99vz-MuiPaper-root-MuiCard-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation3 MuiCard-root _recipeCardWrapper_848850 css-9v99vz-MuiPaper-root-MuiCard-root"
     >
       <div
-        class="MuiStack-root _recipeContainer_a06f98 css-nen11g-MuiStack-root"
+        class="MuiStack-root _recipeContainer_848850 css-nen11g-MuiStack-root"
       >
         <img
-          class="_recipeCardImage_a06f98"
+          class="_recipeCardImage_848850"
           id="00000000-0000-0000-0000-000000000002"
           src="test/image/src/2"
         />
         <div
-          class="MuiStack-root _recipeData_a06f98 css-nen11g-MuiStack-root"
+          class="MuiStack-root _recipeData_848850 css-nen11g-MuiStack-root"
         >
           <p
-            class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap _recipeName_a06f98 css-fvtpii-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap _recipeName_848850 css-fvtpii-MuiTypography-root"
           >
             Test Recipe 2
           </p>
           <p
-            class="MuiTypography-root MuiTypography-body1 _recipeType_a06f98 css-ahj2mt-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1 _recipeType_848850 css-ahj2mt-MuiTypography-root"
           >
             Десерт
             <img
@@ -80,21 +80,21 @@ exports[`Testing: RecipesBlock > should render 1`] = `
             />
           </p>
           <div
-            class="MuiStack-root _buttonsPanel_a06f98 css-nen11g-MuiStack-root"
+            class="MuiStack-root _buttonsPanel_848850 css-nen11g-MuiStack-root"
           >
             <img
               alt="Edit Recipe Button"
-              class="_recipeCardLogo_a06f98"
+              class="_recipeCardLogo_848850"
               src="/src/assets/pencil.svg"
             />
             <img
               alt="Show Recipe Button"
-              class="_recipeCardLogo_a06f98"
+              class="_recipeCardLogo_848850"
               src="/src/assets/eye.svg"
             />
             <img
               alt="Delete Recipe Button"
-              class="_recipeCardLogo_a06f98"
+              class="_recipeCardLogo_848850"
               src="/src/assets/paper-bin.svg"
             />
           </div>
@@ -102,45 +102,45 @@ exports[`Testing: RecipesBlock > should render 1`] = `
       </div>
     </div>
     <div
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation3 MuiCard-root _recipeCardWrapper_a06f98 css-9v99vz-MuiPaper-root-MuiCard-root"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation3 MuiCard-root _recipeCardWrapper_848850 css-9v99vz-MuiPaper-root-MuiCard-root"
     >
       <div
-        class="MuiStack-root _recipeContainer_a06f98 css-nen11g-MuiStack-root"
+        class="MuiStack-root _recipeContainer_848850 css-nen11g-MuiStack-root"
       >
         <img
-          class="_recipeCardImage_a06f98"
+          class="_recipeCardImage_848850"
           id="00000000-0000-0000-0000-000000000003"
           src="test/image/src/3"
         />
         <div
-          class="MuiStack-root _recipeData_a06f98 css-nen11g-MuiStack-root"
+          class="MuiStack-root _recipeData_848850 css-nen11g-MuiStack-root"
         >
           <p
-            class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap _recipeName_a06f98 css-fvtpii-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1 MuiTypography-noWrap _recipeName_848850 css-fvtpii-MuiTypography-root"
           >
             Test Recipe 3
           </p>
           <p
-            class="MuiTypography-root MuiTypography-body1 _recipeType_a06f98 css-ahj2mt-MuiTypography-root"
+            class="MuiTypography-root MuiTypography-body1 _recipeType_848850 css-ahj2mt-MuiTypography-root"
           >
             Салат
           </p>
           <div
-            class="MuiStack-root _buttonsPanel_a06f98 css-nen11g-MuiStack-root"
+            class="MuiStack-root _buttonsPanel_848850 css-nen11g-MuiStack-root"
           >
             <img
               alt="Edit Recipe Button"
-              class="_recipeCardLogo_a06f98"
+              class="_recipeCardLogo_848850"
               src="/src/assets/pencil.svg"
             />
             <img
               alt="Show Recipe Button"
-              class="_recipeCardLogo_a06f98"
+              class="_recipeCardLogo_848850"
               src="/src/assets/eye.svg"
             />
             <img
               alt="Delete Recipe Button"
-              class="_recipeCardLogo_a06f98"
+              class="_recipeCardLogo_848850"
               src="/src/assets/paper-bin.svg"
             />
           </div>
