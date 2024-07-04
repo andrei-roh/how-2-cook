@@ -7,10 +7,10 @@ import Close from 'src/assets/close-square.svg';
 import { Input, Modal } from 'src/components';
 import { IIngredient, IState } from 'src/types';
 import { useState } from 'react';
-import { deleteIngredient } from 'src/utils/deleteIngredient';
+import { deleteIngredient } from 'src/utils/ingredients/deleteIngredient';
 import { updateIngredientsList } from 'src/redux/actions';
 import { useDispatch, useSelector } from 'react-redux';
-import { editIngredient } from 'src/utils/editIngredient';
+import { editIngredient } from 'src/utils/ingredients/editIngredient';
 
 interface IngredientCardProps {
   ingredient: IIngredient;

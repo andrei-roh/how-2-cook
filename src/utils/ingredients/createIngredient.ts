@@ -1,8 +1,8 @@
 import { collection, doc, setDoc } from 'firebase/firestore';
 import { firebaseDb } from 'src/main';
 import { IIngredient, Severity } from 'src/types';
-import { showNotification } from './showNotification';
-import { getRecipe } from './getRecipe';
+import { showNotification } from '../showNotification';
+import { getRecipe } from '../recipes/getRecipe';
 import { INGREDIENTS_TABLE_PATH, NOTIFICATIONS } from 'src/constants';
 import { getAllIngredients } from './getAllIngredients';
 

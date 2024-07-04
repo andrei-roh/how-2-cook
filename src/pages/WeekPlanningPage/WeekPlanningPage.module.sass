@@ -16,26 +16,18 @@
         @extend .H3
         padding: 24px
         align-self: flex-start
-
-    .submitButton
-        @extend .H6
-        width: 147px
-        height: 48px
-        box-sizing: border-box
-        color: colors.$white
-        background-color: colors.$blue
-
-        &:hover
-            background-color: colors.$sky
-
-        &:disabled,
-        &[disabled]
-            cursor: auto 
-            background-color: colors.$gray
-
+        
     .recipesBlockWrapper
         width: 100%
         box-sizing: border-box
         padding: 16px
         justify-content: center
         align-items: center
+
+    .recipesBlockLogo
+        margin-top: 30px
+        height: 200px
+
+    .emptyMessage
+        @extend .T1
+        text-align: center

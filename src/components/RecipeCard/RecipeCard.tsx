@@ -5,7 +5,7 @@ import Show from 'src/assets/eye.svg';
 import Vegetarian from 'src/assets/vegetarian.svg';
 import Bin from 'src/assets/paper-bin.svg';
 import { useNavigate } from 'react-router-dom';
-import { getRecipeImage } from 'src/utils/getRecipeImage';
+import { getRecipeImage } from 'src/utils/recipes/getRecipeImage';
 import { Dispatch } from '@reduxjs/toolkit';
 import { useDispatch, useSelector } from 'react-redux';
 import { addImagesToList, updateRecipesList } from 'src/redux/actions';
@@ -16,10 +16,12 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
 import { Modal } from 'src/components';
-import { deleteRecipe } from 'src/utils/deleteRecipe';
+import { deleteRecipe } from 'src/utils/recipes/deleteRecipe';
+import { getClassesList } from 'src/utils/getClassesList';
 
 interface RecipeCardProps extends IRecipe {
   isControlled?: boolean;
+  onAllocation?: () => void;
 }
 
 export const RecipeCard = ({
@@ -29,15 +31,21 @@ export const RecipeCard = ({
   type,
   isVegan,
   isControlled = false,
+  onAllocation,
 }: RecipeCardProps) => {
   const navigate = useNavigate();
   const dispatch: Dispatch = useDispatch();
   const imagesList = useSelector((state: IState) => state.imagesList);
   const recipesList = useSelector((state: IState) => state.recipesList);
   const [isDelete, setIsDelete] = useState(false);
+  const [isAllocated, setIsAllocated] = useState(false);
   const currentImageUrl = imagesList.find(
     (image) => image.id === imageUrl
   )?.value;
+  const recipeCardWrapperClasses = getClassesList(
+    css.recipeCardWrapper,
+    isAllocated ? css.allocated : undefined
+  );
 
   const handleEditRecipe = () => {
     navigate(`/recipe/edit/${id}`);
@@ -49,6 +57,12 @@ export const RecipeCard = ({
 
   const handleShowModal = () => setIsDelete(true);
   const handleCloseModal = () => setIsDelete(false);
+  const handleAllocation = () => {
+    if (onAllocation) {
+      setIsAllocated(!isAllocated);
+      onAllocation();
+    }
+  };
 
   const handleDeleteRecipe = () => {
     deleteRecipe(id, imageUrl, name).then((result) => {
@@ -76,7 +90,12 @@ export const RecipeCard = ({
   }, [currentImageUrl, dispatch, id, imageUrl]);
 
   return (
-    <Card variant='elevation' elevation={3} className={css.recipeCardWrapper}>
+    <Card
+      variant='elevation'
+      elevation={3}
+      className={recipeCardWrapperClasses}
+      onClick={handleAllocation}
+    >
       <Stack className={css.recipeContainer}>
         {currentImageUrl ? (
           <img className={css.recipeCardImage} id={id} src={currentImageUrl} />

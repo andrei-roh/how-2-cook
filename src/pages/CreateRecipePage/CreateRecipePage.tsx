@@ -12,14 +12,14 @@ import { useNavigate } from 'react-router-dom';
 import { CURRENT_RECIPE, DISH_TYPE, RECIPES_ROUTE } from 'src/constants';
 import { v4 as uuidv4 } from 'uuid';
 import { ImageLoader, Input, Select, TextArea } from 'src/components';
-import { createRecipe } from 'src/utils/createRecipe';
+import { createRecipe } from 'src/utils/recipes/createRecipe';
 import { addRecipesToList } from 'src/redux/actions';
 import { validateRecipeValues } from 'src/utils/validateRecipeValues';
 import CircularProgress from '@mui/material/CircularProgress';
 import Button from '@mui/material/Button';
 import Switch from '@mui/material/Switch';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import { getIngredientsToSelect } from 'src/utils/getIngredientsToSelect';
+import { getIngredientsToSelect } from 'src/utils/ingredients/getIngredientsToSelect';
 import { useCheckAuthentication } from 'src/hooks/useCheckAuthentication';
 import { useCheckAllIngredients } from 'src/hooks/useCheckAllIngredients';
 

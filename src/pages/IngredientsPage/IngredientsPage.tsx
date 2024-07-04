@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { IIngredient, IState } from 'src/types';
-import { getAllIngredients } from 'src/utils/getAllIngredients';
+import { getAllIngredients } from 'src/utils/ingredients/getAllIngredients';
 import {
   addIngredientsToList,
   setIngredientsPageSearchInput,
@@ -22,7 +22,7 @@ import Close from 'src/assets/close-square.svg';
 import Button from '@mui/material/Button';
 import Hat from 'src/assets/chef-hat.svg';
 import { v4 as uuidv4 } from 'uuid';
-import { createIngredient } from 'src/utils/createIngredient';
+import { createIngredient } from 'src/utils/ingredients/createIngredient';
 import { getClassesList } from 'src/utils/getClassesList';
 import { useCheckAuthentication } from 'src/hooks/useCheckAuthentication';
 

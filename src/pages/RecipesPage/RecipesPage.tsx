@@ -15,7 +15,7 @@ import {
   setRecipesPageScrollSize,
   setRecipesPageSearchInput,
 } from 'src/redux/actions';
-import { getAllRecipes } from 'src/utils/getAllRecipes';
+import { getAllRecipes } from 'src/utils/recipes/getAllRecipes';
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 import Telescope from 'src/assets/telescope.svg';

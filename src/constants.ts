@@ -36,10 +36,14 @@ export const NOTIFICATIONS = (value?: string) => ({
   INGREDIENT_DELETION_ERROR: `Ошибка при удалении ингредиента ${value}`,
   INGREDIENT_UPDATED: `Ингредиент ${value} обновлен`,
   INGREDIENT_UPDATE_ERROR: `Ошибка при обновлении ингредиента ${value}`,
+  PLANNING_LIST_EXISTS: `Список рецептов с id ${value} уже существует`,
+  PLANNING_LIST_CREATED: `Список рецептов ${value} создан`,
+  PLANNING_LIST_CREATION_ERROR: `Ошибка при создании списка рецептов ${value}`,
 });
 
 export const RECIPES_TABLE_PATH = 'recipes';
 export const INGREDIENTS_TABLE_PATH = 'ingredients';
+export const PLANNING_TABLE_PATH = 'planning';
 
 export const IMAGE_TYPE = [
   ImageType.Jpeg,

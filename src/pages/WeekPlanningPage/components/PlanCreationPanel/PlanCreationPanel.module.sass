@@ -1,0 +1,36 @@
+@use 'src/style/colors'
+@use 'src/style/breakpoints'
+@import 'src/style/typography'
+
+div .createPlanButton
+    @extend .H6
+    width: 250px
+    height: 48px
+    box-sizing: border-box
+    color: colors.$white
+    background-color: colors.$blue
+    margin-bottom: 32px
+
+    &:hover
+        background-color: colors.$sky
+
+    &:disabled,
+    &[disabled]
+        cursor: auto 
+        background-color: colors.$gray
+
+
+div .creationPanel
+    width: calc(100vw - 48px)
+    box-sizing: border-box
+
+    .creationButton
+        width: 110px
+        background-color: colors.$blue
+        color: colors.$white
+
+        &:hover
+            background-color: colors.$sky
+        &:disabled,
+        &[disabled]
+            background-color: colors.$gray

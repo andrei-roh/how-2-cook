@@ -7,12 +7,12 @@ import { DISH_TYPE, EMPTY_RECIPE, RECIPES_ROUTE } from 'src/constants';
 import { ImageLoader, Input, Select, TextArea } from 'src/components';
 import { updateRecipesList } from 'src/redux/actions';
 import { validateRecipeValues } from 'src/utils/validateRecipeValues';
-import { editRecipe } from 'src/utils/editRecipe';
+import { editRecipe } from 'src/utils/recipes/editRecipe';
 import CircularProgress from '@mui/material/CircularProgress';
 import Button from '@mui/material/Button';
 import Switch from '@mui/material/Switch';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import { getIngredientsToSelect } from 'src/utils/getIngredientsToSelect';
+import { getIngredientsToSelect } from 'src/utils/ingredients/getIngredientsToSelect';
 import { useCheckAuthentication } from 'src/hooks/useCheckAuthentication';
 import { useCheckAllIngredients } from 'src/hooks/useCheckAllIngredients';
 
