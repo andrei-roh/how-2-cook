@@ -31,15 +31,14 @@ exports[`Testing: WeekPlanningPage > should render 1`] = `
       />
     </label>
     <button
-      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary _submitButton_53bfc1 css-1e6y48t-MuiButtonBase-root-MuiButton-root"
-      tabindex="0"
+      class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary Mui-disabled MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary _submitButton_362ec8 css-1e6y48t-MuiButtonBase-root-MuiButton-root"
+      disabled=""
+      tabindex="-1"
       type="button"
     >
       Спланировать
-      <span
-        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-      />
     </button>
+     
   </div>
 </div>
 `;
