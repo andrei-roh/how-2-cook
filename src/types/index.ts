@@ -36,6 +36,13 @@ export interface IRecipe {
   updatedBy?: string;
 }
 
+export interface IPlanningList {
+  id: string;
+  name: string;
+  ingredientsList: string[];
+  recipesList: string[];
+}
+
 export interface IState {
   user: IUser;
   loading: boolean;

@@ -10,7 +10,7 @@ import Vegetarian from 'src/assets/vegetarian.svg';
 import { setHeightUsingScroll } from 'src/utils/setHeightUsingScroll';
 import Button from '@mui/material/Button';
 import { Ingredient } from 'src/components/Ingredient/Ingredient';
-import { getIngredientsLabels } from 'src/utils/getIngredientsLabels';
+import { getIngredientsLabels } from 'src/utils/ingredients/getIngredientsLabels';
 import { Box } from '@mui/material';
 import { useCheckAuthentication } from 'src/hooks/useCheckAuthentication';
 import { useCheckAllIngredients } from 'src/hooks/useCheckAllIngredients';

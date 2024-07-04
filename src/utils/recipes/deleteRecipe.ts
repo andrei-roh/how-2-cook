@@ -1,7 +1,7 @@
 import { collection, deleteDoc, doc } from 'firebase/firestore';
 import { firebaseDb } from 'src/main';
 import { Severity } from 'src/types';
-import { showNotification } from './showNotification';
+import { showNotification } from '../showNotification';
 import { getRecipe } from './getRecipe';
 import { getStorage, ref, deleteObject } from 'firebase/storage';
 import { NOTIFICATIONS, RECIPES_TABLE_PATH } from 'src/constants';
