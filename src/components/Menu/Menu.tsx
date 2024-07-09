@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Dispatch } from '@reduxjs/toolkit';
 import { Link } from 'src/components';
 import { useNavigate } from 'react-router-dom';
-import { RECIPES_ROUTE, INGREDIENTS_ROUTE, WEEK_PLANNING } from 'src/constants';
+import { RECIPES_ROUTE, INGREDIENTS_ROUTE, WEEK_PLANNING, MY_PLANS } from 'src/constants';
 import { useState } from 'react';
 import { getClassesList } from 'src/utils/getClassesList';
 import Button from '@mui/material/Button';
@@ -63,6 +63,12 @@ export const Menu = () => {
           className={getMenuLinkClasses(currentRoute === WEEK_PLANNING)}
         >
           Планирование
+        </Link>
+        <Link
+          onClick={() => handleChangePage(MY_PLANS)}
+          className={getMenuLinkClasses(currentRoute === MY_PLANS)}
+        >
+          Мои Планы
         </Link>
         <Link onClick={handleShowModal} className={css.menuLink}>
           Выход

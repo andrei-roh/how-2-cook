@@ -1,0 +1,37 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Testing: IngredientsSelect > should render 1`] = `
+<div>
+  <label
+    class="_label_9fe140"
+  >
+    <div>
+      Ингредиенты
+    </div>
+    <div
+      class="_select_9fe140"
+      tabindex="0"
+    >
+      INGREDIENT 2
+      <img
+        class="_selectArrow_9fe140"
+        src="/src/components/Select/assets/arrow.svg"
+      />
+    </div>
+    <div
+      class="_selectMenuWrapper_9fe140"
+    />
+  </label>
+  <button
+    class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-colorPrimary _submitButton_362ec8 css-1e6y48t-MuiButtonBase-root-MuiButton-root"
+    tabindex="0"
+    type="button"
+  >
+    Спланировать
+    <span
+      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+    />
+  </button>
+   
+</div>
+`;

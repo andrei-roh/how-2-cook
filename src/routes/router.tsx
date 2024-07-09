@@ -8,6 +8,7 @@ import {
   CREATE_RECIPE_ROUTE,
   EDIT_RECIPE_ROUTE,
   INGREDIENTS_ROUTE,
+  MY_PLANS,
   RECIPES_ROUTE,
   ROOT_ROUTE,
   SHOW_RECIPE_ROUTE,
@@ -17,6 +18,7 @@ import {
   CreateRecipePage,
   EditRecipePage,
   IngredientsPage,
+  MyPlansPage,
   RecipesPage,
   ShowRecipePage,
   TitlePage,
@@ -32,6 +34,7 @@ const routes = (
     <Route path={EDIT_RECIPE_ROUTE} element={<EditRecipePage />} />
     <Route path={INGREDIENTS_ROUTE} element={<IngredientsPage />} />
     <Route path={WEEK_PLANNING} element={<WeekPlanningPage />} />
+    <Route path={MY_PLANS} element={<MyPlansPage />} />
   </Route>
 );
 

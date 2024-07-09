@@ -69,7 +69,7 @@ export const WeekPlanningPage = () => {
     if (recipeIngredients.length > 0 && recipes) {
       const planId = uuidv4();
 
-      createPlanningList(allocatedRecipes, recipeIngredients, planId, planName);
+      createPlanningList(allocatedRecipes, recipeIngredients, planId, planName, user.email);
 
       setIsStartCreation(false);
     }
@@ -129,6 +129,7 @@ export const WeekPlanningPage = () => {
           </Stack>
           <PlanCreationPanel
             isStartCreation={isStartCreation}
+            isAllocatedRecipes={allocatedRecipes.length > 0}
             planName={planName}
             setPlanName={setPlanName}
             handleCreatePlan={handleCreatePlan}
