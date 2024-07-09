@@ -1,6 +1,6 @@
 export const showElement = (element: HTMLElement, message?: string) => {
   if (message) {
-    const notificationMessage = document.querySelector('MuiAlert-message');
+    const notificationMessage = document.getElementsByClassName('MuiAlert-message').item(0);
 
     notificationMessage && element.contains(notificationMessage)
       ? (notificationMessage as HTMLElement).innerText = message

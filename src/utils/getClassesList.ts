@@ -3,14 +3,14 @@ export const getClassesList = (
   additionalClass?: string,
   errorClass?: string
 ) => {
-  let classesList = `${mainClass}`;
+  let classesList = `${mainClass.trim()}`;
 
   if (additionalClass) {
-    classesList += ` ${additionalClass}`;
+    classesList += ` ${additionalClass.trim()}`;
   }
 
   if (errorClass) {
-    classesList += ` ${errorClass}`;
+    classesList += ` ${errorClass.trim()}`;
   }
 
   return classesList;

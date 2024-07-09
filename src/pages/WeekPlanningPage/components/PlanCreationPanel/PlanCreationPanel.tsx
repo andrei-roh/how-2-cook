@@ -4,6 +4,7 @@ import css from './PlanCreationPanel.module.sass';
 
 interface PlanCreationPanelProps {
   isStartCreation: boolean;
+  isAllocatedRecipes: boolean;
   planName: string;
   setPlanName: React.Dispatch<React.SetStateAction<string>>;
   handleCreatePlan: () => void;
@@ -12,6 +13,7 @@ interface PlanCreationPanelProps {
 
 export const PlanCreationPanel = ({
   isStartCreation,
+  isAllocatedRecipes,
   planName,
   setPlanName,
   handleCreatePlan,
@@ -30,7 +32,7 @@ export const PlanCreationPanel = ({
             variant='contained'
             className={css.creationButton}
             onClick={handleCreatePlan}
-            disabled={!planName}
+            disabled={!planName || !isAllocatedRecipes}
           >
             Создать
           </Button>

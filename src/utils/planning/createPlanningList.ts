@@ -3,27 +3,22 @@ import { firebaseDb } from 'src/main';
 import { Severity } from 'src/types';
 import { showNotification } from '../showNotification';
 import { NOTIFICATIONS, PLANNING_TABLE_PATH } from 'src/constants';
-import { getPlanningList } from './getPlanningList';
+import { getUserPlanningLists } from './getUserPlanningLists';
 
 export const createPlanningList = async (
   recipesList: string[],
   ingredientsList: string[],
   id: string,
-  name: string
+  name: string,
+  userEmail: string
 ): Promise<boolean> => {
-  const event = await getPlanningList(id);
-  const eventsRef = collection(firebaseDb, PLANNING_TABLE_PATH);
+  const userPlanningLists = await getUserPlanningLists(userEmail);
+  const planningListsRef = collection(firebaseDb, PLANNING_TABLE_PATH);
 
-  if (event) {
-    showNotification(
-      NOTIFICATIONS(id).PLANNING_LIST_EXISTS,
-      6000,
-      Severity.Error
-    );
-    return false;
-  }
-
-  return await setDoc(doc(eventsRef, id), { id, name, ingredientsList, recipesList })
+  return await setDoc(doc(planningListsRef, userEmail), {
+    ...userPlanningLists,
+    [id]: { id, name, ingredientsList, recipesList },
+  })
     .then(() => {
       showNotification(
         NOTIFICATIONS(name).PLANNING_LIST_CREATED,
