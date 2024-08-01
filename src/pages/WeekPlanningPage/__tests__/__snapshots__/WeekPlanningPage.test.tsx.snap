@@ -3,10 +3,10 @@
 exports[`Testing: WeekPlanningPage > should render 1`] = `
 <div>
   <div
-    class="_weekPlanningPageWrapper_53bfc1"
+    class="_weekPlanningPageWrapper_53bfc1 MuiBox-root css-0"
   >
     <div
-      class="_weekPlanningTitle_53bfc1"
+      class="_weekPlanningTitle_53bfc1 MuiBox-root css-0"
     >
       Набор блюд на неделю
     </div>

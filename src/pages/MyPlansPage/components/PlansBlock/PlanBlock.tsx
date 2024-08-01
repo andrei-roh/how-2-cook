@@ -1,10 +1,13 @@
 import css from './PlansBlock.module.sass';
-import { IPlanningList } from 'src/types';
+import { IPlanningList, IState } from 'src/types';
 import Fridge from 'src/assets/hand-drawn-food.svg';
 import Pancakes from 'src/assets/pancakes.svg';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
 import { PlanCard } from '../PlanCard/PlanCard';
+import { useSelector } from 'react-redux';
+import { useCheckAllIngredients } from 'src/hooks/useCheckAllIngredients';
+import { useCheckAllRecipes } from 'src/hooks/useCheckAllRecipes';
 
 interface PlansBlockProps {
   plans: IPlanningList[];
@@ -12,6 +15,12 @@ interface PlansBlockProps {
 }
 
 export const PlansBlock = ({ plans, isSearch }: PlansBlockProps) => {
+  const allIngredients = useSelector((state: IState) => state.ingredientsList);
+  const allRecipes = useSelector((state: IState) => state.recipesList);
+
+  useCheckAllIngredients(allIngredients);
+  useCheckAllRecipes(allRecipes);
+
   if (plans.length === 0) {
     return (
       <Stack
@@ -47,7 +56,12 @@ export const PlansBlock = ({ plans, isSearch }: PlansBlockProps) => {
       className={css.plansBlockWrapper}
     >
       {plans.map((plan) => (
-        <PlanCard key={plan.id} plan={plan} />
+        <PlanCard
+          key={plan.id}
+          plan={plan}
+          allIngredients={allIngredients}
+          allRecipes={allRecipes}
+        />
       ))}
     </Stack>
   );
