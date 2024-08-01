@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { IIngredient, IState } from 'src/types';
 import { getAllIngredients } from 'src/utils/ingredients/getAllIngredients';
 import {
@@ -27,7 +26,6 @@ import { getClassesList } from 'src/utils/getClassesList';
 import { useCheckAuthentication } from 'src/hooks/useCheckAuthentication';
 
 export const IngredientsPage = () => {
-  const navigate = useNavigate();
   const dispatch: Dispatch = useDispatch();
 
   const user = useSelector((state: IState) => state.user);
@@ -77,7 +75,7 @@ export const IngredientsPage = () => {
         dispatch(addIngredientsToList(result));
       });
     }
-  }, [dispatch, isLoading, navigate]);
+  }, [dispatch, isLoading]);
 
   useEffect(() => {
     if (isShowPanel && createInputRef.current) {

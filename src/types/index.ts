@@ -58,12 +58,16 @@ export interface IState {
   ingredientsList: IIngredient[];
   ingredientsPage: {
     ingredientSearchInput: string;
-  }
+  };
   previousRoute: string;
   planningPage: {
     ingredientsList: string[];
     recipesList: IRecipe[];
-  }
+  };
+  myPlansPage: {
+    userPlanSearchInput: string;
+    planningLists: IPlanningList[];
+  };
 }
 
 export interface IAction extends Action {

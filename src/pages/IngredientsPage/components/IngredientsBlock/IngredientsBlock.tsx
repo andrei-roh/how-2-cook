@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
 import { IngredientCard } from '../IngredientCard/IngredientCard';
 
-interface IngredientsBlockPros {
+interface IngredientsBlockProps {
   ingredients: IIngredient[];
   isSearch: boolean;
 }
@@ -14,7 +14,7 @@ interface IngredientsBlockPros {
 export const IngredientsBlock = ({
   ingredients,
   isSearch,
-}: IngredientsBlockPros) => {
+}: IngredientsBlockProps) => {
   if (ingredients.length === 0) {
     return (
       <Stack

@@ -1,5 +1,6 @@
 import {
   IIngredient,
+  IPlanningList,
   IRecipe,
   IUser,
   RecipeImage,
@@ -18,6 +19,8 @@ import {
   SET_RECIPE_SEARCH_INPUT,
   SET_SHOW_MENU,
   SET_USER,
+  SET_USER_PLAN_SEARCH_INPUT,
+  SET_USER_PLANNING_LISTS,
   UPDATE_INGREDIENTS_LIST,
   UPDATE_PLANNING_INGREDIENTS_LIST,
   UPDATE_PLANNING_RECIPES_LIST,
@@ -104,4 +107,14 @@ export const updatePlanningIngredientsList = (ingredients: string[]) => ({
 export const updatePlanningRecipesList = (recipes: IRecipe[]) => ({
   type: UPDATE_PLANNING_RECIPES_LIST,
   payload: recipes,
+});
+
+export const setUserPlanningLists = (planningLists: IPlanningList[]) => ({
+  type: SET_USER_PLANNING_LISTS,
+  payload: planningLists,
+});
+
+export const setMyPlansPageSearchInput = (searchInput: string) => ({
+  type: SET_USER_PLAN_SEARCH_INPUT,
+  payload: searchInput,
 });

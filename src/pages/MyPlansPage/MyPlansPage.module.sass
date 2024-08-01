@@ -12,7 +12,17 @@
     align-items: center
     gap: 8px
 
-    .myPlansTitle
-        @extend .H3
-        padding: 24px
-        align-self: flex-start
+    .myPlansPagePanelWrapper
+        z-index: 1
+        position: fixed
+        width: 100%
+        max-width: 768px
+        top: 46px
+        box-sizing: border-box
+        padding: 16px
+        background-color: colors.$white
+        border-bottom: 1px solid colors.$gray
+
+        .myPlansTitle
+            @extend .H3
+            margin-bottom: 12px

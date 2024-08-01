@@ -8,8 +8,8 @@ export const getUserPlanningLists = async (userEmail: string) => {
   const docSnap = await getDoc(docRef);
 
   if (docSnap.exists()) {
-    return docSnap.data() as IPlanningList[];
+    return docSnap.data() as { [key: string]: IPlanningList };
   }
 
-  return undefined;
+  return [];
 };
