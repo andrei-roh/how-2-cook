@@ -21,6 +21,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { createPlanningList } from 'src/utils/planning/createPlanningList';
 import { IngredientsSelect } from './components/IngredientsSelect/IngredientsSelect';
 import { PlanCreationPanel } from './components/PlanCreationPanel/PlanCreationPanel';
+import Box from '@mui/material/Box';
 
 export const WeekPlanningPage = () => {
   const dispatch = useDispatch();
@@ -101,8 +102,8 @@ export const WeekPlanningPage = () => {
   }, [dispatch, isLoading]);
 
   return (
-    <div className={css.weekPlanningPageWrapper}>
-      <div className={css.weekPlanningTitle}>Набор блюд на неделю</div>
+    <Box className={css.weekPlanningPageWrapper}>
+      <Box className={css.weekPlanningTitle}>Набор блюд на неделю</Box>
       <IngredientsSelect
         recipeIngredients={recipeIngredients}
         setRecipeIngredients={setRecipeIngredients}
@@ -146,6 +147,6 @@ export const WeekPlanningPage = () => {
           </>
         )
       )}
-    </div>
+    </Box>
   );
 };

@@ -9,13 +9,11 @@ import { Dispatch } from '@reduxjs/toolkit';
 import Add from 'src/assets/add.svg';
 import { getSearch } from 'src/utils/getSearch';
 import {
-  addRecipesToList,
   setPreviousRoute,
   setRecipesPageScrollDirection,
   setRecipesPageScrollSize,
   setRecipesPageSearchInput,
 } from 'src/redux/actions';
-import { getAllRecipes } from 'src/utils/recipes/getAllRecipes';
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 import Telescope from 'src/assets/telescope.svg';
@@ -23,6 +21,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import { useCheckAuthentication } from 'src/hooks/useCheckAuthentication';
+import { useCheckAllRecipes } from 'src/hooks/useCheckAllRecipes';
 
 const minScrollSize = 75;
 
@@ -62,25 +61,20 @@ export const RecipesPage = () => {
     (state: IState) => state.recipesPage.scrollDirection
   );
 
-  const [isLoading, setIsLoading] = useState(currentRecipesList.length === 0);
+  // const [isLoading, setIsLoading] = useState(currentRecipesList.length === 0);
   const [scrollSize, setScrollSize] = useState(savedScrollSize);
   const [scrollDirection, setScrollDirection] = useState(savedScrollDirection);
   const [isShowPanel, setIsShowPanel] = useState(true);
 
   useCheckAuthentication(user);
-
-  useEffect(() => {
-    if (isLoading) {
-      getAllRecipes().then((result) => {
-        setIsLoading(false);
-        dispatch(addRecipesToList(result));
-        dispatch(setPreviousRoute(RECIPES_ROUTE));
-      });
-    }
-  }, [dispatch, isLoading, navigate]);
+  useCheckAllRecipes(currentRecipesList);
 
   useEffect(() => {
     setTimeout(() => window.scrollTo(0, savedScrollSize), 0);
+
+    if (currentRecipesList.length === 0) {
+      dispatch(setPreviousRoute(RECIPES_ROUTE));
+    }
   }, []);
 
   const handleCreateRecipe = () => {
@@ -140,7 +134,7 @@ export const RecipesPage = () => {
           }}
         />
       </Stack>
-      {isLoading ? (
+      {currentRecipesList.length === 0 ? (
         <CircularProgress className={css.loader} />
       ) : (
         <RecipesBlock
