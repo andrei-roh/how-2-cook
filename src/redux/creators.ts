@@ -1,6 +1,7 @@
 import { createAction } from '@reduxjs/toolkit';
 import {
   IIngredient,
+  IPlanningList,
   IRecipe,
   IUser,
   RecipeImage,
@@ -19,6 +20,8 @@ import {
   SET_RECIPE_SEARCH_INPUT,
   SET_SHOW_MENU,
   SET_USER,
+  SET_USER_PLAN_SEARCH_INPUT,
+  SET_USER_PLANNING_LISTS,
   UPDATE_INGREDIENTS_LIST,
   UPDATE_PLANNING_INGREDIENTS_LIST,
   UPDATE_PLANNING_RECIPES_LIST,
@@ -54,9 +57,15 @@ export const UPDATE_INGREDIENTS_LIST_CREATOR = createAction<IIngredient[]>(
 );
 export const SET_PREVIOUS_ROUTE_CREATOR =
   createAction<string>(SET_PREVIOUS_ROUTE);
-export const UPDATE_PLANNING_INGREDIENTS_LIST_CREATOR = createAction<
-  string[]
->(UPDATE_PLANNING_INGREDIENTS_LIST);
+export const UPDATE_PLANNING_INGREDIENTS_LIST_CREATOR = createAction<string[]>(
+  UPDATE_PLANNING_INGREDIENTS_LIST
+);
 export const UPDATE_PLANNING_RECIPES_LIST_CREATOR = createAction<IRecipe[]>(
   UPDATE_PLANNING_RECIPES_LIST
+);
+export const SET_USER_PLANNING_LISTS_CREATOR = createAction<IPlanningList[]>(
+  SET_USER_PLANNING_LISTS
+);
+export const SET_USER_PLAN_SEARCH_INPUT_CREATOR = createAction<string>(
+  SET_USER_PLAN_SEARCH_INPUT
 );

@@ -1,5 +1,6 @@
 import {
   IIngredient,
+  IPlanningList,
   IRecipe,
   IUser,
   RecipeImage,
@@ -20,6 +21,8 @@ import {
   SET_RECIPE_SEARCH_INPUT_CREATOR,
   SET_SHOW_MENU_CREATOR,
   SET_USER_CREATOR,
+  SET_USER_PLAN_SEARCH_INPUT_CREATOR,
+  SET_USER_PLANNING_LISTS_CREATOR,
   UPDATE_INGREDIENTS_LIST_CREATOR,
   UPDATE_PLANNING_INGREDIENTS_LIST_CREATOR,
   UPDATE_PLANNING_RECIPES_LIST_CREATOR,
@@ -46,7 +49,11 @@ const initialState = {
   planningPage: {
     ingredientsList: [] as string[],
     recipesList: [] as IRecipe[],
-  }
+  },
+  myPlansPage: {
+    userPlanSearchInput: '',
+    planningLists: [] as IPlanningList[],
+  },
 };
 
 const rootReducer = createReducer(initialState, (builder) => {
@@ -98,6 +105,12 @@ const rootReducer = createReducer(initialState, (builder) => {
     })
     .addCase(UPDATE_PLANNING_RECIPES_LIST_CREATOR, (state, action) => {
       state.planningPage.recipesList = action.payload;
+    })
+    .addCase(SET_USER_PLANNING_LISTS_CREATOR, (state, action) => {
+      state.myPlansPage.planningLists = action.payload;
+    })
+    .addCase(SET_USER_PLAN_SEARCH_INPUT_CREATOR, (state, action) => {
+      state.myPlansPage.userPlanSearchInput = action.payload;
     });
 });
 
