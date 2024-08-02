@@ -54,12 +54,12 @@ export const WeekPlanningPage = () => {
     (recipeIngredients.length > 0
       ? getRecipesByIngredient(recipeIngredients)
       : getAllRecipes()
-    ).then((res) => {
-      setRecipes(res);
+    ).then((result) => {
+      setRecipes(result);
       setIsPlanning(false);
 
       dispatch(updatePlanningIngredientsList(recipeIngredients));
-      dispatch(updatePlanningRecipesList(res));
+      dispatch(updatePlanningRecipesList(result));
       dispatch(setPreviousRoute(WEEK_PLANNING));
     });
   };
