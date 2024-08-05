@@ -38,7 +38,6 @@ exports[`Testing: WeekPlanningPage > should render 1`] = `
     >
       Спланировать
     </button>
-     
   </div>
 </div>
 `;
