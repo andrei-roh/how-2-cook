@@ -46,7 +46,7 @@ export const IngredientsSelect = ({
         ) : (
           'Спланировать'
         )}
-      </Button>{' '}
+      </Button>
     </>
   );
 };

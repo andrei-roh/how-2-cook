@@ -13,7 +13,7 @@ export const getRecipesByIngredient = async (ingredientIds: string[]): Promise<I
   const recipesById: IRecipe[] = [];
 
   querySnapshot.forEach((record) => {
-    if (ingredientIds.every(id => (record.data() as IRecipe).ingredients.includes(id))) {
+    if (ingredientIds.some(id => (record.data() as IRecipe).ingredients.includes(id))) {
         recipesById.push(record.data() as IRecipe);
     }
   });

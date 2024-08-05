@@ -64,7 +64,7 @@ export const ShowRecipePage = () => {
           />
           <div className={css.recipeTitle}>{name}</div>
           <div className={css.recipeType}>
-            {'Тип: '}
+            Тип:
             {DISH_TYPE.find(({ value }) => value === type)?.name}
             {isVegan && <img width={12} src={Vegetarian} />}
           </div>

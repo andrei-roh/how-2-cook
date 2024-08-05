@@ -6,6 +6,7 @@ import { getUserPlanningLists } from 'src/utils/planning/getUserPlanningLists';
 import { useEffect, useState } from 'react';
 import {
   setMyPlansPageSearchInput,
+  setPreviousRoute,
   setUserPlanningLists,
 } from 'src/redux/actions';
 import CircularProgress from '@mui/material/CircularProgress';
@@ -16,6 +17,7 @@ import Telescope from 'src/assets/telescope.svg';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import { getSearch } from 'src/utils/getSearch';
+import { MY_PLANS } from 'src/constants';
 
 export const MyPlansPage = () => {
   const dispatch = useDispatch();
@@ -40,6 +42,7 @@ export const MyPlansPage = () => {
 
         setIsLoading(false);
         dispatch(setUserPlanningLists(plansLists));
+        dispatch(setPreviousRoute(MY_PLANS));
       });
     }
   }, [dispatch, isLoading, user.email]);
